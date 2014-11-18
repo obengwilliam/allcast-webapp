@@ -11,8 +11,6 @@ angular.module( 'allcast', [
 
 
 .config(['$stateProvider', '$urlRouterProvider',function myAppConfig ( $stateProvider,$urlRouterProvider) {
-        $urlRouterProvider
-        .otherwise('/login');
 
         $stateProvider
             .state('home', {
@@ -40,6 +38,7 @@ angular.module( 'allcast', [
             });
 
 
+        $urlRouterProvider.otherwise('/');
 
     }])
 
