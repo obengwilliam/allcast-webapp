@@ -380,7 +380,28 @@ module.exports = function(grunt)
                 }
             }
         },
+        shell:{
+            'checkout':{
+                command:['git checkout development'],
+                options:{
+                    stadout:true
+                }
+            },
+            'merge':{
+                command: ['git checkout staging', 'git merge development'],
+                options:{
+                    stadout:true
+                }
 
+            },
+            'push':{
+                command:['git push staging staging:master'],
+                options:{
+                    stadout:true
+                }
+            }
+
+        }
     };
 
     // endoftaskconfig
@@ -415,6 +436,8 @@ module.exports = function(grunt)
     grunt.renameTask('watch','delta');
     // todo:add karma:unit
     grunt.registerTask('watch',['build','delta']);
+
+    grunt.registerTask('deploy',['shell:checkout']);
 
     /**
     * The default task is to build and compile

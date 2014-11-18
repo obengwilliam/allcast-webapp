@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="allcast" ng-controller="allcastCtrl">
+<head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@allcast">
+    <meta name="twitter:title" content="ngBoilerplate">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:creator" content="@allcast">
+    <meta name="twitter:image:src" content="">
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="">
+
+    <!--end of social media tags -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- compiled CSS -->
+    
+    <link rel="stylesheet" type="text/css" href="assets/flowcast-0.0.0-vendor.css" />
+    
+    <link rel="stylesheet" type="text/css" href="assets/flowcast-0.0.0-app.css" />
+    
+
+</head>
+<body>
+  <!-- main -->
+   <!-- Navigation Starts here -->
+  <section ui-view='main'></section>
+
+  <div ui-view='features' class="main"></div>
+
+  <div ui-view='team' class="team"></div>
+
+  <div class="pre-footer" ui-view="prefooter"></div>
+
+ <footer ui-view="footer"></footer>
+
+<!-- compiled JavaScript -->
+<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/angular/angular.js"></script>
+<script type="text/javascript" src="vendor/angular-ui-utils/ui-utils.min.js"></script>
+<script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="src/app/about/about.js"></script>
+<script type="text/javascript" src="src/app/app.js"></script>
+<script type="text/javascript" src="src/app/config.js"></script>
+<script type="text/javascript" src="src/app/home/home.js"></script>
+<script type="text/javascript" src="templates-common.js"></script>
+<script type="text/javascript" src="templates-app.js"></script>
+
+</body>
+</html>
