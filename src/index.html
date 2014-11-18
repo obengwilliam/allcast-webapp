@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="allcast" ng-controller="allcastCtrl">
+<head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@allcast">
+    <meta name="twitter:title" content="ngBoilerplate">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:creator" content="@allcast">
+    <meta name="twitter:image:src" content="">
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="">
+
+    <!--end of social media tags -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- compiled CSS -->
+    <% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" />
+    <% }); %>
+
+</head>
+<body>
+  <!-- main -->
+   <!-- Navigation Starts here -->
+  <section ui-view='main'></section>
+
+  <div ui-view='features' class="main"></div>
+
+  <div ui-view='team' class="team"></div>
+
+  <div class="pre-footer" ui-view="prefooter"></div>
+
+ <footer ui-view="footer"></footer>
+
+<!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+<script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+</body>
+</html>
