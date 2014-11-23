@@ -279,7 +279,7 @@ module.exports = function(grunt)
 
             gruntfile:{
                 files:'gruntfile.js',
-                tasks:['jshint:gruntFile'],
+                tasks:['jshint:gruntFile','build'],
                 options:{
                     livereload:false
                 }
@@ -328,7 +328,7 @@ module.exports = function(grunt)
             options: {
                 space: '  ',
                 wrap: '"use strict";\n\n {%= __ngModule %}',
-                name: 'flowcast.config',
+                name: 'allcast.config',
             },
           // Environment targets
 
@@ -339,6 +339,8 @@ module.exports = function(grunt)
 
                 constants: {
                     ENV: {
+                        name:'development',
+                        API_SERVER:'http://localhost:3000/api/v1.0/'
 
                     }
                 }
@@ -351,6 +353,8 @@ module.exports = function(grunt)
 
                 constants: {
                     ENV: {
+                        name:'production',
+                        API_SERVER:'allcast-signal-server-stage.herokuapp.com/api/v1.0/'
                     }
                 }
             },
@@ -361,6 +365,8 @@ module.exports = function(grunt)
 
                 constants: {
                     ENV: {
+                        name:'staging',
+                        API_SERVER:'allcast-signal-server-stage.herokuapp.com'
 
                     }
                 }
@@ -369,7 +375,7 @@ module.exports = function(grunt)
 
         connect: {
             options: {
-                port: 8080,
+                port: 5000,
                 hostname: 'localhost',
                 livereload: 35729
             },

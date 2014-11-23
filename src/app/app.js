@@ -2,10 +2,12 @@
 
 angular.module( 'allcast', [
     'ui.router',
+    'allcast.config',
     'templates-app',
     'templates-common',
-    'flowcast.home',
-    'flowcast.about',
+    'allcast.home',
+    'allcast.about',
+    'security'
 ])
 
 
@@ -15,24 +17,7 @@ angular.module( 'allcast', [
         $stateProvider
             .state('home', {
                 url: '/',
-                views: {
-                    'main':{
-                        templateUrl:'home/main.html'
-                    },
-                    'footer': {
-                        templateUrl: 'home/footer.html'
-                    },
-                    'features': {
-                        templateUrl: 'home/features.html'
-                    },
-                    'team': {
-                        templateUrl: 'home/team.html'
-                    },
-
-                    'prefooter': {
-                        templateUrl: 'home/prefooter.html'
-                    }
-                },
+                templateUrl:'home/home.html',
 
                 data:{ pageTitle: 'Home' }
             });
@@ -42,11 +27,26 @@ angular.module( 'allcast', [
 
     }])
 
-.run(['$rootScope','$state','$stateParams',function run ($rootScope,$state,$stateParams) {
+//TODO: move those messages to a separate module
+.constant('MESSAGES', {
+    'errors.route.changeError':'Route change error',
+
+    'login.reason.notAuthorized':'You do not have the necessary access permissions.  Do you want to login as someone else?',
+    'login.reason.notAuthenticated':'You must be logged in to access this part of the application.',
+    'login.error.invalidCredentials': 'Login failed.  Please check your credentials and try again.',
+    'login.error.serverError': 'There was a problem with authenticating'
+})
+
+.run(['$rootScope','$state','$stateParams', 'Security',function run ($rootScope,$state,$stateParams,Security) {
     $rootScope.$state=$state;
     $rootScope.$stateParams = $stateParams;
+    Security.requestCurrentUser();
 
 }])
+.factory('API_SERVER',['ENV',function(ENV){
+
+        return ENV.API_SERVER;
+    }])
 .controller( 'allcastCtrl', ['$scope', function AppCtrl ( $scope) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState){

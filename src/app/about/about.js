@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module( 'flowcast.about', [])
+angular.module( 'allcast.about', [])
 
 .config(function config( $stateProvider ) {
     $stateProvider.state( 'about', {

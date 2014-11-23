@@ -1,7 +1,10 @@
 "use strict";
 
- angular.module("flowcast.config", [])
+ angular.module("allcast.config", [])
 
-.constant("ENV", {})
+.constant("ENV", {
+  "name": "development",
+  "API_SERVER": "http://localhost:3000/api/v1.0/"
+})
 
 ;

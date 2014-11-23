@@ -1,9 +1,6 @@
 /*Styling for general Elements*/
 body{
-    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-.main{
-    font-family: 'Roboto Slab', serif;
+    font-family: "Montserrat";
 }
 
 img{
@@ -14,27 +11,33 @@ a .fa {
     color: #FFFFFF;
 }
 
-p {
-    font-size: 14px;
-    line-height: 2.15;
-}
-
 /*Styling for Navigation*/
 .navbar-default {
     background-color: transparent;
     border-color: transparent;
     border: 0;
+    font-family: 'Montserrat';
+    padding-top: 1%;
 }
 
 
 .navbar-fixed-top .navbar-right li a {
     color: #FFFFFF;
-    font-weight: bold;
-    font-size: 18px;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    line-height: normal;
+    text-transform: uppercase;
 }
 
 .navbar-fixed-top .navbar-right li a:hover{
-    color: #00ACFD;
+    color: #FFF;
+    background-color:#00ACFD;
+}
+
+.navbar-fixed-top .navbar-right .active a{
+    background-color: #00ACFD;
+    color: #FFF;
+
 }
 
 .navbar-default .navbar-brand {
@@ -46,7 +49,7 @@ p {
 header{
     text-align: center;
     color: #FFFFFF;
-    background-image: url(/assets/img/header-bg.jpg);
+    background-image: url(/assets/img/header-bg.png);
     background-attachment: scroll;
     background-position: center;
     -webkit-background-size: cover;
@@ -63,49 +66,60 @@ header{
     min-height: 630px;
     text-align: center;
     position: relative;
+    font-family: "Lato";
 }
 
 .intro-text .head-text{
     padding-top: 8%;
     letter-spacing: 20px;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    font-weight: normal;
 }
 
 .intro-text .sub-text {
-    font-size: 25px;
+    font-size: 30px;
     margin-bottom: 40px;
     margin-top: 5%;
+    line-height: normal;
 }
 
 .intro-text .sub-text .text-inline{
     color: #00ACFD;
+    font-weight: bold;
 }
 
 .email-collect{
     text-transform: none;
     text-align: center;
-    width: 532px;;
-    margin: 8% 50% 0 20%;
-}
-
-.email-collect .input-group, .email-collect p {
     width: 532px;
-    text-align: center;
-    margin-left: 10%;
+    margin: 5% 20% 0 25%;
 }
 
-.email-collect p {
-    font-size: 20px;
-    letter-spacing: 7px;
+.email-collect .sign-up {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 28px;
+    display: inline-block;
+    background: #00ACFD;
+    color: #fff;
+    padding: 25px 50px;
+    border-radius: 8px;
+    box-shadow: 0 5px #008acb;
+    margin-bottom: 3px;
+    transition-property: margin;
+    transition-duration: 0s;
+    text-decoration: none;
 }
 
 .blockSlide-down {
-    bottom: 30px;
-    margin-top: 15px;
+    bottom: 80px;
+    margin-top: 5px;
     position: absolute;
     text-align: center;
-    width: 100%;
     z-index: 50;
     text-transform: none;
+    right: 0;
 }
 
 #slide-down{
@@ -137,101 +151,38 @@ header{
 }
 
 .feature-set{
-    position: relative;
-    padding: 0;
-    list-style: none;
+   margin-top: 8%;
 }
 
-.feature-set:before{
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 53.5%;
-    width: 2px;
-    margin-left: -1.5px;
-    margin-top: 20px;
-    background-color: #f1f1f1;
+.features h4 {
+    font-family: 'Montserrat';
+    font-weight: bold;
 }
 
-.feature-set>li {
-    position: relative;
-    margin-bottom: 25px;
-    min-height: 50px;
+.features .value-text{
+    font-family: 'lato';
+    font-size: 16px;
 }
 
-.feature-set>li:before,.feature-set>li:after{
-    content: "";
-    display:table;
-}
-
-.feature-set>li:after{
-    clear: both;
-}
-
-.feature-set>li .feature-set-pane{
-    position: relative;
-    float: left;
-    width: 47%;
-    padding: 0 20px 0 100px;
-    text-align: left;
-}
-
-.feature-set>li .feature-set-pane:before{
-    left:  auto;
-    right: -15px;
-    border-right-width: 15px;
-    border-left-width: 0;
-}
-
-.feature-set>li .feature-set-pane:after{
-    left: auto;
-    right: -14px;
-    border-right-width: 14px;
-    border-left-width: 0;
-}
-
-.feature-set>li .feature-set-pane .pane-heading h4 {
-    font-weight: bolder;
-}
-
-.feature-set>li .feature-set-pane .pane-body{
-    margin-bottom: 0;
-}
-
-.feature-set>li .feature-set-image{
-    z-index: 100;
-    position: absolute;
-    left: 48%;
-    width: 120px;
-    height: 120px;
-    margin-left: 0;
-    margin-top: 20px;
-    border-radius: 100%;
+.features .value-icon {
     text-align: center;
-    color: #fff;
-    background-color: #00ACFD;
 }
 
-.feature-set>li.feature-set-inverted>.feature-set-pane{
- float: right;
- padding: 0 20px 0 100px;
- text-align: left;
+.features .icon-container{
+    text-align: center;
+    margin-top: 8%;
 }
 
-.feature-set>li.feature-set-inverted>.feature-set-pane:before{
- right: auto;
- left: -15px;
- border-right-width: 15px;
- border-left-width: 0;
+.features .icon-container-a {
+    text-align: center;
 }
 
-.feature-set>li.feature-set-inverted>.feature-set-pane:after{
-    right: auto;
-    left: -14px;
-    border-right-width: 14px;
-    border-left-width: 0;
+.features .fa {
+    font-size: 95px;
+    color: #008acb;
+    margin-top: 24%;
 }
+
 
 /*Styling for team */
 .team{
@@ -249,10 +200,16 @@ header{
 .section-subheading{
     margin-bottom: 75px;
     text-transform: none;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
+    font-family: 'lato';
+    font-size: 20px;
     font-style: italic;
-    font-weight: 400;
+    font-weight: normal;
+}
+
+.team .team-value{
+    font-family: 'lato';
+    font-size: 20px;
+    margin-top: 5%;
 }
 
 
@@ -335,13 +292,24 @@ ul.social-buttons li a:active {
     background: #fff;
 }
 
-.pre-footer .sign-up .lead-muted {
-    display: inline-block;
-    color: #fff;
-    font-size: 20px;
-    padding: 10px 0 20px 0;
-    letter-spacing: 5px;
+.pre-footer .signup-btn .signup-link{
     text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 28px;
+    display: inline-block;
+    background: #00ACFD;
+    color: #fff;
+    padding: 25px 50px;
+    border-radius: 8px;
+    box-shadow: 0 5px #008acb;
+    margin-bottom: 3px;
+    transition-property: margin;
+    transition-duration: 0s;
+    text-decoration: none;
+}
+
+.pre-footer .signup-btn {
+    margin-top: 8%;
 }
 
 
@@ -357,7 +325,7 @@ footer {
 footer span.copyright, footer span.sub-text {
     text-transform: uppercase;
     text-transform: none;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Montserrat,"Helvetica Neue";
     line-height: 40px;
 }
 
@@ -365,7 +333,7 @@ footer ul.quicklinks {
     margin-bottom: 0;
     text-transform: uppercase;
     text-transform: none;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Montserrat,"Helvetica Neue";
     line-height: 40px;
 }
 
