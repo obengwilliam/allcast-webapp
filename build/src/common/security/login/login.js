@@ -16,7 +16,10 @@ angular
 
             }
         },
-        data:{ pageTitle: 'Login' }
+        data:{
+            pageTitle: 'Login',
+            authenticate:'false'
+         }
 
     });
 
@@ -26,23 +29,21 @@ angular
 
 
 .controller('loginFormCtrl', ['$rootScope', '$scope', 'Security', '$state',
-    function($rootScope,$scope,Security){
+    function($rootScope,$scope,Security,$state){
 
     $scope.authError=null;
 
     $scope.signIn= function(credentials){
         Security.destroy();
-        Security.login(credentials).then(function(){
-                $rootScope.user=Security.currentUser;
-                $rootScope.isAuthenticated=Security.isAuthenticated;
-                $rootScope.isAuthorized=Security.isAuthorized;
-
-
+        Security.login(credentials).then(function(isLoggedIn){
+                if(isLoggedIn){
+                    $state.go('broadcast');
+                }
 
 
             },function (error){
             if(error){
-                $scope.authError=error.message;
+                $scope.authError=error.detail;
             }
 
         });

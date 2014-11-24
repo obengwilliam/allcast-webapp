@@ -13,7 +13,11 @@ angular.module('register.local',[])
 
             }
         },
-        data:{ pageTitle: 'register' }
+        data:{
+            pageTitle: 'register',
+            authenticate:'true'
+
+        }
 
     });
 
@@ -29,25 +33,34 @@ angular.module('register.local',[])
 
         Security.destroy();
         Security.signUp(credentials).then(
-            function(){
+            function(isRegistered){
+                if(isRegistered){
+                     $state.go('broadcast');
+                }
+            },
+            function(error){
+                    console.log(error);
+                    $scope.authError=error.detail;
 
-
-
-                    $rootScope.user=Security.currentUser;
-                    $rootScope.isAuthenticated=Security.isAuthenticated;
-                    $rootScope.isAuthorized=Security.isAuthorized;
-                    if ($rootScope.fromState.fromState.url.indexOf('thumbnails') > -1){
-                        $state.go('dashboard.nearby.thumbnail',{thumbnailId: $rootScope.fromState.fromParams.thumbnailId});
-                    }
-                    else{
-                        $state.go('dashboard.nearby');
-                    }
-
-                }, function(error){
-                    $scope.authError=error.message;
-
-                });
+        });
 
     };
 
-}]);
+}])
+.directive('match', function () {
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        scope: {
+            match: '='
+        },
+        link: function(scope, elem, attrs, ctrl) {
+            scope.$watch(function() {
+                var modelValue = ctrl.$modelValue || ctrl.$$invalidModelValue;
+                return (ctrl.$pristine && angular.isUndefined(modelValue)) || scope.match === modelValue;
+            }, function(currentValue) {
+                ctrl.$setValidity('match', currentValue);
+            });
+        }
+    };
+});

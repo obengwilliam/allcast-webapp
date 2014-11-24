@@ -5,29 +5,82 @@
     <div class="main-content">
       <div class="inner">
         <div class="title-text"><h2>Create your Allcast account</h2><hr></div>
-        <form>
+        <form name="register" ng-submit="signUp(credentials)"invalidate>
+          <span class="text-center text-danger" ng-bind="authError"></span>
+
           <div class="text">
             <span>
-              <input type="text" placeholder="Username">
+              <input type="text" name="username" ng-model="credentials.username"placeholder="Username" required>
+            </span>
+
+            <span ng-show="register.username.$dirty && register.username.$invalid">
+                <span class="text-center text-danger" ng-show="register.username.$error.required" >Oops! Please enter your username</span>
             </span>
           </div>
+
           <div class="text">
             <span>
-              <input type="email" placeholder="Email">
+              <input type="text" name="firstname" ng-model="credentials.firstname"placeholder="firstname" required>
+            </span>
+
+            <span ng-show="register.firstname.$dirty && register.firstname.$invalid">
+                <span class="text-center text-danger" ng-show="register.firstname.$error.required" >Oops! Please enter your firstname</span>
             </span>
           </div>
+
           <div class="text">
             <span>
-              <input type="password" placeholder="Password">
+              <input type="text" name="lastname" ng-model="credentials.lastname"placeholder="lastname" required>
+            </span>
+
+            <span ng-show="register.lastname.$dirty && register.lastname.$invalid">
+                <span class="text-center text-danger" ng-show="register.lastname.$error.required" >Oops! Please enter your lastname</span>
             </span>
           </div>
+
+
           <div class="text">
             <span>
-              <input type="password" placeholder="Confirmed password">
+              <input type="email" name="email" placeholder="Email" ng-model="credentials.email" required>
+            </span>
+            <span ng-show="register.email.$dirty && register.email.$invalid">
+              <span class=" text-center text-danger" ng-show="register.email.$error.email"> Invalid Email</span>
+              <span class=" text-center text-danger" ng-show="register.email.$error.required" >Please enter your email</span>
+              </span>
             </span>
           </div>
+
+
+          <div class="text">
+            <span>
+              <input type="password" placeholder="Password" name="password" ng-model="credentials.password" ng-minlength="8" ng-maxlength="20" ng-class="{'ng-invalid':register.confirmPassword.$error.match}"required>
+            </span>
+            <span ng-show="register.password.$dirty && register.password.$invalid">
+              <span class="text-center text-danger" ng-show="register.password.$error.password">Invalid Password </span>
+
+              <span class="text-center text-danger" ng-show="register.password.$error.required">Please enter your password</span>
+
+              <span class="text-center text-danger" ng-show="!register.password.$error.required && (register.password.$error.minlength || register.password.$error.maxlength)">Passwords must be between 8 and 20 characters.</span>
+
+
+          </div>
+
+
+
+          <div class="text">
+            <span>
+              <input type="password" placeholder="Confirmed password" name="confirmPassword" ng-model="credentials.passwordConfirmation" match="credentials.password" required>
+            </span>
+            <span ng-show="register.confirmPassword.$dirty && register.confirmPassword.$invalid">
+              <span ng-show="register.confirmPassword.$error.match" class="text-danger text-center">Passwords do not match!</span>
+              <span class="text-center text-danger" ng-show="register.confirmPassword.$error.confirmPassword">Invalid Password</span>
+              <span class="text-center text-danger" ng-show="register.confirmPassword.$error.required" >Please confirm your password</span>
+            </span>
+
+          </div>
+
           <div class="button-text">
-            <button><span>Create an account</span></button>
+            <button ng-disabled="register.$invalid" type="submit"><span>Create an account</span></button>
           </div>
         </form>
       </div>

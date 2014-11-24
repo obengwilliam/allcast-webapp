@@ -36,7 +36,7 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                    <li><a href=\"#\">Discover</a></li>\n" +
     "                    <li><a href=\"#\">Explore</a></li>\n" +
     "                    <li class=\"dropdown\">\n" +
-    "                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
+    "                        <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
     "                        <ul class=\"dropdown-menu\">\n" +
     "                            <li><a href=\"#\">Settings</a></li>\n" +
     "                            <li><a href=\"#\">Quick links</a></li>\n" +

@@ -31,6 +31,7 @@ angular.module('security',
             var defer= $q.defer();
             $http.post(API_SERVER +'accounts/login', credentials).then(
                 function(response){
+                    console.log(response);
                     service.currentUser={
                         email: response.data.email,
                         fistname: response.data.firstname,
@@ -48,7 +49,8 @@ angular.module('security',
                         $window.localStorage.username=service.currentUser.username;
 
                     }
-                    defer.resolve(true);
+                    console.log(service.isAuthenticated(), 'authenticated');
+                    defer.resolve(service.isAuthenticated());
                 },function(error){
                     defer.reject(error.data);
 
@@ -60,9 +62,12 @@ angular.module('security',
         signUp:function(credentials)
         {
 
+            console.log(credentials);
             var defer= $q.defer();
             $http.post(API_SERVER +'accounts', credentials).then(
                 function(response){
+                    console.log(response,'signup');
+
                     service.currentUser={
                         email: response.data.email,
                         firstname: response.data.firstname,
@@ -72,34 +77,33 @@ angular.module('security',
                     };
 
 
-                    if(service.currentUser.token && service.currentUser.userFname)
+                    if(service.currentUser.token && service.currentUser.username)
                     {
                         $window.localStorage.token=service.currentUser.token;
                         $window.localStorage.username=service.currentUser.username;
 
                     }
-                    defer.resolve(true);
+                    defer.resolve(service.isAuthenticated());
                 },function(error){
                     defer.reject(error.data);
 
                 });
+
             return defer.promise;
 
         },
 
         requestCurrentUser: function() {
-            // todo: remove this not really working
             if ($window.localStorage.token) {
                 var defer=$q.defer();
 
                 $http.get(API_SERVER+'accounts/me')
                 .then(function(response) {
-
                     service.currentUser = {
-                        userEmail: response.data.email,
-                        userFname: response.data.firstname,
-                        userLname: response.data.lastname,
-                        userName: response.data.username,
+                        email: response.data.email,
+                        firstname: response.data.firstname,
+                        lastname: response.data.lastname,
+                        username: response.data.username,
                         token: response.data.token,
                     };
                     defer.resolve(service.currentUser);

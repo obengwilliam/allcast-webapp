@@ -4,7 +4,6 @@ angular.module('security.interceptor',[])
 .factory('securityInterceptor', function ($q, $window) {
     return {
         request: function (config) {
-            config.headers = config.headers || {};
             if ($window.localStorage.token) {
                 config.headers.Authorization = 'Bearer ' + $window.localStorage.token;
             }

@@ -16,7 +16,11 @@ angular
 
             }
         },
-        data:{ pageTitle: 'broadcast' }
+        data:{
+            pageTitle: 'broadcast',
+            authenticate:true
+
+         }
 
     });
 

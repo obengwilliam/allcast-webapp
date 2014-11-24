@@ -16,7 +16,11 @@ angular
 
             }
         },
-        data:{ pageTitle: 'listen' }
+        data:{
+         pageTitle: 'listen' ,
+         authenticate:true
+
+        }
 
     });
 
