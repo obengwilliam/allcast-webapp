@@ -1,8 +1,250 @@
-angular.module('templates-app', ['about/about.html', 'home/home.html']);
+angular.module('templates-app', ['about/about.html', 'broadcast/broadcast.html', 'home/home.html', 'listen/listen.html']);
 
 angular.module("about/about.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.html",
     "");
+}]);
+
+angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("broadcast/broadcast.html",
+    "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <!-- Brand and toggle get grouped for better mobile display -->\n" +
+    "            <div class=\"navbar-header\">\n" +
+    "                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n" +
+    "                    <span class=\"sr-only\">Toggle navigation</span>\n" +
+    "                    <span class=\"icon-bar\"></span>\n" +
+    "                    <span class=\"icon-bar\"></span>\n" +
+    "                    <span class=\"icon-bar\"></span>\n" +
+    "                </button>\n" +
+    "                <a class=\"navbar-brand\" href=\"index.html\">Allcast</a>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
+    "            <div class=\"collapse navbar-collapse  navbar-right\" id=\"bs-example-navbar-collapse-1\">\n" +
+    "                <div class=\"col-sm-6 col-md-6\">\n" +
+    "                    <form class=\"navbar-form\" role=\"search\">\n" +
+    "                        <div class=\"input-group\">\n" +
+    "                            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
+    "                            <div class=\"input-group-btn\">\n" +
+    "                                <button class=\"btn btn-default\" type=\"submit\"><i class=\"fa fa-search\"></i></button>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </form>\n" +
+    "                </div>\n" +
+    "                <ul class=\"nav navbar-nav\">\n" +
+    "                    <li><a href=\"#\">Discover</a></li>\n" +
+    "                    <li><a href=\"#\">Explore</a></li>\n" +
+    "                    <li class=\"dropdown\">\n" +
+    "                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
+    "                        <ul class=\"dropdown-menu\">\n" +
+    "                            <li><a href=\"#\">Settings</a></li>\n" +
+    "                            <li><a href=\"#\">Quick links</a></li>\n" +
+    "                            <li class=\"divider\"></li>\n" +
+    "                            <li><a href=\"#\">Log out</a></li>\n" +
+    "                        </ul>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "            </div><!-- /.navbar-collapse -->\n" +
+    "        </div>\n" +
+    "    </nav>\n" +
+    "\n" +
+    "    <div id=\"caster-wrapper\">\n" +
+    "        <div class=\"container animate\">\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-xs-10\">\n" +
+    "                    <div class=\"channel-details\">\n" +
+    "                        <h5 class=\"channel-name\"> MAJORIE</h5>\n" +
+    "                        <h6 class=\"channel-category\">Rhythm and Blues</h6>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-2\">\n" +
+    "                    <div class=\"caster-profile\">\n" +
+    "                        <div class=\"profile-img\">\n" +
+    "                            <img src=\"assets/img/dashboard/majorie.png\" class=\"image img-responsive img-circle\">\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div><!-- end of .caster-wrapper -->\n" +
+    "\n" +
+    "    <div class=\"broadcast-controls\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-xs-2 nopadding\">\n" +
+    "                    <div class=\"btn btn-primary broadcast-button\"> START BROADCAST </div>\n" +
+    "                    <div class=\"btn btn-primary live-button\"> BROADCASTING </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-3 \">\n" +
+    "                    <div class=\"countup-timer\">\n" +
+    "                        <div id=\"hours\" style=\"display: inline\">00</div> :\n" +
+    "                        <div id=\"minutes\" style=\"display:inline\">00</div> :\n" +
+    "                        <div id=\"seconds\" style=\"display:inline\">00</div>\n" +
+    "                        <small>SEC</small>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-sm-2 display nopadding\">\n" +
+    "                    <i class=\"fa fa-circle\"></i>\n" +
+    "                    <i id=\"mic\" class=\"fa fa-microphone-slash\"></i>\n" +
+    "                    <i id=\"mic-on\" class=\"fa fa-microphone\"></i>\n" +
+    "                    <small class=\"air-display\">OFF-AIR</small>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-1 nopadding\">\n" +
+    "                    <div class=\"btn btn-primary share-button\" title=\"Share this content\" data-toggle=\"modal\" data-target=\"#shareModal\">\n" +
+    "                        <i class=\"fa fa-share-alt\"></i>\n" +
+    "                        <small>SHARE</small>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div><!-- end of .broadcast-controls -->\n" +
+    "\n" +
+    "    <div class=\"app-widgets\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-xs-8 nopadding\">\n" +
+    "                    <div class=\"panel panel-info\">\n" +
+    "                        <div class=\"panel-heading\">CHAT</div>\n" +
+    "                        <div class=\"panel-body\">\n" +
+    "                            <ul class=\"media-list\">\n" +
+    "                                <li class=\"media\">\n" +
+    "                                    <div class=\"media-body\">\n" +
+    "                                        <div class=\"media\">\n" +
+    "                                            <div class=\"text-muted\" >\n" +
+    "                                                This channel is yet to see any chats.. Go on and be the first to comment :)\n" +
+    "                                            </div>\n" +
+    "                                        </div>\n" +
+    "                                    </div>\n" +
+    "                                </li>\n" +
+    "                                <li class=\"media\">\n" +
+    "                                    <div class=\"media-body\">\n" +
+    "                                        <div class=\"media\">\n" +
+    "                                            <a class=\"pull-left\" href=\"#\">\n" +
+    "                                                <img class=\"media-object img-circle \" src=\"assets/img/dashboard/majorie.png\" />\n" +
+    "                                            </a>\n" +
+    "                                            <div class=\"media-body\" >\n" +
+    "                                                What happened to Jimmy &amp; Wade Wagon. Any releases yet?\n" +
+    "                                                <br />\n" +
+    "                                                <small class=\"text-muted\">Majorie | 23rd Nov at 5:00pm</small>\n" +
+    "                                            </div>\n" +
+    "                                        </div>\n" +
+    "                                    </div>\n" +
+    "                                </li>\n" +
+    "                                <li class=\"media\">\n" +
+    "                                    <div class=\"media-body\">\n" +
+    "                                        <div class=\"media\">\n" +
+    "                                            <a class=\"pull-left\" href=\"#\">\n" +
+    "                                                <img class=\"media-object img-circle img-responsive \" src=\"assets/img/dashboard/nii.png\" />\n" +
+    "                                            </a>\n" +
+    "                                            <div class=\"media-body\" >\n" +
+    "                                                Interesting listening to you talk about Afro Blues. Awesome!!!\n" +
+    "                                                <br />\n" +
+    "                                                <small class=\"text-muted\">Nii Mantse Grid | 23rd Nov at 5:00pm</small>\n" +
+    "                                            </div>\n" +
+    "                                        </div>\n" +
+    "                                    </div>\n" +
+    "                                </li>\n" +
+    "                            </ul>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"panel-footer\">\n" +
+    "                            <div class=\"input-group\">\n" +
+    "                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Message\" />\n" +
+    "                                <span class=\"input-group-btn\">\n" +
+    "                                    <button class=\"btn btn-info send-btn\" type=\"button\">SEND</button>\n" +
+    "                                </span>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                    <!-- </div>  -->\n" +
+    "                </div><!-- end of .chat-window -->\n" +
+    "                <div class=\"col-xs-3\">\n" +
+    "                    <div class=\"channel-stats\">\n" +
+    "                        <div class=\"stats-heading\"> CHANNEL STATISTICS</div>\n" +
+    "                        <div class=\"stats-body\">\n" +
+    "                            <div class=\"col-xs-12\"><i class=\"fa fa-headphones\"></i><a href=\"\"> 428 Listeners</a></div>\n" +
+    "                            <div class=\"col-xs-12\"><i class=\"fa fa-heart\"></i><a href=\"\"> 124 Favourites</a></div>\n" +
+    "                            <div class=\"col-xs-12\"><i class=\"fa fa-user\"></i><a href=\"\"> 102 Followers</a></div>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"update-heading\">LATEST UPDATES</div>\n" +
+    "                        <div class=\"update-body\">\n" +
+    "                            <div class=\"col-xs-12\"><i class=\"fa fa-asterisk\"></i> Sherrie joined your broadcast <small class=\"text-muted\"> 5 secs ago</small></div>\n" +
+    "                        </div>\n" +
+    "                    </div> <!-- end of .channel-stats -->\n" +
+    "                </div>\n" +
+    "\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div><!-- end of .app-widgets -->\n" +
+    "\n" +
+    "    <!-- Modal -->\n" +
+    "    <div class=\"modal fade\" id=\"shareModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
+    "        <div class=\"modal-dialog\">\n" +
+    "            <div class=\"modal-content\">\n" +
+    "                <div class=\"modal-header\">\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">x</span><span class=\"sr-only\">Close</span></button>\n" +
+    "                    <h4 class=\"modal-title\" id=\"myModalLabel\"><i class=\"fa fa-share-alt\"></i> Share</h4>\n" +
+    "                </div>\n" +
+    "                <div class=\"modal-body\">\n" +
+    "                    <h4>Share broadcast link via social media</h4>\n" +
+    "                    <p>\n" +
+    "                        <a title=\"Facebook\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-facebook fa-stack-1x\"></i></span></a> <a title=\"Twitter\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-twitter fa-stack-1x\"></i></span></a>\n" +
+    "                        <a title=\"Google+\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-google-plus fa-stack-1x\"></i></span></a> <a title=\"Linkedin\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-linkedin fa-stack-1x\"></i></span></a> <a title=\"Reddit\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-reddit fa-stack-1x\"></i></span></a>\n" +
+    "                    </p>\n" +
+    "                </div>\n" +
+    "                <div class=\"modal-footer\">\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <script type=\"text/javascript\">\n" +
+    "        $('document').ready(function(){\n" +
+    "            $('#mic-on').hide();\n" +
+    "            $('.live-button').hide();\n" +
+    "\n" +
+    "        });\n" +
+    "\n" +
+    "        $('.broadcast-button').click(function() {\n" +
+    "            //show live-button and start timer\n" +
+    "            $('.live-button').show();\n" +
+    "            $(this).hide();\n" +
+    "            $('#mic').hide();\n" +
+    "            $('#mic-on').css('color',\"#D50000\");\n" +
+    "            $('#mic-on').show();\n" +
+    "            $('.fa-circle').css('color',\"#D50000\");\n" +
+    "            $('.air-display').text('LIVE');\n" +
+    "\n" +
+    "        });\n" +
+    "\n" +
+    "        $('.live-button').click(function(){\n" +
+    "            if(confirm(\"Are you sure you want to end your broadcast?\")) {\n" +
+    "                $('.broadcast-button').show();\n" +
+    "                $(this).hide();\n" +
+    "                $('#mic').show();\n" +
+    "                $('#mic-on').hide();\n" +
+    "                $('.fa-circle').css('color',\"#E0E0E0\");\n" +
+    "                $('.air-display').text('OFF-AIR');\n" +
+    "\n" +
+    "            }\n" +
+    "\n" +
+    "        });\n" +
+    "\n" +
+    "        $(document).ready(function() {\n" +
+    "          $('#caster-wrapper').particleground({\n" +
+    "            dotColor: '#2eceff',\n" +
+    "            lineColor: '#2eceff',\n" +
+    "            density: 7000\n" +
+    "          });\n" +
+    "          $('.animate').css({\n" +
+    "            'margin-top': -($('.animate').height() / 2)\n" +
+    "          });\n" +
+    "        });\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "    </script>");
 }]);
 
 angular.module("home/home.html", []).run(["$templateCache", function($templateCache) {
@@ -23,8 +265,8 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "                 <li><a ui-sref=\"home\">Home</a></li>\n" +
     "                 <li><a href=\"#\">Features</a></li>\n" +
     "                 <li><a href=\"#\">Team</a></li>\n" +
-    "                 <li><a ui-sref=\"login\">Signin</a></li>\n" +
-    "                 <li class=\"active\"><a ui-sref=\"register\">Signup</a></li>\n" +
+    "                 <li><a ui-sref=\"register\">Sign Up</a></li>\n" +
+    "                 <li class=\"active\"><a ui-sref=\"login\">Sign In</a></li>\n" +
     "             </ul>\n" +
     "         </section>\n" +
     "        </div>\n" +
@@ -43,7 +285,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "                 You are <span class=\"text-inline\">Live!</span> Let the world <span class=\"text-inline\">listen<br></span>to your <span class=\"text-inline\">awesomeness.</span> Create a <span class=\"text-inline\">channel</span><br> and enjoy the <span class=\"text-inline\">Allcast experience.</span>\n" +
     "             </p>\n" +
     "             <div class=\"email-collect\">\n" +
-    "                <a class=\"sign-up\" href=\"#\">Sign up</a>\n" +
+    "                <a class=\"sign-up\" ui-sref=\"register\">Start Broadcasting</a>\n" +
     "              </div>\n" +
     "        </section>\n" +
     "        </div>\n" +
@@ -237,5 +479,211 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "     </div>\n" +
     "    </div>\n" +
     "</footer>\n" +
+    "");
+}]);
+
+angular.module("listen/listen.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("listen/listen.html",
+    "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <!-- Brand and toggle get grouped for better mobile display -->\n" +
+    "            <div class=\"navbar-header\">\n" +
+    "                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n" +
+    "                    <span class=\"sr-only\">Toggle navigation</span>\n" +
+    "                    <span class=\"icon-bar\"></span>\n" +
+    "                    <span class=\"icon-bar\"></span>\n" +
+    "                    <span class=\"icon-bar\"></span>\n" +
+    "                </button>\n" +
+    "                <a class=\"navbar-brand\" href=\"index.html\">Allcast</a>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
+    "            <div class=\"collapse navbar-collapse  navbar-right\" id=\"bs-example-navbar-collapse-1\">\n" +
+    "                <div class=\"col-sm-6 col-md-6\">\n" +
+    "                    <form class=\"navbar-form\" role=\"search\">\n" +
+    "                        <div class=\"input-group\">\n" +
+    "                            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
+    "                            <div class=\"input-group-btn\">\n" +
+    "                                <button class=\"btn btn-default\" type=\"submit\"><i class=\"fa fa-search\"></i></button>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </form>\n" +
+    "                </div>\n" +
+    "                <ul class=\"nav navbar-nav\">\n" +
+    "                    <li><a href=\"#\">Discover</a></li>\n" +
+    "                    <li><a href=\"#\">Explore</a></li>\n" +
+    "                    <li class=\"dropdown\">\n" +
+    "                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
+    "                        <ul class=\"dropdown-menu\">\n" +
+    "                            <li><a href=\"#\">Settings</a></li>\n" +
+    "                            <li><a href=\"#\">Quick links</a></li>\n" +
+    "                            <li class=\"divider\"></li>\n" +
+    "                            <li><a href=\"#\">Log out</a></li>\n" +
+    "                        </ul>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "            </div><!-- /.navbar-collapse -->\n" +
+    "        </div>\n" +
+    "    </nav>\n" +
+    "\n" +
+    "    <div class=\"caster-banner\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-xs-6\">\n" +
+    "                    <div class=\"broadcaster-profile\">\n" +
+    "                        <img src=\"assets/img/dashboard/majorie.png\" class=\"profile-img img-responsive img-circle\">\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-6 listening-channel\">\n" +
+    "                    <div class=\"listening-channel-name\">Majorie</div>\n" +
+    "                    <div class=\"category\">Rhythm &amp; Blues</div>\n" +
+    "                    <div class=\"broadcast-stats\">\n" +
+    "                        <div>42 Listeners</div>\n" +
+    "                        <div>42 Followers</div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"listener-controls\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-xs-2 nopadding\">\n" +
+    "                    <div class=\"btn btn-primary mute-button\"> MUTE CAST </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-6\">\n" +
+    "                    <div class=\"countup-timer\">\n" +
+    "                        <div id=\"hours\" style=\"display: inline\">00</div> :\n" +
+    "                        <div id=\"minutes\" style=\"display:inline\">00</div> :\n" +
+    "                        <div id=\"seconds\" style=\"display:inline\">00</div>\n" +
+    "                        <small>SEC</small>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-2 display\">\n" +
+    "                    <i class=\"fa fa-circle\"></i>\n" +
+    "                    <i id=\"mic\" class=\"fa fa-microphone-slash\"></i>\n" +
+    "                    <i id=\"mic-on\" class=\"fa fa-microphone\"></i>\n" +
+    "                    <small class=\"air-display\">OFF-AIR</small>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-2\">\n" +
+    "                    <div class=\"btn btn-primary follow-button\" title=\"Follow broadcaster\">\n" +
+    "                        <i class=\"fa fa-share-alt\"></i>\n" +
+    "                        <small> FOLLOW</small>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div><!-- end of .listening-controls -->\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"app-widgets\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-xs-3 nopadding-left\">\n" +
+    "                    <div class=\"caster-bio\">\n" +
+    "                        <div class=\"bio-heading\"> MAJORIE'S BIO</div>\n" +
+    "                        <div class=\"bio-body\">\n" +
+    "                            <div class=\"col-xs-12\">\n" +
+    "                                I was born to love music and enjoy every single moment that it came with.\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"links-heading\">LINKS</div>\n" +
+    "                        <div class=\"links-body\">\n" +
+    "                            <div class=\"col-xs-12 links\">\n" +
+    "                                <a href=\"#\">Facebook: /Majorie</a><br/>\n" +
+    "                                <a href=\"#\">Google-Plus: +Majorie</a><br/>\n" +
+    "                                <a href=\"#\">Twitter: @Majorie</a><br/>\n" +
+    "                                <a href=\"#\">AboutMe: /Majorie</a><br/>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </div> <!-- end of .channel-stats -->\n" +
+    "                </div>\n" +
+    "\n" +
+    "                <div class=\"col-xs-7\">\n" +
+    "                    <div class=\"panel panel-info\">\n" +
+    "                        <div class=\"panel-heading\">CHAT</div>\n" +
+    "                        <div class=\"panel-body\">\n" +
+    "                            <ul class=\"media-list\">\n" +
+    "                                <li class=\"media\">\n" +
+    "                                    <div class=\"media-body\">\n" +
+    "                                        <div class=\"media\">\n" +
+    "                                            <div class=\"text-muted\" >\n" +
+    "                                                This channel is yet to see any chats.. Go on and be the first to comment :)\n" +
+    "                                            </div>\n" +
+    "                                        </div>\n" +
+    "                                    </div>\n" +
+    "                                </li>\n" +
+    "                                <li class=\"media\">\n" +
+    "                                    <div class=\"media-body\">\n" +
+    "                                        <div class=\"media\">\n" +
+    "                                            <a class=\"pull-left\" href=\"#\">\n" +
+    "                                                <img class=\"media-object img-circle \" src=\"assets/img/dashboard/majorie.png\" />\n" +
+    "                                            </a>\n" +
+    "                                            <div class=\"media-body\" >\n" +
+    "                                                What happened to Jimmy &amp; Wade Wagon. Any releases yet?\n" +
+    "                                                <br />\n" +
+    "                                                <small class=\"text-muted\">Majorie | 23rd Nov at 5:00pm</small>\n" +
+    "                                            </div>\n" +
+    "                                        </div>\n" +
+    "                                    </div>\n" +
+    "                                </li>\n" +
+    "                                <li class=\"media\">\n" +
+    "                                    <div class=\"media-body\">\n" +
+    "                                        <div class=\"media\">\n" +
+    "                                            <a class=\"pull-left\" href=\"#\">\n" +
+    "                                                <img class=\"media-object img-circle img-responsive \" src=\"assets/img/dashboard/nii.png\" />\n" +
+    "                                            </a>\n" +
+    "                                            <div class=\"media-body\" >\n" +
+    "                                                Interesting listening to you talk about Afro Blues. Awesome!!!\n" +
+    "                                                <br />\n" +
+    "                                                <small class=\"text-muted\">Nii Mantse Grid | 23rd Nov at 5:00pm</small>\n" +
+    "                                            </div>\n" +
+    "                                        </div>\n" +
+    "                                    </div>\n" +
+    "                                </li>\n" +
+    "                            </ul>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"panel-footer\">\n" +
+    "                            <div class=\"input-group\">\n" +
+    "                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Message\" />\n" +
+    "                                <span class=\"input-group-btn\">\n" +
+    "                                    <button class=\"btn btn-info send-btn\" type=\"button\">SEND</button>\n" +
+    "                                </span>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                    <!-- </div>  -->\n" +
+    "                </div><!-- end of .chat-window -->\n" +
+    "                <div class=\"col-xs-2\">\n" +
+    "                    <a class=\"btn btn-primary btn-block share\" data-toggle=\"modal\" data-target=\"#shareModal\">\n" +
+    "                        <i class=\"fa fa-share-alt\"></i> SHARE\n" +
+    "                    </a>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div><!-- end of .app-widgets -->\n" +
+    "\n" +
+    "    <!-- Modal -->\n" +
+    "    <div class=\"modal fade\" id=\"shareModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
+    "        <div class=\"modal-dialog\">\n" +
+    "            <div class=\"modal-content\">\n" +
+    "                <div class=\"modal-header\">\n" +
+    "                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">x</span><span class=\"sr-only\">Close</span></button>\n" +
+    "                    <h4 class=\"modal-title\" id=\"myModalLabel\"><i class=\"fa fa-share-alt\"></i> Share</h4>\n" +
+    "                </div>\n" +
+    "                <div class=\"modal-body\">\n" +
+    "                    <h4>Share broadcast link via social media</h4>\n" +
+    "                    <p>\n" +
+    "                        <a title=\"Facebook\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-facebook fa-stack-1x\"></i></span></a> <a title=\"Twitter\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-twitter fa-stack-1x\"></i></span></a>\n" +
+    "                        <a title=\"Google+\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-google-plus fa-stack-1x\"></i></span></a> <a title=\"Linkedin\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-linkedin fa-stack-1x\"></i></span></a> <a title=\"Reddit\" href=\"\"><span class=\"fa-stack fa-lg\"><i class=\"fa fa-square-o fa-stack-2x\"></i><i class=\"fa fa-reddit fa-stack-1x\"></i></span></a>\n" +
+    "                    </p>\n" +
+    "                </div>\n" +
+    "                <div class=\"modal-footer\">\n" +
+    "                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
     "");
 }]);

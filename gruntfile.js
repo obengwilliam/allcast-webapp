@@ -68,6 +68,14 @@ module.exports = function(grunt)
                     expand: true
                 }]
             },
+            buildAppCss: {
+                files: [{
+                    src: [ '**'],
+                    dest: '<%= buildDir %>/assets/',
+                    cwd: 'src/css',
+                    expand: true
+                }]
+            },
             buildVendorAssets:{
                 files:[{
                     src:['<%=vendorFiles.assets %>'],
@@ -434,6 +442,7 @@ module.exports = function(grunt)
     */
     function filterForCSS ( files ) {
         return files.filter( function ( file ) {
+            console.log(file);
             return file.match( /\.css$/ );
         });
     }
@@ -454,9 +463,8 @@ module.exports = function(grunt)
 
     grunt.registerTask( 'build', [
         'clean', 'html2js', 'jshint','concat:buildVendorCss',
-        'copy:buildAppAssets', 'copy:buildVendorAssets',
-        'copy:buildAppjs', 'copy:buildVendorjs',
-        'concat:buildAppCss','ngconstant:development','index:build'
+        'copy:buildAppAssets','copy:buildAppCss', 'copy:buildVendorAssets',
+        'copy:buildAppjs', 'copy:buildVendorjs','ngconstant:development','index:build'
 
     ]);
 
@@ -495,6 +503,7 @@ module.exports = function(grunt)
             return file.replace( dirRE, '' );
         });
 
+        console.log(cssFiles);
 
 
 

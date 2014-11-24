@@ -42,6 +42,7 @@ module.exports={
         js: [
               //you can change the bootstrap.min.js to include only the ones you used
                 'vendor/jquery/dist/jquery.min.js',
+                'vendor/niimantse/jquery.particleground.min.js',
                 'vendor/bootstrap/js/dist/bootstrap.min.js',
                 'vendor/angular/angular.js',
                 'vendor/angular-ui-utils/ui-utils.min.js',
@@ -55,7 +56,6 @@ module.exports={
 
             css:[
                 'vendor/bootstrap/dist/css/bootstrap.min.css',
-                'vendor/font-awesome/css/font-awesome.min.css',
 
             ]
         }

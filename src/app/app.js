@@ -7,6 +7,8 @@ angular.module( 'allcast', [
     'templates-common',
     'allcast.home',
     'allcast.about',
+    'allcast.broadcast',
+    'allcast.listen',
     'security'
 ])
 

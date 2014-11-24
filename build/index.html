@@ -23,17 +23,23 @@
 
     <!-- compiled CSS -->
     
-    <link rel="stylesheet" type="text/css" href="assets/flowcast-0.0.0-vendor.css" />
-    
-    <link rel="stylesheet" type="text/css" href="assets/flowcast-0.0.0-app.css" />
+    <link rel="stylesheet" type="text/css" href="assets/allcast-0.0.0-vendor.css" />
     
 
+    <link rel="stylesheet" type="text/css" href="assets/home.css" ng-if="$state.current.name=='home'">
+    <link rel="stylesheet" type="text/css" href="assets/login.css" ng-if="$state.current.name=='login' ||$state.current.name=='register'">
+
+    <link rel="stylesheet" type="text/css"  href="assets/broadcast.css" ng-if="$state.current.name=='broadcast'||$state.current.name=='listen'">
+
+    <link rel="stylesheet" type="text/css"  href="assets/listening.css" ng-if="$state.current.name=='listen'">
 
     <!-- Fonts from Google -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300|Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Montserrat' rel='stylesheet' type='text/css'/> <!-- Fonts from Google -->
+
+    <link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'/>
 
 </head>
-<body>
+<body ng-class="{'signup-home':$state.current.name==='login'||'register'}">
   <!-- main -->
    <!-- Navigation Starts here -->
   <section ui-view></section>
@@ -41,13 +47,16 @@
 
 <!-- compiled JavaScript -->
 <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/niimantse/jquery.particleground.min.js"></script>
 <script type="text/javascript" src="vendor/angular/angular.js"></script>
 <script type="text/javascript" src="vendor/angular-ui-utils/ui-utils.min.js"></script>
 <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="src/app/about/about.js"></script>
 <script type="text/javascript" src="src/app/app.js"></script>
+<script type="text/javascript" src="src/app/broadcast/broadcast.js"></script>
 <script type="text/javascript" src="src/app/config.js"></script>
 <script type="text/javascript" src="src/app/home/home.js"></script>
+<script type="text/javascript" src="src/app/listen/listen.js"></script>
 <script type="text/javascript" src="src/common/directive/directives.js"></script>
 <script type="text/javascript" src="src/common/security/interceptor.js"></script>
 <script type="text/javascript" src="src/common/security/login/login.js"></script>
@@ -59,31 +68,6 @@
 
 
 
-
-    <script type="text/javascript">
-
-    //Chrome passes the error object (5th param) which we must use since it now truncates the Msg (1st param).
-    window.onerror = function (errorMsg, url, lineNumber, columnNumber, errorObject) {
-        var errMsg;
-        //check the errorObject as IE and FF don't pass it through (yet)
-        if (errorObject && errorObject !== undefined) {
-                errMsg = errorObject.message;
-            }
-            else {
-                errMsg = errorMsg;
-            }
-        alert('Error: ' + errMsg);
-    }
-
-    var throwError = function () {
-        throw new Error(
-        'Something went wrong. Something went wrong. Something went wrong. Something went wrong. ' +
-        'Something went wrong. Something went wrong. Something went wrong. Something went wrong. ' +
-        'Something went wrong. Something went wrong. Something went wrong. Something went wrong. ' +
-        'Text does not get truncated! :-)');
-    }
-
-    </script>
 
 </body>
 </html>
