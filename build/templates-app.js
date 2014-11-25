@@ -296,68 +296,44 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "\n" +
     "\n" +
     "\n" +
-    "<div ui-view='features' class=\"features\">\n" +
+    "<div ui-view='features' class=\"feature-set\">\n" +
     "  <section class=\"container\">\n" +
     "    <h1 class=\"text-center section-heading\">Allcast Features</h1>\n" +
     "    <div class=\"row\">\n" +
-    "      <div class=\"col-md-6\">\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container-a\">\n" +
+    "      <div class=\"col-md-12\">\n" +
+    "        <div class=\"row icon-margin\">\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
     "            <span class=\"value-icon\"><i class=\"fa fa-microphone\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8\">\n" +
-    "            <h4>Let the world hear you</h4><hr>\n" +
+    "             <h4>Let the world hear you</h4><hr>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Broadcast to the world from anywhere. Let your voice be heard by millions across the globe. Our technology is easy to use, all you need is your phone.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-share-alt\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8 feature-set\">\n" +
-    "            <h4>Social media intergration</h4><hr>\n" +
+    "\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
+    "             <span class=\"value-icon icon-a\"><i class=\"fa fa-share-alt\"></i></span>\n" +
+    "             <h4>Social media intergration</h4><hr>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Share your live audio streams or broadcast with your friends on the various social networks. Your followers can listen live on their social Network.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-comments\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8 feature-set\">\n" +
-    "            <h4>Enagage live with your audience</h4><hr>\n" +
+    "\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
+    "             <span class=\"value-icon icon-b\"><i class=\"fa fa-comments\"></i></span>\n" +
+    "             <h4>Enagage live with your audience</h4><hr>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Interact directly with your listeners as you broadcast, through live chat. Give your listeners the experience they deserve, they love listening to you and want you to know it.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
     "\n" +
-    "      <div class=\"col-md-6\">\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container-a\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-cogs\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8\">\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
+    "            <span class=\"value-icon icon-c\"><i class=\"fa fa-cogs\"></i></span>\n" +
     "            <h4>Easy customization</h4><hr>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Personalize your own channel, biography, links, artwork and more. Create your own profile the way you like it.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-group\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8 feature-set\">\n" +
-    "            <h4>Enjoy variety</h4><hr>\n" +
-    "            <div class=\"value-text\">\n" +
-    "              <p class=\"text-inline\">Never miss a single moment when people share their hearts with you. Discover a variety of channels from broadcasters. listen,chat and follow any channel of your choosing. </p>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
+    "\n" +
     "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +

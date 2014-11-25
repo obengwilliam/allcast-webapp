@@ -63,32 +63,13 @@ a .fa {
     background-color: #F1F1F1;
 }
 
-/*.navbar-fixed-top .navbar-right li a {
-    color: #FFFFFF;
-    font-size: 12px;
-    font-family: 'Montserrat';
-    line-height: normal;
-    text-transform: uppercase;
-}
-
-.navbar-fixed-top .navbar-right li a:hover{
-    color: #FFF;
-    background-color:#00ACFD;
-}
-
-.navbar-fixed-top .navbar-right .active a{
-    background-color: #00ACFD;
-    color: #FFF;
-
-    }*/
-
 .navbar-default .navbar-brand {
-      color: #00ACFD;
-      font-size: 20px;
-  }
+  color: #00ACFD;
+  font-size: 20px;
+}
 
-  /*Styling for header*/
-  header{
+/*Styling for header*/
+header{
     text-align: center;
     color: #FFFFFF;
     background-image: url(/assets/img/header-bg.png);
@@ -155,87 +136,78 @@ a .fa {
     text-decoration: none;
 }
 
-.blockSlide-down {
-    bottom: 80px;
-    margin-top: 5px;
-    position: absolute;
-    text-align: center;
-    z-index: 50;
-    text-transform: none;
-    right: 0;
-}
-
-#slide-down{
-    background: url("/assets/img/downarrow.png") no-repeat scroll center bottom / auto 40%;
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    font-family: "Lato";
-    font-size: 18px;
-    margin: 0 auto;
-    opacity: 0.3;
-    padding-bottom: 30px;
-    text-align: center;
-    transition-duration: 0.2s;
-    transition-property: padding-bottom;
-    width: 150px;
-    text-decoration: none;
-}
-
-#slide-down:hover{
-    opacity: 1;
-    filter: alpha(opacity=100);
-}
-
 
 /*Styling for features*/
-.features .section-heading {
+.feature-set .section-heading {
     margin-bottom: 5%;
 }
 
 .feature-set{
- margin-top: 8%;
+ margin-top: 2%;
 }
 
-.features h4 {
+.feature-set h4 {
     font-family: 'Montserrat';
     font-weight: bold;
 }
 
-.features .value-text{
+.feature-set .value-text{
     font-family: 'lato';
-    font-size: 16px;
+    font-size: 18px;
 }
 
-.features .value-icon {
+.feature-set .value-icon {
     text-align: center;
+    display: block;
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #9dbc7a;
 }
 
-.features .icon-container{
+.feature-set .icon-a{
+    background-color: #00ACFD;
+}
+
+.feature-set .icon-b{
+    background-color: #f28a2e
+}
+
+.feature-set .icon-c{
+    background-color: #df65b5;
+}
+
+.feature-set .icon-container{
     text-align: center;
-    margin-top: 8%;
+    margin-top: 1%;
+    width: 20%;
 }
 
-.features .icon-container-a {
+.feature-set .icon-margin{
     text-align: center;
+    margin-left: 15%;
 }
 
-.features .fa {
-    font-size: 95px;
-    color: #008acb;
+.feature-set .fa {
+    font-size: 40px;
+    color: #FFF;
     margin-top: 24%;
+    z-index: 9999999;
+    outline: #FFF thick;
+    margin: 25% auto;
 }
 
 
 /*Styling for team */
 .team{
-    margin:10% 0 0 0;
+    margin:2% 0 0 0;
     background-color: #f7f7f7;
     padding-bottom: 10%;
 }
 
 .section-heading {
-    margin-top: 10%;
+    margin-top: 4%;
     margin-bottom: 15px;
     font-size: 40px;
 }
@@ -382,4 +354,9 @@ footer ul.quicklinks {
 
 footer ul.quicklinks .fa {
     color: #666666;
+}
+
+/*Class for JQuery Scroll*/
+.navbar-color {
+    background-color: #111;
 }
