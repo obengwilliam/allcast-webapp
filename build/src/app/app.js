@@ -45,18 +45,21 @@ angular.module( 'allcast', [
     $rootScope.$state=$state;
     $rootScope.$stateParams = $stateParams;
     Security.requestCurrentUser();
+    console.log(Security.currentUser);
+
 
     $rootScope.$on('$stateChangeSuccess',
         function(event,toState){
+            console.log(Security.isAuthenticated());
             var isAuthenticated= toState.data.authenticate && !Security.isAuthenticated();
 
             if(isAuthenticated){
-                 event.preventDefault();
+                event.preventDefault();
                 $state.go('login');
 
             }
 
-    });
+        });
 
 }])
 .factory('API_SERVER',['ENV',function(ENV){

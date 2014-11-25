@@ -3,8 +3,8 @@
  angular.module("allcast.config", [])
 
 .constant("ENV", {
-  "name": "staging",
-  "API_SERVER": "http://allcast-signal-server-stage.herokuapp.com/api/v1.0/"
+  "name": "development",
+  "API_SERVER": "http://localhost:3000/api/v1.0/"
 })
 
 ;

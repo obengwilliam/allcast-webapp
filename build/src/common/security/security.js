@@ -33,7 +33,7 @@ angular.module('security',
             $http.post(API_SERVER +'accounts/login', credentials).then(
                 function(response){
 
-                    service.currentUser={
+                    this.currentUser={
                         email: response.data.email,
                         firstname: response.data.firstname,
                         lastname: response.data.lastname,
@@ -103,6 +103,9 @@ angular.module('security',
                         username: response.data.username,
                         token: response.data.token,
                     };
+                    console.log(service.isAuthenticated());
+                    console.log('bbbbbbbbbbbb');
+
                     defer.resolve(service.currentUser);
                 },function(err){
                     console.log(err);
@@ -114,7 +117,7 @@ angular.module('security',
         },
 
         isAuthenticated:function(){
-            return !!service.currentUser;
+            return service.currentUser;
         },
 
         isAuthorized:function(authorizedRoles){

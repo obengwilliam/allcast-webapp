@@ -513,12 +513,12 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                    <li><a href=\"#\">Discover</a></li>\n" +
     "                    <li><a href=\"#\">Explore</a></li>\n" +
     "                    <li class=\"dropdown\">\n" +
-    "                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
+    "                        <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
     "                        <ul class=\"dropdown-menu\">\n" +
-    "                            <li><a href=\"#\">Settings</a></li>\n" +
-    "                            <li><a href=\"#\">Quick links</a></li>\n" +
+    "                            <li><a >Settings</a></li>\n" +
+    "                            <li><a >Quick links</a></li>\n" +
     "                            <li class=\"divider\"></li>\n" +
-    "                            <li><a href=\"#\">Log out</a></li>\n" +
+    "                            <li><a ng-click=\"logout()\">Log out</a></li>\n" +
     "                        </ul>\n" +
     "                    </li>\n" +
     "                </ul>\n" +
