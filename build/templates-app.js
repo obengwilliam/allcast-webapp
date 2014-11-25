@@ -261,7 +261,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "           </section>\n" +
     "\n" +
     "           <section class=\"col-md-8\">\n" +
-    "               <ul class=\"nav nav-pills navbar-right \">\n" +
+    "               <ul class=\"menu\">\n" +
     "                 <li><a ui-sref=\"home\">Home</a></li>\n" +
     "                 <li><a href=\"#\">Features</a></li>\n" +
     "                 <li><a href=\"#\">Team</a></li>\n" +
@@ -269,6 +269,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "                 <li class=\"active\"><a ui-sref=\"login\">Sign In</a></li>\n" +
     "             </ul>\n" +
     "         </section>\n" +
+    "         <div class=\"clear-fix\"></div>\n" +
     "        </div>\n" +
     "        </div>\n" +
     "        </nav>\n" +
@@ -282,7 +283,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "             <section class=\"intro-text\">\n" +
     "               <h1 class=\"head-text\">Live Audio Stream</h1>\n" +
     "               <p class=\"sub-text\">\n" +
-    "                 You are <span class=\"text-inline\">Live!</span> Let the world <span class=\"text-inline\">listen<br></span>to your <span class=\"text-inline\">awesomeness.</span> Create a <span class=\"text-inline\">channel</span><br> and enjoy the <span class=\"text-inline\">Allcast experience.</span>\n" +
+    "                 <span class=\"text-inline\"></span>Broadcast to the world from <span class=\"text-inline\">anywhere.</span><br> Let your voice <span class=\"text-inline\">be heard</span> across the globe.<br> Our technology is <span class=\"text-inline\">easy</span> to use,<br> all you need is your <span class=\"text-inline\">phone.</span>\n" +
     "             </p>\n" +
     "             <div class=\"email-collect\">\n" +
     "                <a class=\"sign-up\" ui-sref=\"register\">Start Broadcasting</a>\n" +
