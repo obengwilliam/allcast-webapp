@@ -374,7 +374,7 @@ module.exports = function(grunt)
                 constants: {
                     ENV: {
                         name:'staging',
-                        API_SERVER:'allcast-signal-server-stage.herokuapp.com'
+                        API_SERVER:'allcast-signal-server-stage.herokuapp.com/api/v1.0/'
 
                     }
                 }
