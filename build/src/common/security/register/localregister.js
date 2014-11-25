@@ -15,7 +15,7 @@ angular.module('register.local',[])
         },
         data:{
             pageTitle: 'register',
-            authenticate:'true'
+            authenticate:false
 
         }
 

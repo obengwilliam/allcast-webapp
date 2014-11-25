@@ -28,19 +28,18 @@ angular.module('security',
         },
 
         login: function(credentials){
+
             var defer= $q.defer();
             $http.post(API_SERVER +'accounts/login', credentials).then(
                 function(response){
-                    console.log(response);
+
                     service.currentUser={
                         email: response.data.email,
-                        fistname: response.data.firstname,
+                        firstname: response.data.firstname,
                         lastname: response.data.lastname,
                         username: response.data.username,
                         token: response.data.token
                     };
-
-
 
 
                     if(service.currentUser.token && service.currentUser.username)
@@ -49,12 +48,12 @@ angular.module('security',
                         $window.localStorage.username=service.currentUser.username;
 
                     }
-                    console.log(service.isAuthenticated(), 'authenticated');
                     defer.resolve(service.isAuthenticated());
                 },function(error){
                     defer.reject(error.data);
 
                 });
+
             return defer.promise;
 
         },
@@ -62,11 +61,9 @@ angular.module('security',
         signUp:function(credentials)
         {
 
-            console.log(credentials);
             var defer= $q.defer();
             $http.post(API_SERVER +'accounts', credentials).then(
                 function(response){
-                    console.log(response,'signup');
 
                     service.currentUser={
                         email: response.data.email,

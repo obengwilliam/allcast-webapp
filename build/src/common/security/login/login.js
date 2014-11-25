@@ -18,7 +18,7 @@ angular
         },
         data:{
             pageTitle: 'Login',
-            authenticate:'false'
+            authenticate:false
          }
 
     });
@@ -35,7 +35,9 @@ angular
 
     $scope.signIn= function(credentials){
         Security.destroy();
-        Security.login(credentials).then(function(isLoggedIn){
+        Security.login(credentials).then(
+            function(isLoggedIn){
+                console.log(isLoggedIn);
                 if(isLoggedIn){
                     $state.go('broadcast');
                 }
@@ -48,7 +50,6 @@ angular
 
         });
 
-        // $scope.showMenu();
 
     };
 
