@@ -1,6 +1,8 @@
 /*Styling for general Elements*/
 body{
     font-family: "Montserrat";
+    height: 100%;
+    width: 100%;
 }
 
 img{
@@ -17,11 +19,51 @@ a .fa {
     border-color: transparent;
     border: 0;
     font-family: 'Montserrat';
-    padding-top: 1%;
+    line-height: normal;
 }
 
 
-.navbar-fixed-top .navbar-right li a {
+.menu {
+    display: inline-block;
+    font-size: 12px;
+    float: right;
+    list-style: none;
+
+}
+
+.menu>li {
+    margin: 10px 10px;
+    float: left;
+}
+
+.menu>li a {
+    color: #fff;
+    display: block;
+    padding: 5px 0;
+    border: 3px solid transparent;
+    font-family: 'Montserrat';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.menu>li a:hover {
+    color: #00ACFD;
+    text-decoration: none;
+}
+
+.menu .active{
+    border-radius: 5px;
+    color: #fff;
+    background: #00ACFD;
+    padding: 0 10px; 
+}
+
+.menu .active:hover{
+    color: #111;
+    background-color: #F1F1F1;
+}
+
+/*.navbar-fixed-top .navbar-right li a {
     color: #FFFFFF;
     font-size: 12px;
     font-family: 'Montserrat';
@@ -38,15 +80,15 @@ a .fa {
     background-color: #00ACFD;
     color: #FFF;
 
-}
+    }*/
 
 .navbar-default .navbar-brand {
-  color: #00ACFD;
-  font-size: 20px;
-}
+      color: #00ACFD;
+      font-size: 20px;
+  }
 
-/*Styling for header*/
-header{
+  /*Styling for header*/
+  header{
     text-align: center;
     color: #FFFFFF;
     background-image: url(/assets/img/header-bg.png);
@@ -82,6 +124,7 @@ header{
     margin-bottom: 40px;
     margin-top: 5%;
     line-height: normal;
+    font-weight: normal;
 }
 
 .intro-text .sub-text .text-inline{
@@ -105,7 +148,7 @@ header{
     color: #fff;
     padding: 25px 50px;
     border-radius: 8px;
-    box-shadow: 0 5px #008acb;
+    box-shadow: 0 5px #0078b1;
     margin-bottom: 3px;
     transition-property: margin;
     transition-duration: 0s;
@@ -151,7 +194,7 @@ header{
 }
 
 .feature-set{
-   margin-top: 8%;
+ margin-top: 8%;
 }
 
 .features h4 {

@@ -1,70 +1,86 @@
 
-    <header class="heading">
-      <h1><a href="/">Allcast</a></h1>
-    </header>
-    <div class="main-content">
-      <div class="inner">
-        <div class="title-text"><h2>Welcome Back!</h2><hr></div>
-        <form role="form" name='login' ng-submit="signIn(credentials)" novalidate>
-          <span class="text-danger" ng-show="authError">{{authError}}!</span>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+ <div class="container">
+   <div class="row">
+     <section class="col-md-4">
+       <div class="navbar-header">
+         <a class="navbar-brand" href="#">
+           Allcast
+         </a>
+       </div>
+     </section>
 
-          <div class="text">
-            <span>
-              <input name="username" type="text" placeholder="Username" ng-model="credentials.username" required>
-            </span>
-            <span ng-show="login.username.$dirty && login.username.$invalid">
-                <span class=" text-center text-danger" ng-show="login.username.$error.required">Username is required
-              </span>
-            </span>
-          </div>
+     <section class="col-md-8">
+       <ul class="menu">
+         <li><a ui-sref="home">Home</a></li>
+         <li><a ui-sref="register">Sign Up</a></li>
+         <li class="active"><a ui-sref="login">Sign In</a></li>
+       </ul>
+     </section>
+   </div>
+ </div>
+</nav>
 
-          <div class="text">
-            <span>
-              <input name="password" type="password" placeholder="Password" ng-model="credentials.password" required>
-            </span>
+<div class="main-content">
+  <div class="inner">
+    <div class="title-text"><h2>Welcome Back!</h2><hr></div>
+    <form role="form" name='login' ng-submit="signIn(credentials)" novalidate>
+      <span class="text-danger" ng-show="authError">{{authError}}!</span>
 
-            <span ng-show="login.password.$dirty && login.password.$invalid">
-                <span class=" text-center text-danger" ng-show="login.password.$error.required"> Password is required</span>
-                <span class=" text-center text-danger" ng-show="login.password.$error.password">Invalid Password</span>
-            </span>
-
-          </div>
-
-
-          <div class="check-text">
-            <span class="spanA">
-              <input type="checkbox">Remember me
-            </span>
-            <span class="spanB"><a href="#">Forgot password?</a></span>
-          </div>
-
-          <div class="button-text">
-            <button ng-disabled="login.$invalid" type="submit"><span >Sign in</span></button>
-          </div>
-
-
-        </form>
+      <div class="text">
+        <span>
+          <input name="username" type="text" placeholder="Username" ng-model="credentials.username" required>
+        </span>
+        <span ng-show="login.username.$dirty && login.username.$invalid">
+          <span class=" text-center text-danger" ng-show="login.username.$error.required">Username is required
+          </span>
+        </span>
       </div>
-    </div>
-    <div class="text-below"><p>Already have an account? <a href="#">Signin</a></p></div>
-    <footer>
-      <div class="container">
-         <div class="row">
-           <div class="col-md-4">
-             <ul>
-              <li><a href="#">Home</a></li>
-            </ul>
-           </div>
-           <div class="col-md-4">
-             <ul class="list-inline quicklinks">
-               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="#"><i class="fa fa-google"></i></a></li>
-             </ul>
-           </div>
-           <div class="col-md-4">
-             <span class="sub-text">Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i> by Bolt Lab. Solutions</span>
-           </div>
-         </div>
+
+      <div class="text">
+        <span>
+          <input name="password" type="password" placeholder="Password" ng-model="credentials.password" required>
+        </span>
+
+        <span ng-show="login.password.$dirty && login.password.$invalid">
+          <span class=" text-center text-danger" ng-show="login.password.$error.required"> Password is required</span>
+          <span class=" text-center text-danger" ng-show="login.password.$error.password">Invalid Password</span>
+        </span>
+
       </div>
-    </footer>
+
+
+      <div class="check-text">
+        <span class="spanA">
+          <input type="checkbox">Remember me
+        </span>
+        <span class="spanB"><a href="#">Forgot password?</a></span>
+      </div>
+
+      <div class="button-text">
+        <button ng-disabled="login.$invalid" type="submit"><span >Sign in</span></button>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div class="text-below"><p>Don't have an account? <a href="#">Signup</a></p></div>
+<footer>
+  <div class="container">
+   <div class="row">
+     <div class="col-md-4">
+        <span class="copyright">Copyright © Allcast 2014.</span>
+      </div>
+    <div class="col-md-4">
+     <ul class="list-inline quicklinks">
+       <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+       <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+       <li><a href="#"><i class="fa fa-google"></i></a></li>
+     </ul>
+   </div>
+   <div class="col-md-4">
+     <span class="sub-text">Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i> by Bolt Lab. Solutions</span>
+   </div>
+ </div>
+</div>
+</footer>
