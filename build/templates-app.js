@@ -252,7 +252,7 @@ angular.module("details/details.html", []).run(["$templateCache", function($temp
     "<div class=\"main-content\">\n" +
     "  <div class=\"row\">\n" +
     "    <div class=\"col-md-6\">\n" +
-    "      <a href=\"\" title=\"\" ui-sref=\"detailbroadcast\"><button>Broadcast</button></a>\n" +
+    "      <a  title=\"\" ui-sref=\"details.broadcast\"><button>Broadcast</button></a>\n" +
     "    </div>\n" +
     "    <div class=\"col-md-6\">\n" +
     "        <a ui-sref=\"listen\" title=\"\"><button>Listen</button></a>\n" +
