@@ -28,7 +28,7 @@ angular.module("security/login/login.html", []).run(["$templateCache", function(
     "  <div class=\"inner\">\n" +
     "    <div class=\"title-text\"><h2>Welcome Back!</h2><hr></div>\n" +
     "    <form role=\"form\" name='login' ng-submit=\"signIn(credentials)\" novalidate>\n" +
-    "      <span class=\"text-danger\" ng-show=\"authError\">{{authError}}!</span>\n" +
+    "      <span class=\"text-danger\" ng-bind=\"authError\"></span>\n" +
     "\n" +
     "      <div class=\"text\">\n" +
     "        <span>\n" +

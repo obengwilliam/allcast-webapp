@@ -33,7 +33,7 @@ angular.module('security',
             $http.post(API_SERVER +'accounts/login', credentials).then(
                 function(response){
 
-                    this.currentUser={
+                    service.currentUser={
                         email: response.data.email,
                         firstname: response.data.firstname,
                         lastname: response.data.lastname,

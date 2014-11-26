@@ -9,6 +9,7 @@ angular.module( 'allcast', [
     'allcast.about',
     'allcast.broadcast',
     'allcast.listen',
+    'allcast.details',
     'security'
 ])
 
@@ -45,21 +46,19 @@ angular.module( 'allcast', [
     $rootScope.$state=$state;
     $rootScope.$stateParams = $stateParams;
     Security.requestCurrentUser();
-    console.log(Security.currentUser);
 
 
-    $rootScope.$on('$stateChangeSuccess',
-        function(event,toState){
-            console.log(Security.isAuthenticated());
-            var isAuthenticated= toState.data.authenticate && !Security.isAuthenticated();
+    // $rootScope.$on('$stateChangeSuccess',
+    //     function(event,toState){
+    //         var isAuthenticated= toState.data.authenticate && !Security.isAuthenticated();
 
-            if(isAuthenticated){
-                event.preventDefault();
-                $state.go('login');
+    //         if(isAuthenticated){
+    //             event.preventDefault();
+    //             $state.go('login');
 
-            }
+    //         }
 
-        });
+    //     });
 
 }])
 .factory('API_SERVER',['ENV',function(ENV){
@@ -71,6 +70,7 @@ angular.module( 'allcast', [
     $scope.$on('$stateChangeSuccess', function(event, toState){
         if ( angular.isDefined(toState.data.pageTitle ) ) {
             $scope.pageTitle = toState.data.pageTitle + ' | flowcast' ;
+
         }
     });
 }]);

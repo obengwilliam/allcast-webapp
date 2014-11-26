@@ -19,7 +19,7 @@ angular
         data:{
             pageTitle: 'Login',
             authenticate:false
-         }
+        }
 
     });
 
@@ -37,12 +37,9 @@ angular
         Security.destroy();
         Security.login(credentials).then(
             function(isLoggedIn){
-                console.log(isLoggedIn);
                 if(isLoggedIn){
-                    $state.go('broadcast');
+                    $state.go('details');
                 }
-
-
             },function (error){
             if(error){
                 $scope.authError=error.detail;
