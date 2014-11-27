@@ -25,7 +25,7 @@
   <div class="inner">
     <div class="title-text"><h2>Welcome Back!</h2><hr></div>
     <form role="form" name='login' ng-submit="signIn(credentials)" novalidate>
-      <span class="text-danger" ng-show="authError">{{authError}}!</span>
+      <span class="text-danger" ng-bind="authError"></span>
 
       <div class="text">
         <span>

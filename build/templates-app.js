@@ -1,4 +1,4 @@
-angular.module('templates-app', ['about/about.html', 'broadcast/broadcast.html', 'home/home.html', 'listen/listen.html']);
+angular.module('templates-app', ['about/about.html', 'broadcast/broadcast.html', 'details/details.html', 'details/detailsbroadcast.html', 'home/home.html', 'listen/listen.html']);
 
 angular.module("about/about.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.html",
@@ -247,6 +247,129 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "    </script>");
 }]);
 
+angular.module("details/details.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("details/details.html",
+    "<div class=\"main-content\">\n" +
+    "  <div class=\"row\">\n" +
+    "    <div class=\"col-md-6\">\n" +
+    "      <a  title=\"\" ui-sref=\"details.broadcast\"><button>Broadcast</button></a>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-md-6\">\n" +
+    "        <a ui-sref=\"listen\" title=\"\"><button>Listen</button></a>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<footer>\n" +
+    "  <div class=\"container\">\n" +
+    "     <div class=\"row\">\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <ul>\n" +
+    "          <li><a href=\"#\">Home</a></li>\n" +
+    "        </ul>\n" +
+    "       </div>\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <ul class=\"list-inline quicklinks\">\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-google\"></i></a></li>\n" +
+    "         </ul>\n" +
+    "       </div>\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <span class=\"sub-text\">Made with <i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i> by Bolt Lab. Solutions</span>\n" +
+    "       </div>\n" +
+    "     </div>\n" +
+    "  </div>\n" +
+    "</footer>\n" +
+    "\n" +
+    "\n" +
+    "");
+}]);
+
+angular.module("details/detailsbroadcast.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("details/detailsbroadcast.html",
+    "<div class=\"main-content\">\n" +
+    "  <div class=\"inner\">\n" +
+    "    <div class=\"title-text\"><h2>Enter Account Details</h2><hr></div>\n" +
+    "    <form>\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"text\" placeholder=\"Enter broadcast name\">\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"text\" placeholder=\"Select channel category\" class=\"channel-field\">\n" +
+    "          <div class=\"input-group-btn\">\n" +
+    "            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\"><span class=\"caret\"></span></button>\n" +
+    "              <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n" +
+    "                <li><a href=\"#\">Devotional</a></li>\n" +
+    "                <li><a href=\"#\">Reality</a></li>\n" +
+    "                <li><a href=\"#\">Spoken word</a></li>\n" +
+    "                <li><a href=\"#\">What's Happing</a></li>\n" +
+    "                <li><a href=\"#\">Sports</a></li>\n" +
+    "              </ul>\n" +
+    "          </div>\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"password\" placeholder=\"Enter Facebook link\">\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"password\" placeholder=\"Enter Twitter link\">\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"password\" placeholder=\"Enter Google plus link\">\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"bio-text\">\n" +
+    "        <label>Enter Bio</label>\n" +
+    "        <span>\n" +
+    "          <textarea class=\"form-control\" rows=\"3\" placeholder=\"Tell us about you\" ></textarea>\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <div class=\"button-text\">\n" +
+    "        <button><span>Submit</span></button>\n" +
+    "      </div>\n" +
+    "    </form>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"text-below\"><p>Already have an account? <a href=\"#\">Signin</a></p></div>\n" +
+    "<footer>\n" +
+    "  <div class=\"container\">\n" +
+    "     <div class=\"row\">\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <ul>\n" +
+    "          <li><a href=\"#\">Home</a></li>\n" +
+    "        </ul>\n" +
+    "       </div>\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <ul class=\"list-inline quicklinks\">\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-google\"></i></a></li>\n" +
+    "         </ul>\n" +
+    "       </div>\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <span class=\"sub-text\">Made with <i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i> by Bolt Lab. Solutions</span>\n" +
+    "       </div>\n" +
+    "     </div>\n" +
+    "  </div>\n" +
+    "</footer>\n" +
+    "");
+}]);
+
 angular.module("home/home.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("home/home.html",
     "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n" +
@@ -490,12 +613,12 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                    <li><a href=\"#\">Discover</a></li>\n" +
     "                    <li><a href=\"#\">Explore</a></li>\n" +
     "                    <li class=\"dropdown\">\n" +
-    "                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
+    "                        <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
     "                        <ul class=\"dropdown-menu\">\n" +
-    "                            <li><a href=\"#\">Settings</a></li>\n" +
-    "                            <li><a href=\"#\">Quick links</a></li>\n" +
+    "                            <li><a >Settings</a></li>\n" +
+    "                            <li><a >Quick links</a></li>\n" +
     "                            <li class=\"divider\"></li>\n" +
-    "                            <li><a href=\"#\">Log out</a></li>\n" +
+    "                            <li><a ng-click=\"logout()\">Log out</a></li>\n" +
     "                        </ul>\n" +
     "                    </li>\n" +
     "                </ul>\n" +

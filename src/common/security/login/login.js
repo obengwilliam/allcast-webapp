@@ -18,8 +18,8 @@ angular
         },
         data:{
             pageTitle: 'Login',
-            authenticate:'false'
-         }
+            authenticate:false
+        }
 
     });
 
@@ -35,12 +35,11 @@ angular
 
     $scope.signIn= function(credentials){
         Security.destroy();
-        Security.login(credentials).then(function(isLoggedIn){
+        Security.login(credentials).then(
+            function(isLoggedIn){
                 if(isLoggedIn){
-                    $state.go('broadcast');
+                    $state.go('details');
                 }
-
-
             },function (error){
             if(error){
                 $scope.authError=error.detail;
@@ -48,7 +47,6 @@ angular
 
         });
 
-        // $scope.showMenu();
 
     };
 
