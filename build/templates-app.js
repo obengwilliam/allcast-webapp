@@ -283,7 +283,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "             <section class=\"intro-text\">\n" +
     "               <h1 class=\"head-text\">Live Audio Stream</h1>\n" +
     "               <p class=\"sub-text\">\n" +
-    "                 <span class=\"text-inline\"></span>Broadcast to the world from <span class=\"text-inline\">anywhere.</span><br> Let your voice <span class=\"text-inline\">be heard</span> across the globe.<br> Our technology is <span class=\"text-inline\">easy</span> to use,<br> all you need is your <span class=\"text-inline\">phone.</span>\n" +
+    "                 <span class=\"text-inline\"></span>Broadcast from <span class=\"text-inline\">anywhere.</span><br> Let your voice <span class=\"text-inline\">be heard</span> across the globe.<br> Our technology is <span class=\"text-inline\">easy</span> to use,<br> all you need is your <span class=\"text-inline\">phone.</span>\n" +
     "             </p>\n" +
     "             <div class=\"email-collect\">\n" +
     "                <a class=\"sign-up\" ui-sref=\"register\">Start Broadcasting</a>\n" +
@@ -437,7 +437,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "    </div>\n" +
     "</div>\n" +
     "\n" +
-    "<footer ui-view=\"footer\">\n" +
+    "<footer ui-view=\"footer\" class=\"navbar-fixed-bottom\">\n" +
     "    <div class=\"container\">\n" +
     "     <div class=\"row\">\n" +
     "       <div class=\"col-md-4\">\n" +

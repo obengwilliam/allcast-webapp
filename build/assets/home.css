@@ -72,7 +72,7 @@ a .fa {
 header{
     text-align: center;
     color: #FFFFFF;
-    background-image: url(/assets/img/header-bg.png);
+    background-image: url(/assets/img/header-bg.jpg);
     background-attachment: scroll;
     background-position: center;
     -webkit-background-size: cover;
@@ -139,20 +139,24 @@ header{
 
 /*Styling for features*/
 .feature-set .section-heading {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 .feature-set{
- margin-top: 2%;
+ margin-top: -1%;
 }
 
 .feature-set h4 {
     font-family: 'Montserrat';
-    font-weight: bold;
+    font-size: 12px;
+}
+
+.feature-set .text-inline {
+    font-size: 14px;
 }
 
 .feature-set .value-text{
-    font-family: 'lato';
+    font-family: 'Montserrat';
     font-size: 18px;
 }
 
@@ -215,14 +219,14 @@ header{
 .section-subheading{
     margin-bottom: 75px;
     text-transform: none;
-    font-family: 'lato';
+    font-family: 'Montserrat';
     font-size: 20px;
     font-style: italic;
     font-weight: normal;
 }
 
 .team .team-value{
-    font-family: 'lato';
+    font-family: 'Montserrat';
     font-size: 20px;
     margin-top: 5%;
 }
@@ -359,4 +363,8 @@ footer ul.quicklinks .fa {
 /*Class for JQuery Scroll*/
 .navbar-color {
     background-color: #111;
+    height: 35px;
+    transition: background-color 2s;
+    -webkit-transition: background-color 2s;
+
 }
