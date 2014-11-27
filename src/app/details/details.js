@@ -39,9 +39,41 @@ angular
 
 
 }])
+.controller('detailsCtrl', ['$scope','Broadcast', function($scope,Broadcast){
 
+    $scope.broadcastDetails=function(details){
+        Broadcast.post(details)
+        .then(function(currentBroadcast){
+            $scope.currentBroadcast=currentBroadcast;
 
-.controller('detailsCtrl', [function(){
+        },function(error){
+            // $scope.broadcasterror=error.detail;
+            console.log(error);
+        });
+    };
 
+}])
+.factory('Broadcast', ['API_SERVER', '$q','$http', function(API_SERVER,$q, $http){
 
+    var service = {
+        currentBroadcast:undefined,
+
+        post:function(details){
+            var defer = $q.defer();
+            $http.post(API_SERVER +'broadcast', details)
+            .success(function(response){
+                service.currentBroadcast={
+                    broadcastName:response.data.broadcastname,
+                    category:response.data.category
+                };
+                defer.resolve(service.currentBroadcast);
+            })
+            .error(function(error){
+                defer.reject(error.data);
+            });
+
+            return defer.promise;
+        }
+    };
+    return service;
 }]);

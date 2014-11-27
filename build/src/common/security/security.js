@@ -103,8 +103,6 @@ angular.module('security',
                         username: response.data.username,
                         token: response.data.token,
                     };
-                    console.log(service.isAuthenticated());
-                    console.log('bbbbbbbbbbbb');
 
                     defer.resolve(service.currentUser);
                 },function(err){

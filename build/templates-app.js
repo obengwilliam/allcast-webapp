@@ -290,17 +290,30 @@ angular.module("details/detailsbroadcast.html", []).run(["$templateCache", funct
   $templateCache.put("details/detailsbroadcast.html",
     "<div class=\"main-content\">\n" +
     "  <div class=\"inner\">\n" +
-    "    <div class=\"title-text\"><h2>Enter Account Details</h2><hr></div>\n" +
-    "    <form>\n" +
-    "      <div class=\"text\">\n" +
-    "        <span>\n" +
-    "          <input type=\"text\" placeholder=\"Enter broadcast name\">\n" +
-    "        </span>\n" +
-    "      </div>\n" +
+    "    <div class=\"title-text\"><h2>Enter Broadcast Details</h2><hr></div>\n" +
+    "    <form role=\"form\" name=\"broadcast\" ng-submit=\"broadcastDetails(details)\" novalidate>\n" +
+    "      <!-- span error for broadcast name -->\n" +
+    "      <span ng-show=\"broadcast.broadcastname.$dirty && broadcast.broadcastname.$invalid\">\n" +
+    "          <span class=\" text-center text-danger\" ng-show=\"broadcast.broadcastname.$error.required\">Broadcast name is required\n" +
+    "          </span>\n" +
+    "      </span>\n" +
     "\n" +
     "      <div class=\"text\">\n" +
     "        <span>\n" +
-    "          <input type=\"text\" placeholder=\"Select channel category\" class=\"channel-field\">\n" +
+    "          <input type=\"text\" placeholder=\"Enter broadcast name\" name=\"broadcastname\" ng-model=\"details.broadcastname\" required>\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <!-- category name for broadcast -->\n" +
+    "      <span ng-show=\"broadcast.broadcastcategoryname.$dirty && broadcast.broadcastcategoryname.$invalid\">\n" +
+    "          <span class=\" text-center text-danger\" ng-show=\"broadcast.broadcastcategoryname.$error.required\">Broadcast  Category name is required\n" +
+    "          </span>\n" +
+    "      </span>\n" +
+    "\n" +
+    "\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"text\"  name=\"broadcastcategoryname\" placeholder=\"Select channel category\" class=\"channel-field\" ng-model=\"details.broadcastcategoryname\" required>\n" +
     "          <div class=\"input-group-btn\">\n" +
     "            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\"><span class=\"caret\"></span></button>\n" +
     "              <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n" +
@@ -314,38 +327,15 @@ angular.module("details/detailsbroadcast.html", []).run(["$templateCache", funct
     "        </span>\n" +
     "      </div>\n" +
     "\n" +
-    "      <div class=\"text\">\n" +
-    "        <span>\n" +
-    "          <input type=\"password\" placeholder=\"Enter Facebook link\">\n" +
-    "        </span>\n" +
-    "      </div>\n" +
-    "\n" +
-    "      <div class=\"text\">\n" +
-    "        <span>\n" +
-    "          <input type=\"password\" placeholder=\"Enter Twitter link\">\n" +
-    "        </span>\n" +
-    "      </div>\n" +
-    "\n" +
-    "      <div class=\"text\">\n" +
-    "        <span>\n" +
-    "          <input type=\"password\" placeholder=\"Enter Google plus link\">\n" +
-    "        </span>\n" +
-    "      </div>\n" +
-    "\n" +
-    "      <div class=\"bio-text\">\n" +
-    "        <label>Enter Bio</label>\n" +
-    "        <span>\n" +
-    "          <textarea class=\"form-control\" rows=\"3\" placeholder=\"Tell us about you\" ></textarea>\n" +
-    "        </span>\n" +
-    "      </div>\n" +
     "\n" +
     "      <div class=\"button-text\">\n" +
-    "        <button><span>Submit</span></button>\n" +
+    "        <button ng-disable=\"broadcast.$invalid\" type=\"submit\"><span>Submit</span></button>\n" +
     "      </div>\n" +
     "    </form>\n" +
+    "\n" +
+    "\n" +
     "  </div>\n" +
     "</div>\n" +
-    "<div class=\"text-below\"><p>Already have an account? <a href=\"#\">Signin</a></p></div>\n" +
     "<footer>\n" +
     "  <div class=\"container\">\n" +
     "     <div class=\"row\">\n" +
