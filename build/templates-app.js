@@ -21,8 +21,8 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "            </div>\n" +
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
-    "            <div class=\"collapse navbar-collapse  navbar-right\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "                <div class=\"col-sm-6 col-md-6\">\n" +
+    "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
+    "                <div class=\"col-xs-offset-4 col-xs-4\">\n" +
     "                    <form class=\"navbar-form\" role=\"search\">\n" +
     "                        <div class=\"input-group\">\n" +
     "                            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
@@ -622,8 +622,8 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "            </div>\n" +
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
-    "            <div class=\"collapse navbar-collapse  navbar-right\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "                <div class=\"col-sm-6 col-md-6\">\n" +
+    "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
+    "                <div class=\"col-xs-offset-4 col-xs-4\">\n" +
     "                    <form class=\"navbar-form\" role=\"search\">\n" +
     "                        <div class=\"input-group\">\n" +
     "                            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
