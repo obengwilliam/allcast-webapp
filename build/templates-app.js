@@ -249,39 +249,75 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
 
 angular.module("details/details.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("details/details.html",
-    "<div class=\"main-content\">\n" +
-    "  <div class=\"row\">\n" +
-    "    <div class=\"col-md-6\">\n" +
-    "      <a  title=\"\" ui-sref=\"details.broadcast\"><button>Broadcast</button></a>\n" +
+    "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n" +
+    "      <div class=\"container\">\n" +
+    "        <div class=\"row\">\n" +
+    "          <section class=\"col-md-4\">\n" +
+    "            <div class=\"navbar-header\">\n" +
+    "              <a class=\"navbar-brand\" href=\"#\">\n" +
+    "               Allcast\n" +
+    "              </a>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
+    "\n" +
+    "          <section class=\"col-md-8\">\n" +
+    "            <ul class=\"menu\">\n" +
+    "              <li><a href=\"home\">Home</a></li>\n" +
+    "              <li><a href=\"register\">Sign Up</a></li>\n" +
+    "              <li class=\"active\"><a href=\"login\">Sign In</a></li>\n" +
+    "            </ul>\n" +
+    "         </section>\n" +
+    "         <div class=\"clear-fix\"></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </nav>\n" +
+    "\n" +
+    "    <div class=\"heading-text\">\n" +
+    "      <h1>Enjoy Awesomeness</h1>\n" +
     "    </div>\n" +
-    "    <div class=\"col-md-6\">\n" +
-    "        <a ui-sref=\"listen\" title=\"\"><button>Listen</button></a>\n" +
+    "\n" +
+    "<div class=\"page-content\">\n" +
+    "  <div class=\"container\">\n" +
+    "  <div class=\"row\">\n" +
+    "    <div class=\"col-md-6 listen-side\">\n" +
+    "      <center>\n" +
+    "        <div class=\"img-broadcast\"><img src=\"assets/img/broadcast.png\"></div>\n" +
+    "        <div class=\"select-button\"><a  title=\"\" ui-sref=\"details.broadcast\"><button>Broadcast</button></a></div>\n" +
+    "        <p>Broadcast with the world now! Let the world hear your awesomeness</p>\n" +
+    "      </center>     \n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"col-md-6 broadcast\">\n" +
+    "      <center>\n" +
+    "        <div class=\"img-listen\"><img src=\"assets/img/listen.png\"></div>\n" +
+    "        <div class=\"select-button\"><a ui-sref=\"listen\" title=\"\"><button>Listen</button></a></div>\n" +
+    "        <p>Don't miss the moment, listen live to your favourite channel</p>\n" +
+    "      </center>\n" +
     "    </div>\n" +
     "  </div>\n" +
+    "  </div>\n" +
+    "\n" +
     "</div>\n" +
     "\n" +
-    "<footer>\n" +
+    "<footer ui-view=\"footer\" class=\"choice-footer\">\n" +
     "  <div class=\"container\">\n" +
-    "     <div class=\"row\">\n" +
-    "       <div class=\"col-md-4\">\n" +
-    "         <ul>\n" +
-    "          <li><a href=\"#\">Home</a></li>\n" +
+    "    <div class=\"row\">\n" +
+    "      <div class=\"col-md-4\">\n" +
+    "        <span class=\"copyright\">Copyright © allcast 2014.</span>\n" +
+    "      </div>\n" +
+    "      <div class=\"col-md-4\">\n" +
+    "        <ul class=\"list-inline quicklinks\">\n" +
+    "          <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n" +
+    "          <li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n" +
+    "          <li><a href=\"#\"><i class=\"fa fa-google\"></i></a></li>\n" +
     "        </ul>\n" +
-    "       </div>\n" +
-    "       <div class=\"col-md-4\">\n" +
-    "         <ul class=\"list-inline quicklinks\">\n" +
-    "           <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n" +
-    "           <li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n" +
-    "           <li><a href=\"#\"><i class=\"fa fa-google\"></i></a></li>\n" +
-    "         </ul>\n" +
-    "       </div>\n" +
-    "       <div class=\"col-md-4\">\n" +
-    "         <span class=\"sub-text\">Made with <i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i> by Bolt Lab. Solutions</span>\n" +
-    "       </div>\n" +
-    "     </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"col-md-4\">\n" +
+    "        <span class=\"sub-text\">Made with <i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i> by Bolt Lab. Solutions</span>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
     "</footer>\n" +
-    "\n" +
     "\n" +
     "");
 }]);
@@ -560,7 +596,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "    </div>\n" +
     "</div>\n" +
     "\n" +
-    "<footer ui-view=\"footer\" class=\"navbar-fixed-bottom\">\n" +
+    "<footer ui-view=\"footer\" class=\"bottom-fixed\">\n" +
     "    <div class=\"container\">\n" +
     "     <div class=\"row\">\n" +
     "       <div class=\"col-md-4\">\n" +

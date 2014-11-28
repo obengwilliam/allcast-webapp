@@ -8,6 +8,13 @@ body{
 img{
     vertical-align: middle;
 }
+a{
+    text-decoration: none;
+}
+
+a:active{
+    text-decoration: none;
+}
 
 a .fa {
     color: #FFFFFF;
@@ -46,6 +53,10 @@ a .fa {
     text-transform: uppercase;
 }
 
+.menu>li a:visited{
+    text-decoration: none;
+}
+
 .menu>li a:hover {
     color: #00ACFD;
     text-decoration: none;
@@ -61,6 +72,10 @@ a .fa {
 .menu .active:hover{
     color: #111;
     background-color: #F1F1F1;
+}
+
+.menu>li a:active{
+    text-decoration: none;
 }
 
 .navbar-default .navbar-brand {

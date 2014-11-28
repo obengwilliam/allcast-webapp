@@ -15,24 +15,13 @@ body{
     color: #FFF;
 }
 
-/*.navbar-fixed-top .navbar-right li a {
-    color: #FFFFFF;
-    font-size: 12px;
-    font-family: 'Montserrat';
-    line-height: normal;
-    text-transform: uppercase;
+a {
+    text-decoration: none;
 }
 
-.navbar-fixed-top .navbar-right li a:hover{
-    color: #FFF;
-    background-color:#00ACFD;
+a:active{
+    text-decoration: none;
 }
-
-.navbar-fixed-top .navbar-right .active a{
-    background-color: #00ACFD;
-    color: #FFF;
-
-}*/
 
 .menu {
     display: inline-block;
@@ -56,10 +45,19 @@ body{
     text-transform: uppercase;
 }
 
+.menu>li a:visited{
+    text-decoration: none;
+}
+
 .menu>li a:hover {
     color: #FFF;
     text-decoration: none;
 }
+
+.menu>li a:active{
+    text-decoration: none;
+}
+
 
 .menu .active{
     border-radius: 5px;
@@ -69,7 +67,7 @@ body{
 }
 
 .menu .active:hover{
-    color: #111;
+    color: #00ACFD;
     background-color: #F1F1F1;
 }
 

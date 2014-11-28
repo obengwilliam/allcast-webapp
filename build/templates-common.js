@@ -68,7 +68,8 @@ angular.module("security/login/login.html", []).run(["$templateCache", function(
     "  </div>\n" +
     "</div>\n" +
     "<div class=\"text-below\"><p>Don't have an account? <a href=\"#\">Signup</a></p></div>\n" +
-    "<footer>\n" +
+    "\n" +
+    "<footer class=\"bottom-fix\">\n" +
     "  <div class=\"container\">\n" +
     "   <div class=\"row\">\n" +
     "     <div class=\"col-md-4\">\n" +
@@ -199,7 +200,7 @@ angular.module("security/register/register.html", []).run(["$templateCache", fun
     "  </div>\n" +
     "</div>\n" +
     "<div class=\"text-below\"><p>Already have an account? <a href=\"#\">Signin</a></p></div>\n" +
-    "<footer>\n" +
+    "<footer class=\"bottom-fix\">\n" +
     "  <div class=\"container\">\n" +
     "   <div class=\"row\">\n" +
     "     <div class=\"col-md-4\">\n" +
