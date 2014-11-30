@@ -72,6 +72,7 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "    <div class=\"broadcast-controls\">\n" +
     "        <div class=\"container\">\n" +
     "            <div class=\"row\">\n" +
+    "                <audio id=\"broadcast_audio\" autoplay controls></audio>\n" +
     "                <div class=\"col-xs-2 nopadding\">\n" +
     "                    <div class=\"btn btn-primary broadcast-button\"> START BROADCAST </div>\n" +
     "                    <div class=\"btn btn-primary live-button\"> BROADCASTING </div>\n" +
@@ -199,52 +200,7 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "        </div>\n" +
     "    </div>\n" +
     "\n" +
-    "    <script type=\"text/javascript\">\n" +
-    "        $('document').ready(function(){\n" +
-    "            $('#mic-on').hide();\n" +
-    "            $('.live-button').hide();\n" +
-    "\n" +
-    "        });\n" +
-    "\n" +
-    "        $('.broadcast-button').click(function() {\n" +
-    "            //show live-button and start timer\n" +
-    "            $('.live-button').show();\n" +
-    "            $(this).hide();\n" +
-    "            $('#mic').hide();\n" +
-    "            $('#mic-on').css('color',\"#D50000\");\n" +
-    "            $('#mic-on').show();\n" +
-    "            $('.fa-circle').css('color',\"#D50000\");\n" +
-    "            $('.air-display').text('LIVE');\n" +
-    "\n" +
-    "        });\n" +
-    "\n" +
-    "        $('.live-button').click(function(){\n" +
-    "            if(confirm(\"Are you sure you want to end your broadcast?\")) {\n" +
-    "                $('.broadcast-button').show();\n" +
-    "                $(this).hide();\n" +
-    "                $('#mic').show();\n" +
-    "                $('#mic-on').hide();\n" +
-    "                $('.fa-circle').css('color',\"#E0E0E0\");\n" +
-    "                $('.air-display').text('OFF-AIR');\n" +
-    "\n" +
-    "            }\n" +
-    "\n" +
-    "        });\n" +
-    "\n" +
-    "        $(document).ready(function() {\n" +
-    "          $('#caster-wrapper').particleground({\n" +
-    "            dotColor: '#2eceff',\n" +
-    "            lineColor: '#2eceff',\n" +
-    "            density: 7000\n" +
-    "          });\n" +
-    "          $('.animate').css({\n" +
-    "            'margin-top': -($('.animate').height() / 2)\n" +
-    "          });\n" +
-    "        });\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "    </script>");
+    "");
 }]);
 
 angular.module("details/details.html", []).run(["$templateCache", function($templateCache) {
@@ -663,15 +619,23 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "    <div class=\"listener-controls\">\n" +
     "        <div class=\"container\">\n" +
     "            <div class=\"row\">\n" +
-    "                <div class=\"col-xs-2 nopadding\">\n" +
-    "                    <div class=\"btn btn-primary mute-button\"> MUTE CAST </div>\n" +
+    "                <audio id=\"listen_audio\" autoplay ontimeupdate=\"seconds()\">\n" +
+    "                </audio>\n" +
+    "                <div id=\"mute\" class=\"col-xs-2 nopadding\">\n" +
+    "                    <div class=\" btn btn-primary mute-button\">\n" +
+    "                        Mute\n" +
+    "                 </div>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-6\">\n" +
     "                    <div class=\"countup-timer\">\n" +
-    "                        <div id=\"hours\" style=\"display: inline\">00</div> :\n" +
-    "                        <div id=\"minutes\" style=\"display:inline\">00</div> :\n" +
-    "                        <div id=\"seconds\" style=\"display:inline\">00</div>\n" +
+    "                        <small ng-bind=\"soundVolume\"></small>\n" +
+    "                        <input id=\"volume\" type=\"range\" type=\"range\" min=\"0\" max=\"10\" step=\"1\"  onchange=\"volume(value)\">\n" +
+    "                        <div id=\"time\" style=\"display: inline\" ng-bind=\"secs\">00:00:00</div>\n" +
+    "\n" +
     "                        <small>SEC</small>\n" +
+    "                        <canvas id=\"visualizer\" width=50 height=17></canvas>\n" +
+    "\n" +
+    "                        <img src=\"assets/img/dashboard/volume_playing_white.gif\" alt=\"\">\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-2 display\">\n" +
@@ -689,7 +653,6 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "            </div>\n" +
     "        </div>\n" +
     "    </div><!-- end of .listening-controls -->\n" +
-    "\n" +
     "\n" +
     "    <div class=\"app-widgets\">\n" +
     "        <div class=\"container\">\n" +

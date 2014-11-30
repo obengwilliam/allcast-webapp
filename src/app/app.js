@@ -2,15 +2,17 @@
 
 angular.module( 'allcast', [
     'ui.router',
+    'btford.socket-io',
     'allcast.config',
-    'templates-app',
-    'templates-common',
+    'services.webrtc',
     'allcast.home',
     'allcast.about',
     'allcast.broadcast',
     'allcast.listen',
     'allcast.details',
-    'security'
+    'security',
+    'templates-app',
+    'templates-common'
 ])
 
 
@@ -65,6 +67,11 @@ angular.module( 'allcast', [
 
         return ENV.API_SERVER;
     }])
+.factory('socket',['socketFactory',function (socketFactory) {
+    var myIoSocket=window.io('http://localhost:3000');
+    var service =socketFactory({ioSocket:myIoSocket});
+    return service;
+}])
 .controller( 'allcastCtrl', ['$scope', function AppCtrl ( $scope) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState){
