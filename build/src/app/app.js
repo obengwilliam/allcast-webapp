@@ -69,6 +69,7 @@ angular.module( 'allcast', [
     }])
 .factory('socket',['socketFactory','ENV', function (socketFactory,ENV) {
     var myIoSocket=window.io(ENV.SOCKET_SERVER);
+    console.log(ENV.SOCKET_SERVER);
     var service =socketFactory({ioSocket:myIoSocket});
     return service;
 }])
@@ -76,7 +77,7 @@ angular.module( 'allcast', [
 
     $scope.$on('$stateChangeSuccess', function(event, toState){
         if ( angular.isDefined(toState.data.pageTitle ) ) {
-            $scope.pageTitle ='Appcast'+ toState.data.pageTitle ;
+            $scope.pageTitle ='Appcast| '+ toState.data.pageTitle ;
 
         }
     });
