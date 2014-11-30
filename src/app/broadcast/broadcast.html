@@ -12,8 +12,8 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">
-                <div class="col-sm-6 col-md-6">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="col-xs-offset-4 col-xs-4">
                     <form class="navbar-form" role="search">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="q">
@@ -63,6 +63,7 @@
     <div class="broadcast-controls">
         <div class="container">
             <div class="row">
+                <audio id="broadcast_audio" autoplay controls></audio>
                 <div class="col-xs-2 nopadding">
                     <div class="btn btn-primary broadcast-button"> START BROADCAST </div>
                     <div class="btn btn-primary live-button"> BROADCASTING </div>
@@ -190,49 +191,3 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        $('document').ready(function(){
-            $('#mic-on').hide();
-            $('.live-button').hide();
-
-        });
-
-        $('.broadcast-button').click(function() {
-            //show live-button and start timer
-            $('.live-button').show();
-            $(this).hide();
-            $('#mic').hide();
-            $('#mic-on').css('color',"#D50000");
-            $('#mic-on').show();
-            $('.fa-circle').css('color',"#D50000");
-            $('.air-display').text('LIVE');
-
-        });
-
-        $('.live-button').click(function(){
-            if(confirm("Are you sure you want to end your broadcast?")) {
-                $('.broadcast-button').show();
-                $(this).hide();
-                $('#mic').show();
-                $('#mic-on').hide();
-                $('.fa-circle').css('color',"#E0E0E0");
-                $('.air-display').text('OFF-AIR');
-
-            }
-
-        });
-
-        $(document).ready(function() {
-          $('#caster-wrapper').particleground({
-            dotColor: '#2eceff',
-            lineColor: '#2eceff',
-            density: 7000
-          });
-          $('.animate').css({
-            'margin-top': -($('.animate').height() / 2)
-          });
-        });
-
-
-
-    </script>
