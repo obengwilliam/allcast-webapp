@@ -67,8 +67,8 @@ angular.module( 'allcast', [
 
         return ENV.API_SERVER;
     }])
-.factory('socket',['socketFactory',function (socketFactory) {
-    var myIoSocket=window.io('http://localhost:3000');
+.factory('socket',['socketFactory','ENV', function (socketFactory,ENV) {
+    var myIoSocket=window.io(ENV.SOCKET_SERVER);
     var service =socketFactory({ioSocket:myIoSocket});
     return service;
 }])

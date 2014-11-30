@@ -348,7 +348,8 @@ module.exports = function(grunt)
                 constants: {
                     ENV: {
                         name:'development',
-                        API_SERVER:'http://localhost:3000/api/v1.0/'
+                        API_SERVER:'http://localhost:3000/api/v1.0/',
+                        SOCKET_SERVER:'http://localhost:3000/'
 
                     }
                 }
@@ -374,7 +375,8 @@ module.exports = function(grunt)
                 constants: {
                     ENV: {
                         name:'staging',
-                        API_SERVER:'http://allcast-signal-server-stage.herokuapp.com/api/v1.0/'
+                        API_SERVER:'http://allcast-signal-server-stage.herokuapp.com/api/v1.0/',
+                        SOCKET_SERVER:'http://allcast-signal-server-stage.herokuapp.com/'
 
                     }
                 }
@@ -383,7 +385,7 @@ module.exports = function(grunt)
 
         connect: {
             options: {
-                port: 5000,
+                port: 8080,
                 hostname: 'localhost',
                 livereload: 35729
             },
