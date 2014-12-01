@@ -475,8 +475,8 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "                 <li><a ui-sref=\"home\">Home</a></li>\n" +
     "                 <li><a href=\"#\">Features</a></li>\n" +
     "                 <li><a href=\"#\">Team</a></li>\n" +
-    "                 <li><a ui-sref=\"register\">Sign Up</a></li>\n" +
-    "                 <li class=\"active\"><a ui-sref=\"login\">Sign In</a></li>\n" +
+    "                 <li><a ui-sref=\"login\">Listen</a></li>\n" +
+    "                 <li class=\"active\"><a ui-sref=\"register\">Broadcast</a></li>\n" +
     "             </ul>\n" +
     "         </section>\n" +
     "         <div class=\"clear-fix\"></div>\n" +
@@ -510,70 +510,46 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "  <section class=\"container\">\n" +
     "    <h1 class=\"text-center section-heading\">Allcast Features</h1>\n" +
     "    <div class=\"row\">\n" +
-    "      <div class=\"col-md-6\">\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container-a\">\n" +
-    "            <span class=\"value-icon\"><i class=\"fa fa-microphone\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8\">\n" +
-    "            <h4>Let the world hear you</h4><hr>\n" +
+    "      <div class=\"col-md-12\">\n" +
+    "        <div class=\"row value-divide\">\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
+    "            <span class=\"value-icon icon-colorA\"><i class=\"fa fa-microphone\"></i></span>\n" +
+    "            <h4>Easy broadcast</h4>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Broadcast to the world from anywhere. Let your voice be heard by millions across the globe. Our technology is easy to use, all you need is your phone.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-share-alt\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8 feature-set\">\n" +
-    "            <h4>Social media intergration</h4><hr>\n" +
+    "\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
+    "             <span class=\"value-icon icon-colorB\"><i class=\"fa fa-share-alt\"></i></span>\n" +
+    "             <h4>Social media intergration</h4>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Share your live audio streams or broadcast with your friends on the various social networks. Your followers can listen live on their social Network.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-comments\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8 feature-set\">\n" +
-    "            <h4>Enagage live with your audience</h4><hr>\n" +
+    "\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
+    "             <span class=\"value-icon icon-colorC\"><i class=\"fa fa-comments\"></i></span>\n" +
+    "             <h4>Enagage with audience</h4>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Interact directly with your listeners as you broadcast, through live chat. Give your listeners the experience they deserve, they love listening to you and want you to know it.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
     "\n" +
-    "      <div class=\"col-md-6\">\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container-a\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-cogs\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8\">\n" +
-    "            <h4>Easy customization</h4><hr>\n" +
+    "          <div class=\"col-md-3 icon-container\">\n" +
+    "             <span class=\"value-icon icon-colorD\"><i class=\"fa fa-cogs\"></i></span>\n" +
+    "             <h4>Easy customization</h4>\n" +
     "            <div class=\"value-text\">\n" +
     "              <p class=\"text-inline\">Personalize your own channel, biography, links, artwork and more. Create your own profile the way you like it.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-4 icon-container\">\n" +
-    "             <span class=\"value-icon\"><i class=\"fa fa-group\"></i></span>\n" +
-    "          </div>\n" +
-    "          <div class=\"col-md-8 feature-set\">\n" +
-    "            <h4>Enjoy variety</h4><hr>\n" +
-    "            <div class=\"value-text\">\n" +
-    "              <p class=\"text-inline\">Never miss a single moment when people share their hearts with you. Discover a variety of channels from broadcasters. listen,chat and follow any channel of your choosing. </p>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
+    "\n" +
     "        </div>\n" +
     "      </div>\n" +
-    "    </div>\n" +
+    "\n" +
     "  </section>\n" +
     " </div>\n" +
-    "</div>\n" +
+    "\n" +
     "\n" +
     "<div ui-view='team' class=\"team\">\n" +
     "\n" +
@@ -605,7 +581,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "            <center>\n" +
     "              <img src=\"assets/img/loret.jpg\" class=\"img-responsive img-circle\" alt=\"Team-member-2\">\n" +
     "            </center>\n" +
-    "            <h4>Lorreta Cobbson</h4>\n" +
+    "            <h4>Loretta Cobbson</h4>\n" +
     "            <span class=\"text-muted\">Business Lead</span>\n" +
     "            <ul class=\"list-inline social-buttons\">\n" +
     "              <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n" +
