@@ -177,7 +177,7 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "        </div>\n" +
     "    </div><!-- end of .app-widgets -->\n" +
     "\n" +
-    "    <!-- Modal -->\n" +
+    "    <!-- Modal for social share -->\n" +
     "    <div class=\"modal fade\" id=\"shareModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
     "        <div class=\"modal-dialog\">\n" +
     "            <div class=\"modal-content\">\n" +
@@ -198,6 +198,8 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
+    "\n" +
+    "    <!-- Modal for creating channel details -->\n" +
     "\n" +
     "    <script type=\"text/javascript\">\n" +
     "        $('document').ready(function(){\n" +
@@ -479,8 +481,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "       </div>\n" +
     "     </div>\n" +
     "    </div>\n" +
-    "</footer>\n" +
-    "");
+    "</footer>");
 }]);
 
 angular.module("listen/listen.html", []).run(["$templateCache", function($templateCache) {
