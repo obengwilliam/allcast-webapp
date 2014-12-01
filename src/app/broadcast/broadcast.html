@@ -63,23 +63,27 @@
     <div class="broadcast-controls">
         <div class="container">
             <div class="row">
-                <audio id="broadcast_audio" autoplay controls></audio>
+                <audio id="broadcast_audio" autoplay></audio>
                 <div class="col-xs-2 nopadding">
                     <div class="btn btn-primary broadcast-button"> START BROADCAST </div>
                     <div class="btn btn-primary live-button"> BROADCASTING </div>
                 </div>
                 <div class="col-xs-3 ">
                     <div class="countup-timer">
-                        <div id="hours" style="display: inline">00</div> :
-                        <div id="minutes" style="display:inline">00</div> :
-                        <div id="seconds" style="display:inline">00</div>
+                        <i class="fa fa-volume-up fa-lg"></i>
+                        <small ng-bind="soundVolume"></small>
+                        <input id="volume" type="range"  min="0" max="10" step="1">
+
+                        <div id="time" style="display: inline" ng-bind="secs">00:00:00</div>
                         <small>SEC</small>
                     </div>
                 </div>
-                <div class="col-sm-2 display nopadding">
+                <div class="col-sm-5 display no
+                padding">
                     <i class="fa fa-circle"></i>
                     <i id="mic" class="fa fa-microphone-slash"></i>
                     <i id="mic-on" class="fa fa-microphone"></i>
+                    <canvas id="visualizer" width="50" height="15"></canvas>
                     <small class="air-display">OFF-AIR</small>
                 </div>
                 <div class="col-xs-1 nopadding">

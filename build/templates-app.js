@@ -72,23 +72,27 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "    <div class=\"broadcast-controls\">\n" +
     "        <div class=\"container\">\n" +
     "            <div class=\"row\">\n" +
-    "                <audio id=\"broadcast_audio\" autoplay controls></audio>\n" +
+    "                <audio id=\"broadcast_audio\" autoplay></audio>\n" +
     "                <div class=\"col-xs-2 nopadding\">\n" +
     "                    <div class=\"btn btn-primary broadcast-button\"> START BROADCAST </div>\n" +
     "                    <div class=\"btn btn-primary live-button\"> BROADCASTING </div>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-3 \">\n" +
     "                    <div class=\"countup-timer\">\n" +
-    "                        <div id=\"hours\" style=\"display: inline\">00</div> :\n" +
-    "                        <div id=\"minutes\" style=\"display:inline\">00</div> :\n" +
-    "                        <div id=\"seconds\" style=\"display:inline\">00</div>\n" +
+    "                        <i class=\"fa fa-volume-up fa-lg\"></i>\n" +
+    "                        <small ng-bind=\"soundVolume\"></small>\n" +
+    "                        <input id=\"volume\" type=\"range\"  min=\"0\" max=\"10\" step=\"1\">\n" +
+    "\n" +
+    "                        <div id=\"time\" style=\"display: inline\" ng-bind=\"secs\">00:00:00</div>\n" +
     "                        <small>SEC</small>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                <div class=\"col-sm-2 display nopadding\">\n" +
+    "                <div class=\"col-sm-5 display no\n" +
+    "                padding\">\n" +
     "                    <i class=\"fa fa-circle\"></i>\n" +
     "                    <i id=\"mic\" class=\"fa fa-microphone-slash\"></i>\n" +
     "                    <i id=\"mic-on\" class=\"fa fa-microphone\"></i>\n" +
+    "                    <canvas id=\"visualizer\" width=\"50\" height=\"15\"></canvas>\n" +
     "                    <small class=\"air-display\">OFF-AIR</small>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-1 nopadding\">\n" +
@@ -619,7 +623,7 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "    <div class=\"listener-controls\">\n" +
     "        <div class=\"container\">\n" +
     "            <div class=\"row\">\n" +
-    "                <audio id=\"listen_audio\" autoplay ontimeupdate=\"seconds()\">\n" +
+    "                <audio id=\"listen_audio\" autoplay >\n" +
     "                </audio>\n" +
     "                <div id=\"mute\" class=\"col-xs-2 nopadding\">\n" +
     "                    <div class=\" btn btn-primary mute-button\">\n" +
@@ -628,8 +632,9 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                </div>\n" +
     "                <div class=\"col-xs-6\">\n" +
     "                    <div class=\"countup-timer\">\n" +
+    "                        <i class=\"fa fa-volume-up fa-lg\"></i>\n" +
     "                        <small ng-bind=\"soundVolume\"></small>\n" +
-    "                        <input id=\"volume\" type=\"range\" type=\"range\" min=\"0\" max=\"10\" step=\"1\"  onchange=\"volume(value)\">\n" +
+    "                        <input id=\"volume\" type=\"range\" type=\"range\" min=\"0\" max=\"10\" step=\"1\" >\n" +
     "                        <div id=\"time\" style=\"display: inline\" ng-bind=\"secs\">00:00:00</div>\n" +
     "\n" +
     "                        <small>SEC</small>\n" +

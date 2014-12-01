@@ -5,6 +5,7 @@ angular.module( 'allcast', [
     'btford.socket-io',
     'allcast.config',
     'services.webrtc',
+    'services.waveform',
     'allcast.home',
     'allcast.about',
     'allcast.broadcast',

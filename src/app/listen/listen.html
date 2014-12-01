@@ -63,7 +63,7 @@
     <div class="listener-controls">
         <div class="container">
             <div class="row">
-                <audio id="listen_audio" autoplay ontimeupdate="seconds()">
+                <audio id="listen_audio" autoplay >
                 </audio>
                 <div id="mute" class="col-xs-2 nopadding">
                     <div class=" btn btn-primary mute-button">
@@ -72,8 +72,9 @@
                 </div>
                 <div class="col-xs-6">
                     <div class="countup-timer">
+                        <i class="fa fa-volume-up fa-lg"></i>
                         <small ng-bind="soundVolume"></small>
-                        <input id="volume" type="range" type="range" min="0" max="10" step="1"  onchange="volume(value)">
+                        <input id="volume" type="range" type="range" min="0" max="10" step="1" >
                         <div id="time" style="display: inline" ng-bind="secs">00:00:00</div>
 
                         <small>SEC</small>

@@ -44,7 +44,9 @@ angular
         return time;
     };
 
-    var listen_audio=angular.element('#listen_audio')[0];
+    var audio_element=angular.element('#listen_audio');
+    var volume_element=angular.element('#volume');
+    var listen_audio = audio_element[0];
 
     var mute_element=angular.element('#mute');
     mute_element.click(function(event){
@@ -54,21 +56,23 @@ angular
 
     });
 
-    window.volume=function(value){
+    volume_element.bind('change',function(){
+        var value = volume_element.val();
         $timeout(function(){
+            var value=volume_element.val();
             $scope.soundVolume=(value);
 
         });
         listen_audio.volume=(value/10);
-    };
+    });
 
-    window.seconds=function(){
+    audio_element.bind('timeupdate',function(){
         $timeout(function(){
             $scope.secs=(Math.floor(listen_audio.currentTime).toString()).toHHMMSS();
         });
+    });
 
 
-    };
 
     Webrtc.init(socket);
 

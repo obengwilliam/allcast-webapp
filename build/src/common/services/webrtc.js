@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('services.webrtc', [])
-    .factory('Webrtc',[function(){
+    .factory('Webrtc',['Waveform', function(Waveform){
         var service = {};
         service.init=function(socket){
 
@@ -204,6 +204,8 @@ angular
                     }
                     console.log('Adding local stream.');
                     sendMessage('got user media');
+                    localVideo.volume=0.1;
+                    Waveform.init(localStream);
                 }
 
 
@@ -297,6 +299,9 @@ angular
                     window.attachMediaStream(remoteVideo, event.stream);
                     console.log('Remote stream attached!!.');
                     remoteStream = event.stream;
+                    console.log(event.stream);
+                    Waveform.init(event.stream);
+
                 }
 
                 function handleRemoteStreamRemoved(event) {
