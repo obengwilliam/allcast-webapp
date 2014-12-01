@@ -42,12 +42,15 @@ module.exports={
         js: [
               //you can change the bootstrap.min.js to include only the ones you used
                 'vendor/jquery/dist/jquery.min.js',
+                'vendor/adapter.js/samples/web/js/adapter.js',
+                'vendor/socket.io-client/socket.io.js',
+                'vendor/bootstrap/dist/js/bootstrap.min.js',
                 'vendor/niimantse/jquery.particleground.min.js',
-                'vendor/bootstrap/js/dist/bootstrap.min.js',
                 'vendor/angular/angular.js',
+                'vendor/angular-socket-io/socket.min.js',
                 'vendor/angular-ui-utils/ui-utils.min.js',
                 'vendor/angular-ui-router/release/angular-ui-router.min.js',
-                'vendor/angular-ui-utils/ui-utils.min.js'
+                'vendor/angular-ui-utils/ui-utils.min.js',
 
             ],
 

@@ -1,9 +1,14 @@
 
+<<<<<<< HEAD
 /*Style for details page*/
+=======
+/*Style for Sign-up/Sign in page Page*/
+>>>>>>> development
 body{
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+<<<<<<< HEAD
 
 li {
     list-style: none;
@@ -123,6 +128,17 @@ footer ul.quicklinks .fa {
     text-align: center;
 }
 
+.select-button button a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.select-button button a:hover{
+    color: #FFF;
+    text-decoration: none;
+}
+
+
 .img-listen,.img-broadcast {
     margin-top: 15%;
 }
@@ -145,6 +161,25 @@ footer ul.quicklinks .fa {
 }
 
 /*other*/
+=======
+.signup-home{
+    background-color: #F1F1F1;
+    overflow: none;
+}
+
+.heading {
+    height: 90px;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 330px;
+    background-image: none;
+}
+
+.heading a {
+    text-decoration: none;
+}
+
+>>>>>>> development
 .main-content {
     width: 450px;
     background-color: #FFF;
@@ -186,7 +221,11 @@ footer ul.quicklinks .fa {
     margin-bottom: 14px;
 }
 
+<<<<<<< HEAD
 /*Style signup form on click of broadcast */
+=======
+/*New*/
+>>>>>>> development
 .main-content  .text .dropdown-toggle{
     position: absolute;
     bottom: 7px;
@@ -241,3 +280,34 @@ footer ul.quicklinks .fa {
     width: 100%;
 
 }
+<<<<<<< HEAD
+=======
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+    background-color: #111111;
+    color: #666666;
+}
+
+footer span.copyright, footer span.sub-text {
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+}
+
+footer ul.quicklinks {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+}
+
+footer ul.quicklinks .fa {
+    color: #666666;
+}
+
+
+>>>>>>> development

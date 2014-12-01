@@ -4,7 +4,8 @@
 
 .constant("ENV", {
   "name": "development",
-  "API_SERVER": "http://localhost:3000/api/v1.0/"
+  "API_SERVER": "http://localhost:3000/api/v1.0/",
+  "SOCKET_SERVER": "http://localhost:3000/"
 })
 
 ;

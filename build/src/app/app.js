@@ -2,14 +2,18 @@
 
 angular.module( 'allcast', [
     'ui.router',
+    'btford.socket-io',
     'allcast.config',
-    'templates-app',
-    'templates-common',
+    'services.webrtc',
+    'services.waveform',
     'allcast.home',
     'allcast.about',
     'allcast.broadcast',
     'allcast.listen',
-    'security'
+    'allcast.details',
+    'security',
+    'templates-app',
+    'templates-common'
 ])
 
 
@@ -20,10 +24,9 @@ angular.module( 'allcast', [
             .state('home', {
                 url: '/',
                 templateUrl:'home/home.html',
-
                 data:{
-                pageTitle: 'Home',
-                authenticate:false
+                    pageTitle: 'Home',
+                    authenticate:false
                 }
             });
 
@@ -47,28 +50,36 @@ angular.module( 'allcast', [
     $rootScope.$stateParams = $stateParams;
     Security.requestCurrentUser();
 
-    // $rootScope.$on('$stateChangeStart',
+
+    // $rootScope.$on('$stateChangeSuccess',
     //     function(event,toState){
     //         var isAuthenticated= toState.data.authenticate && !Security.isAuthenticated();
-    //         console.log(isAuthenticated);
 
     //         if(isAuthenticated){
     //             event.preventDefault();
-    //             $state.go('login', {notify:false});
+    //             $state.go('login');
+
     //         }
 
-    // });
+    //     });
 
 }])
 .factory('API_SERVER',['ENV',function(ENV){
 
         return ENV.API_SERVER;
     }])
+.factory('socket',['socketFactory','ENV', function (socketFactory,ENV) {
+    var myIoSocket=window.io(ENV.SOCKET_SERVER);
+    console.log(ENV.SOCKET_SERVER);
+    var service =socketFactory({ioSocket:myIoSocket});
+    return service;
+}])
 .controller( 'allcastCtrl', ['$scope', function AppCtrl ( $scope) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState){
         if ( angular.isDefined(toState.data.pageTitle ) ) {
-            $scope.pageTitle = toState.data.pageTitle + ' | flowcast' ;
+            $scope.pageTitle ='Appcast| '+ toState.data.pageTitle ;
+
         }
     });
 }]);

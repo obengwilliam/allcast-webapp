@@ -20,6 +20,7 @@ a .fa {
     border: 0;
     font-family: 'Montserrat';
     line-height: normal;
+    height: 35px;
 }
 
 
@@ -62,25 +63,6 @@ a .fa {
     color: #111;
     background-color: #F1F1F1;
 }
-
-/*.navbar-fixed-top .navbar-right li a {
-    color: #FFFFFF;
-    font-size: 12px;
-    font-family: 'Montserrat';
-    line-height: normal;
-    text-transform: uppercase;
-}
-
-.navbar-fixed-top .navbar-right li a:hover{
-    color: #FFF;
-    background-color:#00ACFD;
-}
-
-.navbar-fixed-top .navbar-right .active a{
-    background-color: #00ACFD;
-    color: #FFF;
-
-    }*/
 
 .navbar-default .navbar-brand {
       color: #00ACFD;
@@ -382,4 +364,12 @@ footer ul.quicklinks {
 
 footer ul.quicklinks .fa {
     color: #666666;
+}
+
+/*Style for scroll*/
+.navbar-color {
+    background-color: #111;
+
+    -webkit-transition: background-color 2s; 
+    transition: background-color 2s
 }

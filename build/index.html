@@ -32,6 +32,9 @@
     <link rel="stylesheet" type="text/css"  href="assets/broadcast.css" ng-if="$state.current.name=='broadcast'||$state.current.name=='listen'">
 
     <link rel="stylesheet" type="text/css"  href="assets/listening.css" ng-if="$state.current.name=='listen'">
+    <link rel="stylesheet" type="text/css"  href="assets/details.css" ng-if="$state.current.name=='details'">
+    <link rel="stylesheet" type="text/css"  href="assets/details.css" ng-if="$state.current.name=='details.broadcast'">
+      <link rel="stylesheet" type="text/css"  href="assets/volume.css">
 
     <!-- Fonts from Google -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300|Montserrat' rel='stylesheet' type='text/css'/> <!-- Fonts from Google -->
@@ -47,15 +50,21 @@
 
 <!-- compiled JavaScript -->
 <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/adapter.js/samples/web/js/adapter.js"></script>
+<script type="text/javascript" src="vendor/socket.io-client/socket.io.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="vendor/niimantse/jquery.particleground.min.js"></script>
 <script type="text/javascript" src="vendor/angular/angular.js"></script>
+<script type="text/javascript" src="vendor/angular-socket-io/socket.min.js"></script>
 <script type="text/javascript" src="vendor/angular-ui-utils/ui-utils.min.js"></script>
 <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="src/app/about/about.js"></script>
 <script type="text/javascript" src="src/app/app.js"></script>
 <script type="text/javascript" src="src/app/broadcast/broadcast.js"></script>
 <script type="text/javascript" src="src/app/config.js"></script>
+<script type="text/javascript" src="src/app/details/details.js"></script>
 <script type="text/javascript" src="src/app/home/home.js"></script>
+<script type="text/javascript" src="src/app/listen/broadcastWebRtc.js"></script>
 <script type="text/javascript" src="src/app/listen/listen.js"></script>
 <script type="text/javascript" src="src/common/directive/directives.js"></script>
 <script type="text/javascript" src="src/common/security/interceptor.js"></script>
@@ -63,6 +72,8 @@
 <script type="text/javascript" src="src/common/security/register/localregister.js"></script>
 <script type="text/javascript" src="src/common/security/register/register.js"></script>
 <script type="text/javascript" src="src/common/security/security.js"></script>
+<script type="text/javascript" src="src/common/services/waveform.js"></script>
+<script type="text/javascript" src="src/common/services/webrtc.js"></script>
 <script type="text/javascript" src="templates-common.js"></script>
 <script type="text/javascript" src="templates-app.js"></script>
 

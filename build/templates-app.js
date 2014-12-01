@@ -1,4 +1,4 @@
-angular.module('templates-app', ['about/about.html', 'broadcast/broadcast.html', 'home/home.html', 'listen/listen.html']);
+angular.module('templates-app', ['about/about.html', 'broadcast/broadcast.html', 'details/details.html', 'details/detailsbroadcast.html', 'home/home.html', 'listen/listen.html']);
 
 angular.module("about/about.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.html",
@@ -21,8 +21,8 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "            </div>\n" +
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
-    "            <div class=\"collapse navbar-collapse  navbar-right\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "                <div class=\"col-sm-6 col-md-6\">\n" +
+    "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
+    "                <div class=\"col-xs-offset-4 col-xs-4\">\n" +
     "                    <form class=\"navbar-form\" role=\"search\">\n" +
     "                        <div class=\"input-group\">\n" +
     "                            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
@@ -72,22 +72,27 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "    <div class=\"broadcast-controls\">\n" +
     "        <div class=\"container\">\n" +
     "            <div class=\"row\">\n" +
+    "                <audio id=\"broadcast_audio\" autoplay></audio>\n" +
     "                <div class=\"col-xs-2 nopadding\">\n" +
     "                    <div class=\"btn btn-primary broadcast-button\"> START BROADCAST </div>\n" +
     "                    <div class=\"btn btn-primary live-button\"> BROADCASTING </div>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-3 \">\n" +
     "                    <div class=\"countup-timer\">\n" +
-    "                        <div id=\"hours\" style=\"display: inline\">00</div> :\n" +
-    "                        <div id=\"minutes\" style=\"display:inline\">00</div> :\n" +
-    "                        <div id=\"seconds\" style=\"display:inline\">00</div>\n" +
+    "                        <i class=\"fa fa-volume-up fa-lg\"></i>\n" +
+    "                        <small ng-bind=\"soundVolume\"></small>\n" +
+    "                        <input id=\"volume\" type=\"range\"  min=\"0\" max=\"10\" step=\"1\">\n" +
+    "\n" +
+    "                        <div id=\"time\" style=\"display: inline\" ng-bind=\"secs\">00:00:00</div>\n" +
     "                        <small>SEC</small>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                <div class=\"col-sm-2 display nopadding\">\n" +
+    "                <div class=\"col-sm-5 display no\n" +
+    "                padding\">\n" +
     "                    <i class=\"fa fa-circle\"></i>\n" +
     "                    <i id=\"mic\" class=\"fa fa-microphone-slash\"></i>\n" +
     "                    <i id=\"mic-on\" class=\"fa fa-microphone\"></i>\n" +
+    "                    <canvas id=\"visualizer\" width=\"50\" height=\"15\"></canvas>\n" +
     "                    <small class=\"air-display\">OFF-AIR</small>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-1 nopadding\">\n" +
@@ -199,15 +204,68 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "        </div>\n" +
     "    </div>\n" +
     "\n" +
+    "\n" +
+    "<!-- Modal Starts Here -->\n" +
+    "<div class=\"modal fade\" id=\"channelInfo\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n" +
+    "  <div class=\"modal-dialog\">\n" +
+    "    <div class=\"modal-content\">\n" +
+    "      <div class=\"modal-header\">\n" +
+    "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span><span class=\"sr-only\">Close</span></button>\n" +
+    "        <h4 class=\"modal-title\">Enter Channel Details</h4>\n" +
+    "      </div>\n" +
+    "      <div class=\"modal-body\">\n" +
+    "        <div class=\"container\">\n" +
+    "          <form role=\"form\">\n" +
+    "            <div class=\"form-group\">\n" +
+    "              <label class=\"control-label\">Channel Name</label>\n" +
+    "              <input type=\"text\" class=\"form-control\" placeholder=\"Enter email\">\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "              <label class=\"control-label\">Channel Category</label>\n" +
+    "              <select class=\"catelog\">\n" +
+    "                <option>Please select a category for the channel</option>\n" +
+    "                <hr>\n" +
+    "                <option>Reality</option>\n" +
+    "                <option>Inspirational</option>\n" +
+    "                <option>What's happening</option>\n" +
+    "                <option>Fan base</option>\n" +
+    "                <option>Telenovela</option>\n" +
+    "              </select>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "              <label for=\"exampleInputFile\">Image upload</label>\n" +
+    "              <input type=\"file\" id=\"exampleInputFile\">\n" +
+    "              <p class=\"help-block\">Upload image </p>\n" +
+    "            </div>\n" +
+    "          </form>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "      <div class=\"modal-footer\">\n" +
+    "        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" +
+    "        <button type=\"button\" class=\"btn btn-primary\">Create Channel</button>\n" +
+    "      </div>\n" +
+    "    </div><!-- /.modal-content -->\n" +
+    "  </div><!-- /.modal-dialog -->\n" +
+    "</div><!-- /.modal Ends Here -->\n" +
+    "\n" +
+    "\n" +
+    "<!-- <<<<<<< HEAD -->\n" +
     "    <!-- Modal for creating channel details -->\n" +
     "\n" +
     "    <script type=\"text/javascript\">\n" +
-    "        $('document').ready(function(){\n" +
-    "            $('#mic-on').hide();\n" +
-    "            $('.live-button').hide();\n" +
+    "      \n" +
     "\n" +
-    "        });\n" +
     "\n" +
+    "        // $('document').ready(function(){\n" +
+    "        //     console.log('bigEndian(number)')\n" +
+    "        //     $('#channelInfo').modal({\n" +
+    "        //         show:true\n" +
+    "        //     });\n" +
+    "        //     console.log(\"ready!!!\");\n" +
+    "        //     // $('#mic-on').hide();\n" +
+    "        //     // $('.live-button').hide();\n" +
+    "        // });\n" +
+    "/*\n" +
     "        $('.broadcast-button').click(function() {\n" +
     "            //show live-button and start timer\n" +
     "            $('.live-button').show();\n" +
@@ -243,10 +301,160 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "            'margin-top': -($('.animate').height() / 2)\n" +
     "          });\n" +
     "        });\n" +
+    "*/\n" +
     "\n" +
     "\n" +
+    "    </script>\n" +
+    "<!-- =======\n" +
+    ">>>>>>> development -->\n" +
+    "");
+}]);
+
+angular.module("details/details.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("details/details.html",
+    "<body class=\"signup-home\">\n" +
+    "    <div class=\"container\">\n" +
+    "    <nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n" +
+    "      <div class=\"container\">\n" +
+    "        <div class=\"row\">\n" +
+    "          <section class=\"col-md-4\">\n" +
+    "            <div class=\"navbar-header\">\n" +
+    "              <a class=\"navbar-brand\" href=\"#\">\n" +
+    "               Allcast\n" +
+    "              </a>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
     "\n" +
-    "    </script>");
+    "          <section class=\"col-md-8\">\n" +
+    "            <ul class=\"menu\">\n" +
+    "              <li><a href=\"home\">Home</a></li>\n" +
+    "              <li><a href=\"register\">Sign Up</a></li>\n" +
+    "              <li class=\"active\"><a href=\"login\">Sign In</a></li>\n" +
+    "            </ul>\n" +
+    "         </section>\n" +
+    "         <div class=\"clear-fix\"></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </nav>\n" +
+    "\n" +
+    "    <div class=\"heading-text\">\n" +
+    "      <h1>Enjoy Awesomeness</h1>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"page-content\">\n" +
+    "  \n" +
+    "        <div class=\"row\">\n" +
+    "          <div class=\"col-md-6 listen-side\">\n" +
+    "            <center>\n" +
+    "              <div class=\"img-broadcast\"><img src=\"assets/img/broadcast.png\"></div>\n" +
+    "              <div class=\"select-button\"><button type=\"button\"><span><a ui-sref=\"details.broadcast\">Broadcast</a></span></button></div>\n" +
+    "              <p>Broadcast with the world now! Let the world hear your awesomeness</p>\n" +
+    "            </center>\n" +
+    "          </div>\n" +
+    "          <div class=\"col-md-6 broadcast\">\n" +
+    "            <center>\n" +
+    "              <div class=\"img-listen\"><img src=\"assets/img/listen.png\"></div>\n" +
+    "              <div class=\"select-button\"><button type=\"button\"><span><a ui-sref=\"listen\">Listen</a></span></button></div>\n" +
+    "              <p>Don't miss the moment, listen live to your favourite channel</p>\n" +
+    "            </center>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "\n" +
+    "<footer ui-view=\"footer\" class=\"choice-footer\">\n" +
+    "  <div class=\"container\">\n" +
+    "    <div class=\"row\">\n" +
+    "      <div class=\"col-md-4\">\n" +
+    "        <span class=\"copyright\">Copyright © allcast 2014.</span>\n" +
+    "      </div>\n" +
+    "      <div class=\"col-md-4\">\n" +
+    "        <ul class=\"list-inline quicklinks\">\n" +
+    "          <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n" +
+    "          <li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n" +
+    "          <li><a href=\"#\"><i class=\"fa fa-google\"></i></a></li>\n" +
+    "        </ul>\n" +
+    "      </div>\n" +
+    "      <div class=\"col-md-4\">\n" +
+    "        <span class=\"sub-text\">Made with <i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i> by Bolt Lab. Solutions</span>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</footer>");
+}]);
+
+angular.module("details/detailsbroadcast.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("details/detailsbroadcast.html",
+    "<div class=\"main-content\">\n" +
+    "  <div class=\"inner\">\n" +
+    "    <div class=\"title-text\"><h2>Enter Broadcast Details</h2><hr></div>\n" +
+    "    <form role=\"form\" name=\"broadcast\" ng-submit=\"broadcastDetails(details)\" novalidate>\n" +
+    "      <!-- span error for broadcast name -->\n" +
+    "      <span ng-show=\"broadcast.broadcastname.$dirty && broadcast.broadcastname.$invalid\">\n" +
+    "          <span class=\" text-center text-danger\" ng-show=\"broadcast.broadcastname.$error.required\">Broadcast name is required\n" +
+    "          </span>\n" +
+    "      </span>\n" +
+    "\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"text\" placeholder=\"Enter broadcast name\" name=\"broadcastname\" ng-model=\"details.broadcastname\" required>\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "      <!-- category name for broadcast -->\n" +
+    "      <span ng-show=\"broadcast.broadcastcategoryname.$dirty && broadcast.broadcastcategoryname.$invalid\">\n" +
+    "          <span class=\" text-center text-danger\" ng-show=\"broadcast.broadcastcategoryname.$error.required\">Broadcast  Category name is required\n" +
+    "          </span>\n" +
+    "      </span>\n" +
+    "\n" +
+    "\n" +
+    "      <div class=\"text\">\n" +
+    "        <span>\n" +
+    "          <input type=\"text\"  name=\"broadcastcategoryname\" placeholder=\"Select channel category\" class=\"channel-field\" ng-model=\"details.broadcastcategoryname\" required>\n" +
+    "          <div class=\"input-group-btn\">\n" +
+    "            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\"><span class=\"caret\"></span></button>\n" +
+    "              <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n" +
+    "                <li><a href=\"#\">Devotional</a></li>\n" +
+    "                <li><a href=\"#\">Reality</a></li>\n" +
+    "                <li><a href=\"#\">Spoken word</a></li>\n" +
+    "                <li><a href=\"#\">What's Happing</a></li>\n" +
+    "                <li><a href=\"#\">Sports</a></li>\n" +
+    "              </ul>\n" +
+    "          </div>\n" +
+    "        </span>\n" +
+    "      </div>\n" +
+    "\n" +
+    "\n" +
+    "      <div class=\"button-text\">\n" +
+    "        <button ng-disable=\"broadcast.$invalid\" type=\"submit\"><span>Submit</span></button>\n" +
+    "      </div>\n" +
+    "    </form>\n" +
+    "\n" +
+    "\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<footer>\n" +
+    "  <div class=\"container\">\n" +
+    "     <div class=\"row\">\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <ul>\n" +
+    "          <li><a href=\"#\">Home</a></li>\n" +
+    "        </ul>\n" +
+    "       </div>\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <ul class=\"list-inline quicklinks\">\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n" +
+    "           <li><a href=\"#\"><i class=\"fa fa-google\"></i></a></li>\n" +
+    "         </ul>\n" +
+    "       </div>\n" +
+    "       <div class=\"col-md-4\">\n" +
+    "         <span class=\"sub-text\">Made with <i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i> by Bolt Lab. Solutions</span>\n" +
+    "       </div>\n" +
+    "     </div>\n" +
+    "  </div>\n" +
+    "</footer>\n" +
+    "");
 }]);
 
 angular.module("home/home.html", []).run(["$templateCache", function($templateCache) {
@@ -481,7 +689,20 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "       </div>\n" +
     "     </div>\n" +
     "    </div>\n" +
-    "</footer>");
+    "</footer>\n" +
+    "\n" +
+    "\n" +
+    "<script type=\"text/javascript\">\n" +
+    "  $(window).scroll(function(){\n" +
+    "    if ($(window).scrollTop()>100){\n" +
+    "      $('.navbar-default').addClass('navbar-color');\n" +
+    "    }\n" +
+    "    else{\n" +
+    "      $('.navbar-default').removeClass('navbar-color');\n" +
+    "    };\n" +
+    "  });     \n" +
+    "</script>\n" +
+    "");
 }]);
 
 angular.module("listen/listen.html", []).run(["$templateCache", function($templateCache) {
@@ -500,8 +721,8 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "            </div>\n" +
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
-    "            <div class=\"collapse navbar-collapse  navbar-right\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "                <div class=\"col-sm-6 col-md-6\">\n" +
+    "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
+    "                <div class=\"col-xs-offset-4 col-xs-4\">\n" +
     "                    <form class=\"navbar-form\" role=\"search\">\n" +
     "                        <div class=\"input-group\">\n" +
     "                            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
@@ -515,12 +736,12 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                    <li><a href=\"#\">Discover</a></li>\n" +
     "                    <li><a href=\"#\">Explore</a></li>\n" +
     "                    <li class=\"dropdown\">\n" +
-    "                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
+    "                        <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
     "                        <ul class=\"dropdown-menu\">\n" +
-    "                            <li><a href=\"#\">Settings</a></li>\n" +
-    "                            <li><a href=\"#\">Quick links</a></li>\n" +
+    "                            <li><a >Settings</a></li>\n" +
+    "                            <li><a >Quick links</a></li>\n" +
     "                            <li class=\"divider\"></li>\n" +
-    "                            <li><a href=\"#\">Log out</a></li>\n" +
+    "                            <li><a ng-click=\"logout()\">Log out</a></li>\n" +
     "                        </ul>\n" +
     "                    </li>\n" +
     "                </ul>\n" +
@@ -551,15 +772,24 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "    <div class=\"listener-controls\">\n" +
     "        <div class=\"container\">\n" +
     "            <div class=\"row\">\n" +
-    "                <div class=\"col-xs-2 nopadding\">\n" +
-    "                    <div class=\"btn btn-primary mute-button\"> MUTE CAST </div>\n" +
+    "                <audio id=\"listen_audio\" autoplay >\n" +
+    "                </audio>\n" +
+    "                <div id=\"mute\" class=\"col-xs-2 nopadding\">\n" +
+    "                    <div class=\" btn btn-primary mute-button\">\n" +
+    "                        Mute\n" +
+    "                 </div>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-6\">\n" +
     "                    <div class=\"countup-timer\">\n" +
-    "                        <div id=\"hours\" style=\"display: inline\">00</div> :\n" +
-    "                        <div id=\"minutes\" style=\"display:inline\">00</div> :\n" +
-    "                        <div id=\"seconds\" style=\"display:inline\">00</div>\n" +
+    "                        <i class=\"fa fa-volume-up fa-lg\"></i>\n" +
+    "                        <small ng-bind=\"soundVolume\"></small>\n" +
+    "                        <input id=\"volume\" type=\"range\" type=\"range\" min=\"0\" max=\"10\" step=\"1\" >\n" +
+    "                        <div id=\"time\" style=\"display: inline\" ng-bind=\"secs\">00:00:00</div>\n" +
+    "\n" +
     "                        <small>SEC</small>\n" +
+    "                        <canvas id=\"visualizer\" width=50 height=17></canvas>\n" +
+    "\n" +
+    "                        <img src=\"assets/img/dashboard/volume_playing_white.gif\" alt=\"\">\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "                <div class=\"col-xs-2 display\">\n" +
@@ -577,7 +807,6 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "            </div>\n" +
     "        </div>\n" +
     "    </div><!-- end of .listening-controls -->\n" +
-    "\n" +
     "\n" +
     "    <div class=\"app-widgets\">\n" +
     "        <div class=\"container\">\n" +
