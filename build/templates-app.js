@@ -81,7 +81,7 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                    <div class=\"countup-timer\">\n" +
     "                        <i class=\"fa fa-volume-up fa-lg\"></i>\n" +
     "                        <small ng-bind=\"soundVolume\"></small>\n" +
-    "                        <input id=\"volume\" type=\"range\"  min=\"0\" max=\"10\" step=\"1\">\n" +
+    "                        <input id=\"volume\" type=\"range\"  value=\"0\" min=\"0\" max=\"10\" step=\"1\">\n" +
     "\n" +
     "                        <div id=\"time\" style=\"display: inline\" ng-bind=\"secs\">00:00:00</div>\n" +
     "                        <small>SEC</small>\n" +
@@ -638,7 +638,7 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                        <div id=\"time\" style=\"display: inline\" ng-bind=\"secs\">00:00:00</div>\n" +
     "\n" +
     "                        <small>SEC</small>\n" +
-    "                        <canvas id=\"visualizer\" width=50 height=17></canvas>\n" +
+    "                        <canvas id=\"visualizer\" width=\"50\" height=\"15\"></canvas>\n" +
     "\n" +
     "                        <img src=\"assets/img/dashboard/volume_playing_white.gif\" alt=\"\">\n" +
     "                    </div>\n" +

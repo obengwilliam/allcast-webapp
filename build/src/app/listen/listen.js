@@ -29,7 +29,7 @@ angular
 }])
 
 
-.controller('listenCtrl', ['$scope','$timeout', 'Webrtc', 'socket', function($scope,$timeout,Webrtc,socket){
+.controller('listenCtrl', ['$scope','$timeout', 'ListenWebrtc', 'socket', function($scope,$timeout,ListenWebrtc,socket){
 
     String.prototype.toHHMMSS = function () {
         var sec_num = parseInt(this, 10); // don't forget the second param
@@ -74,7 +74,7 @@ angular
 
 
 
-    Webrtc.init(socket);
+    ListenWebrtc.init(socket);
 
 
 
