@@ -1,30 +1,19 @@
 'use strict';
 angular
-    .module('services.webrtc', [])
-    .factory('Webrtc',['Waveform', function(Waveform){
+    .module('services.listenwebrtc', [])
+    .factory('ListenWebrtc',['Waveform', function(Waveform){
         var service = {};
         service.init=function(socket){
 
 
-                // Look after different browser vendors' ways of calling the getUserMedia()
-                // API method:
-                // Opera --> getUserMedia
-                // Chrome --> webkitGetUserMedia
-                // Firefox --> mozGetUserMedia
-                navigator.getUserMedia = navigator.getUserMedia ||navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-                // Clean-up function:
-                // collect garbage before unloading browser's window
 
                 window.onbeforeunload = function(){
                     hangup();
                 };
 
                 // Data channel information
-                var sendButton = document.getElementById('sendButton');
 
                 // HTML5 <video> elements
-                var localVideo = document.querySelector('#broadcast_audio');
                 var remoteVideo = document.querySelector('#listen_audio');
 
                 // Flags...
@@ -36,7 +25,6 @@ angular
 
                 // WebRTC data structures
                 // Streams
-                var localStream;
                 var remoteStream;
                 var pc;
 
@@ -55,8 +43,7 @@ angular
 
 
                 // Let's get started: prompt user for input (room name)
-                // var room = window.prompt('Enter room name:');
-                var room='kwame';
+                var room = window.prompt('Enter room name:');
 
                 // Connect to signaling server
                 // Clean-up functions...
@@ -70,22 +57,8 @@ angular
 
 
 
-                // Set getUserMedia constraints
-                var constraints = {video: false, audio: true};
 
 
-                // Server-mediated message exchanging...
-                // 1. Server-->Client...
-                // Handle 'created' message coming back from server:
-                // this peer is the initiator
-                socket.on('created', function (room){
-                    console.log('Created room ' + room);
-                    isInitiator = true;
-                    // Call getUserMedia()
-                    navigator.getUserMedia(constraints, handleUserMedia, handleUserMediaError);
-                    console.log('Getting user media with constraints', constraints);
-                    checkAndStart();
-                });
 
                 socket.on('room exist', function (room){
                         console.log('You cannot create room:room already exist' + room);
@@ -158,9 +131,6 @@ angular
                     console.log('Hanging up.');
                     stop();
                     sendMessage('bye');
-                    if(isInitiator){
-                        socket.emit('disconnect','Initiator disconnected');
-                    }
                 }
 
                 // From this point on, execution proceeds based on asynchronous events...
@@ -168,65 +138,15 @@ angular
 
                 // Channel negotiation trigger function
                 function checkAndStart() {
-
-                    //initiator
-                    if (typeof localStream !== 'undefined' && isChannelReady) {
-                        createPeerConnection();
-                        isStarted = true;
-                        if (isInitiator) {
-                            doCall();
-                        }
-                    }
-
-
                     //joined
                     if(!isStarted && isJoined && isChannelReady){
                         createPeerConnection();
                         isStarted = true;
-                        if (isInitiator) {
-                            doCall();
-                        }
                     }
                 }
-
-                function handleUserMedia(stream) {
-                    localStream = stream;
-                    window.s=localStream;
-
-                    window.attachMediaStream(localVideo, stream);
-                    if(localVideo.src){
-                        angular.element('.live-button').show();
-                        angular.element('.broadcast-button').hide();
-                        angular.element('#mic').hide();
-                        angular.element('#mic-on').css('color','#D50000');
-                        angular.element('#mic-on').show();
-                        angular.element('.fa-circle').css('color','#D50000');
-                        angular.element('.air-display').text('LIVE');
-                    }
-                    console.log('Adding local stream.');
-                    sendMessage('got user media');
-                    localVideo.volume=0.1;
-                    Waveform.init(localStream);
-                }
-
-
-
-                function handleUserMediaError(error){
-                    console.log('navigator.getUserMedia error: ', error);
-                }
-
-
-
-
-
 
                 // Send message to the other peer via the signaling server
                 function sendMessage(message){
-                    if(isInitiator){
-                        console.log('Sending message: ', message);
-                        socket.emit('message', message);
-
-                    }
                     if(!endofCandidates){
                         console.log('Sending message: ', message);
                         socket.emit('message', message);
@@ -247,9 +167,7 @@ angular
                             console.log(pc);
                         }
 
-                        if(isInitiator){
-                            pc.addStream(localStream);
-                        }
+
 
                         pc.onicecandidate = handleIceCandidate;
                         console.log('Created RTCPeerConnnection with:\n' +
@@ -271,13 +189,6 @@ angular
                 }
 
 
-                function doCall() {
-                    console.log('Creating Offer...');
-                    console.log('heldldll');
-                    pc.createOffer(setLocalAndSendMessage,onSignalingError, sdpConstraints);
-                }
-
-
                 // Signaling error handler
                 function onSignalingError(error) {
                     console.log('Failed to create signaling message : ' + error.name);
@@ -296,12 +207,11 @@ angular
 
                 function handleRemoteStreamAdded(event) {
                     console.log('Remote stream added.');
-                    console.log(event.stream);
                     window.attachMediaStream(remoteVideo, event.stream);
                     console.log('Remote stream attached!!.');
                     remoteStream = event.stream;
-                    console.log(event.stream);
-                    Waveform.init(event.stream);
+                    console.log(remoteStream, 'kkkkkkk');
+                    Waveform.init(remoteStream);
 
                 }
 
@@ -323,7 +233,6 @@ angular
                         pc.close();
                     }
                     pc = null;
-                    sendButton.disabled=true;
                 }
 
             // ICE candidates management

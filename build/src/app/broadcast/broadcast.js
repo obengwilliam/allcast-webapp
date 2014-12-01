@@ -29,8 +29,8 @@ angular
 }])
 
 
-.controller('broadCastCtrl', ['Webrtc', 'socket','$timeout','$scope',
- function(Webrtc,socket,$timeout,$scope){
+.controller('broadCastCtrl', ['BroadCastWebrtc', 'socket','$timeout','$scope',
+ function(BroadCastWebrtc,socket,$timeout,$scope){
 
     String.prototype.toHHMMSS = function () {
         var sec_num = parseInt(this, 10); // don't forget the second param
@@ -120,7 +120,7 @@ angular
         });
     });
 
-    Webrtc.init(socket);
+    BroadCastWebrtc.init(socket);
 
 
 
