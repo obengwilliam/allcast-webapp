@@ -1,0 +1,253 @@
+
+/*Style for Sign-up/Sign in page Page*/
+body{
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.navbar-default {
+    background-color: #111;
+    border-color: transparent;
+    border: 0;
+    font-family: 'Montserrat';
+}
+
+.navbar-default .navbar-brand {
+    color: #FFF;
+}
+
+/*.navbar-fixed-top .navbar-right li a {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.navbar-fixed-top .navbar-right li a:hover{
+    color: #FFF;
+    background-color:#00ACFD;
+}
+
+.navbar-fixed-top .navbar-right .active a{
+    background-color: #00ACFD;
+    color: #FFF;
+
+}*/
+
+.menu {
+    display: inline-block;
+    font-size: 12px;
+    float: right;
+    list-style: none;
+}
+
+.menu>li {
+    margin: 10px 10px;
+    float: left;
+}
+
+.menu>li a {
+    color: #fff;
+    display: block;
+    padding: 5px 0;
+    border: 3px solid transparent;
+    font-family: 'Montserrat';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.menu>li a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.menu .active{
+    border-radius: 5px;
+    color: #fff;
+    background: #00ACFD;
+    padding: 0 10px;
+}
+
+.menu .active:hover{
+    color: #111;
+    background-color: #F1F1F1;
+}
+
+
+.signup-home{
+    background-color: #161616;
+    overflow: none;
+}
+
+.heading {
+    height: 90px;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 330px;
+    background-image: none;
+}
+
+.heading a {
+    text-decoration: none;
+}
+
+.main-content {
+    width: 400px;
+    background-color: #FFF;
+    /*z-index: 9999999;*/
+    position: relative;
+    padding: 0 25px;
+    margin: 8% auto;
+    margin-bottom: 2%;
+    font-size: 14px;
+    /* box-shadow: 10px 10px 10px #F1F1F1;*/
+    outline: none;
+    border-radius: 10px;
+    border: 5px solid #F1F1F1;
+}
+
+.main-content form {
+    padding: 5px;
+    text-align: center;
+}
+
+.main-content .title-text h2 {
+    padding: 10px 24px;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    margin-bottom: 5%;
+    text-transform: uppercase;
+}
+
+.main-content .text {
+    margin-bottom: 5px;
+}
+
+.main-content .text {
+    width: 100%;
+    height: 45px;
+    margin: 20px 0;
+    color: #666;
+    position: relative;
+    border: 1px solid #b3b3b3;
+    padding: 4px;
+    background-color: #FFF;
+}
+
+/*.button-text {
+    cursor:pointer;
+    background-color: #00ACFD;
+    width: 100%;
+    height: 45px;
+    color: #666;
+    position: relative;
+
+}*/
+
+.button-text button {
+    display: inline-block;
+    margin: 0 0 20px 0;
+    color: #fff;
+    border: 1px solid #00ACFD;
+    padding-top:5px;
+    padding-bottom:5px;
+    background: #00ACFD;
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    font-family: "Montserrat";
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px #0078b1;
+    transition-property: margin;
+    transition-duration: 0s;
+}
+
+.spanA {
+    margin-right: 8%;
+}
+
+.spanB {
+    margin-left: 8%;
+}
+
+/*.main-content .button-text button {
+    width: 100%;
+    border: 0;
+    background-color: #00ACFD;
+    color: #FFF;
+
+}
+*/
+
+.main-content .text input {
+    font-weight:500;
+    border-radius: 0;
+    padding: 5px 5px 0 5px;
+    margin-bottom: 10px;
+    width:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid rgba(0,0,0,0);
+
+}
+
+.main-content .text input:hover, .main-content .text input:focus{
+    background-color: #FFF;
+    outline: none;
+}
+
+
+.text-below {
+    text-align: center;
+    color: #FFF;
+}
+
+.check-text span {
+    width: 100%;
+}
+
+.check-text {
+    margin-bottom: 5%;
+}
+
+
+/*footer{
+    color: #FFF;
+    background-color: #111111;
+    }*/
+
+    footer {
+        padding: 10px 0;
+        text-align: center;
+        background-color: #111111;
+        color: #666666;
+    }
+
+    footer span.copyright, footer span.sub-text {
+        text-transform: uppercase;
+        text-transform: none;
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        line-height: 40px;
+    }
+
+    footer ul.quicklinks {
+        margin-bottom: 0;
+        text-transform: uppercase;
+        text-transform: none;
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        line-height: 40px;
+    }
+
+    footer ul.quicklinks .fa {
+        color: #666666;
+    }
+
+
