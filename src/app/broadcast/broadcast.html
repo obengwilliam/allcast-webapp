@@ -27,12 +27,15 @@
                     <li><a href="#">Discover</a></li>
                     <li><a href="#">Explore</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" ng-bind='user.username'> <b class="caret"></b></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">{{user.username}}
+                         <b class="caret"></b>
+                        </a>
+
                         <ul class="dropdown-menu">
                             <li><a href="#">Settings</a></li>
                             <li><a href="#">Quick links</a></li>
                             <li class="divider"></li>
-                            <li><a ng-click='logout()'></a></li>
+                            <li><a ng-click='logout()'>Logout</a></li>
                         </ul>
                     </li>
                 </ul>
