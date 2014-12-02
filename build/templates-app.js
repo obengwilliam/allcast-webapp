@@ -425,8 +425,8 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "                 <li><a ui-sref=\"home\">Home</a></li>\n" +
     "                 <li><a href=\"#\">Features</a></li>\n" +
     "                 <li><a href=\"#\">Team</a></li>\n" +
-    "                 <li><a ui-sref=\"login\">Listen</a></li>\n" +
-    "                 <li class=\"active\"><a ui-sref=\"register\">Broadcast</a></li>\n" +
+    "                 <li><a ui-sref=\"register\">Signup</a></li>\n" +
+    "                 <li class=\"active\"><a ui-sref=\"login\">Login</a></li>\n" +
     "               </ul>\n" +
     "             </section>\n" +
     "             <div class=\"clear-fix\"></div>\n" +
