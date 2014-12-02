@@ -91,11 +91,12 @@ angular.module('security',
         },
 
         requestCurrentUser: function() {
+            var defer=$q.defer();
             if ($window.localStorage.token) {
-                var defer=$q.defer();
 
                 $http.get(API_SERVER+'accounts/me')
                 .then(function(response) {
+
                     service.currentUser = {
                         email: response.data.email,
                         firstname: response.data.firstname,
@@ -105,13 +106,14 @@ angular.module('security',
                     };
 
                     defer.resolve(service.currentUser);
-                },function(err){
-                    console.log(err);
+                },function(error){
+                    defer.reject(error.data);
                 });
 
 
-                return defer.promise;
             }
+            return defer.promise;
+
         },
 
         isAuthenticated:function(){

@@ -3,7 +3,7 @@ angular
     .module('services.broadcastwebrtc', [])
     .factory('BroadCastWebrtc',['Waveform', function(Waveform){
         var service = {};
-        service.init=function(socket){
+        service.init=function(socket,broadCastName){
 
 
                 // Look after different browser vendors' ways of calling the getUserMedia()
@@ -56,7 +56,7 @@ angular
 
                 // Let's get started: prompt user for input (room name)
                 // var room = window.prompt('Enter room name:');
-                var room='kwame';
+                var room=broadCastName;
 
                 // Connect to signaling server
                 // Clean-up functions...

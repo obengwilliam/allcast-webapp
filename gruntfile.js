@@ -336,13 +336,13 @@ module.exports = function(grunt)
             options: {
                 space: '  ',
                 wrap: '"use strict";\n\n {%= __ngModule %}',
-                name: 'allcast.config',
+                name: 'allcast.server-config',
             },
           // Environment targets
 
             development: {
                 options: {
-                    dest: 'src/app/config.js'
+                    dest: 'src/app/server-config.js'
                 },
 
                 constants: {

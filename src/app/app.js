@@ -3,9 +3,10 @@
 angular.module( 'allcast', [
     'ui.router',
     'btford.socket-io',
-    'allcast.config',
+    'allcast.server-config',
     'services.broadcastwebrtc',
     'services.listenwebrtc',
+    'services.config',
     'services.waveform',
     'allcast.home',
     'allcast.about',
@@ -46,10 +47,24 @@ angular.module( 'allcast', [
     'login.error.serverError': 'There was a problem with authenticating'
 })
 
-.run(['$rootScope','$state','$stateParams', 'Security',function run ($rootScope,$state,$stateParams,Security) {
-    $rootScope.$state=$state;
-    $rootScope.$stateParams = $stateParams;
-    Security.requestCurrentUser();
+.run(['$rootScope','$state','$stateParams', 'Security','$window',
+    function run ($rootScope,$state,$stateParams,Security,$window) {
+        $rootScope.$state=$state;
+        $rootScope.$stateParams = $stateParams;
+
+        Security.requestCurrentUser()
+            .then(function(currentUser)
+            {
+                console.log(currentUser);
+                if(!!currentUser){
+                    if(currentUser.token=== $window.localStorage.token){
+                        $rootScope.user=currentUser;
+                        $rootScope.isAuthenticated=Security.isAuthenticated;
+                        $rootScope.isAuthorized=Security.isAuthorized;
+                    }
+                }
+
+            });
 
 
     // $rootScope.$on('$stateChangeSuccess',
@@ -64,17 +79,22 @@ angular.module( 'allcast', [
 
     //     });
 
-}])
+    }
+])
 .factory('API_SERVER',['ENV',function(ENV){
 
         return ENV.API_SERVER;
     }])
-.factory('socket',['socketFactory','ENV', function (socketFactory,ENV) {
-    var myIoSocket=window.io(ENV.SOCKET_SERVER);
-    console.log(ENV.SOCKET_SERVER);
-    var service =socketFactory({ioSocket:myIoSocket});
-    return service;
-}])
+.factory('socket', ['socketFactory','ENV','$window','Config',
+     function (socketFactory,ENV,$window,Config) {
+        var query={
+            query:'token='+Config.authToken
+        };
+        var myIoSocket =$window.io.connect(ENV.SOCKET_SERVER,query);
+        console.log(Config.authToken);
+        return socketFactory({ioSocket:myIoSocket});
+    }
+])
 .controller( 'allcastCtrl', ['$scope', function AppCtrl ( $scope) {
 
     $scope.$on('$stateChangeSuccess', function(event, toState){

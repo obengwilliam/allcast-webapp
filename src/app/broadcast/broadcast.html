@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="loginCtrl">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -27,12 +27,12 @@
                     <li><a href="#">Discover</a></li>
                     <li><a href="#">Explore</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Majorie <b class="caret"></b></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" ng-bind='user.username'> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Settings</a></li>
                             <li><a href="#">Quick links</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Log out</a></li>
+                            <li><a ng-click='logout()'></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -40,15 +40,19 @@
         </div>
     </nav>
 
+
     <div id="caster-wrapper">
-        <div class="container animate">
+        <div class="container">
+
             <div class="row">
                 <div class="col-xs-10">
                     <div class="channel-details">
-                        <h5 class="channel-name"> MAJORIE</h5>
-                        <h6 class="channel-category">Rhythm and Blues</h6>
+                        <h5 class="channel-name" >{{currentBroadcaster.name}}</h5>
+
+                        <h6 class="channel-category"> {{currentBroadcaster.category}}</h6>
                     </div>
                 </div>
+
                 <div class="col-xs-2">
                     <div class="caster-profile">
                         <div class="profile-img">
@@ -59,6 +63,9 @@
             </div>
         </div>
     </div><!-- end of .caster-wrapper -->
+
+
+
 
     <div class="broadcast-controls">
         <div class="container">
@@ -122,7 +129,7 @@
                                             <div class="media-body" >
                                                 What happened to Jimmy &amp; Wade Wagon. Any releases yet?
                                                 <br />
-                                                <small class="text-muted">Majorie | 23rd Nov at 5:00pm</small>
+                                                <small class="text-muted" >Majorie | 23rd Nov at 5:00pm</small>
                                             </div>
                                         </div>
                                     </div>
@@ -196,8 +203,13 @@
     </div>
 
 
+
+
+
+
 <!-- Modal Starts Here -->
 <div class="modal fade" id="channelInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -206,95 +218,50 @@
       </div>
       <div class="modal-body">
         <div class="container">
-          <form role="form">
+          <form role="form" name="broadcast" ng-submit="broadCastDetails(details)" novalidate>
             <div class="form-group">
               <label class="control-label">Channel Name</label>
-              <input type="text" class="form-control" placeholder="Enter email">
+              <input name="broadcastname" ng-model="details.broadcastname" type="text" class="form-control" placeholder="Enter Channel Name" required>
+               <span ng-show="broadcast.broadcastname.$dirty && broadcast.broadcastname.$invalid">
+                    <span class=" text-center text-danger" ng-show="broadcast.broadcastname.$error.required">Broadcast name is required
+                    </span>
+                </span>
+
             </div>
+
+
             <div class="form-group">
-              <label class="control-label">Channel Category</label>
-              <select class="catelog">
-                <option>Please select a category for the channel</option>
-                <hr>
-                <option>Reality</option>
-                <option>Inspirational</option>
-                <option>What's happening</option>
-                <option>Fan base</option>
-                <option>Telenovela</option>
-              </select>
+                <label class="control-label">Channel Category</label>
+                <select name="broadcastcategoryname" class="catelog" ng-options="category.name for category in broadCastCategories" ng-model="details.broadcastcategoryname"  required>
+                </select>
+
+                <span ng-show="broadcast.broadcastcategoryname.$dirty && broadcast.broadcastcategoryname.$invalid">
+                  <span class=" text-center text-danger" ng-show="broadcast.broadcastcategoryname.$error.required">Broadcast  Category name is required
+                  </span>
+                </span>
+
             </div>
+
+
+
             <div class="form-group">
               <label for="exampleInputFile">Image upload</label>
               <input type="file" id="exampleInputFile">
               <p class="help-block">Upload image </p>
             </div>
+
+            <div class="form-group">
+                <button  ng-disabled="broadcast.$invalid" type="submit" class="btn btn-primary">Create Channel</button>
+            </div>
+
+
           </form>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create Channel</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal Ends Here -->
 
-
-<!-- <<<<<<< HEAD -->
-    <!-- Modal for creating channel details -->
-
-    <script type="text/javascript">
-      
-
-
-        // $('document').ready(function(){
-        //     console.log('bigEndian(number)')
-        //     $('#channelInfo').modal({
-        //         show:true
-        //     });
-        //     console.log("ready!!!");
-        //     // $('#mic-on').hide();
-        //     // $('.live-button').hide();
-        // });
-/*
-        $('.broadcast-button').click(function() {
-            //show live-button and start timer
-            $('.live-button').show();
-            $(this).hide();
-            $('#mic').hide();
-            $('#mic-on').css('color',"#D50000");
-            $('#mic-on').show();
-            $('.fa-circle').css('color',"#D50000");
-            $('.air-display').text('LIVE');
-
-        });
-
-        $('.live-button').click(function(){
-            if(confirm("Are you sure you want to end your broadcast?")) {
-                $('.broadcast-button').show();
-                $(this).hide();
-                $('#mic').show();
-                $('#mic-on').hide();
-                $('.fa-circle').css('color',"#E0E0E0");
-                $('.air-display').text('OFF-AIR');
-
-            }
-
-        });
-
-        $(document).ready(function() {
-          $('#caster-wrapper').particleground({
-            dotColor: '#2eceff',
-            lineColor: '#2eceff',
-            density: 7000
-          });
-          $('.animate').css({
-            'margin-top': -($('.animate').height() / 2)
-          });
-        });
-*/
-
-
-    </script>
-<!-- =======
->>>>>>> development -->
