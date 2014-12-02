@@ -10,6 +10,17 @@
     padding-bottom: 10px;
 }
 
+.open>.dropdown-menu {
+    display: block;
+    background-color: #111;
+    color: #FFF;
+    border-radius: 5px;
+}
+
+.dropdown-menu>li>a{
+    color: #FFF;
+}
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
  background-color: #00ACED;
  color: #FFF;
