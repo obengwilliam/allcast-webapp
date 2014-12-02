@@ -22,41 +22,67 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
     "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "                <div class=\"col-xs-offset-4 col-xs-4\">\n" +
-    "                    <form class=\"navbar-form\" role=\"search\">\n" +
-    "                        <div class=\"input-group\">\n" +
-    "                            <input \n" +
-    "                            type=\"text\" \n" +
-    "                            class=\"typeahead form-control\" \n" +
-    "                            placeholder=\"Search\"  \n" +
-    "                            autocomplete=\"off\"\n" +
-    "                            data-provide=\"typeahead\">\n" +
-    "                            <div class=\"input-group-btn\">\n" +
-    "                                <button class=\"btn btn-default\" type=\"submit\"><i class=\"fa fa-search\"></i></button>\n" +
-    "                            </div>\n" +
+    "            <div class=\"col-xs-offset-4 col-xs-4\">\n" +
+    "                <form class=\"navbar-form\" role=\"search\">\n" +
+    "                    <div class=\"input-group\">\n" +
+    "                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
+    "                        <div class=\"input-group-btn\">\n" +
+    "                            <button class=\"btn btn-default\" type=\"submit\" data-toggle=\"dropdown\" data-target=\"#search-dropdown\" autocomplete=\"off\"><i class=\"fa fa-search\"></i></button>\n" +
     "                        </div>\n" +
-    "                        <input\n" +
-    "                        type=\"hidden\"\n" +
-    "                        class=\"span1\"\n" +
-    "                        name=\"channelId\"\n" +
-    "                        id=\"channelId\"\n" +
-    "                        value=\"\">\n" +
-    "                    </form>\n" +
+    "                    </div>\n" +
+    "                </form>\n" +
+    "\n" +
+    "                <div id=\"search-dropdown\" class=\"search-dropdown\">\n" +
+    "                    <ul class=\"dropdown-menu rs\">\n" +
+    "                        <li> \n" +
+    "                            <a href=\"#\">Oops, no search results were found.</a> \n" +
+    "                        </li>\n" +
+    "                        <li class=\"divider\"></li>\n" +
+    "                        <li class=\"rs-one\">\n" +
+    "                            <a href=\"#\">\n" +
+    "                                <div class=\"row\">\n" +
+    "                                    <div class=\"col-xs-3\">\n" +
+    "                                        <img class=\"rs-img img-circle\" src=\"assets/img/dashboard/majorie.png\">\n" +
+    "                                    </div>\n" +
+    "                                    <div class=\"col-xs-9\">\n" +
+    "                                        <div class=\"rs-search-name\">Ama Nkansah</div>\n" +
+    "                                        <div class=\"rs-search-details\">Telenovela | <strong class=\"live\">LIVE</strong></div>\n" +
+    "                                    </div>\n" +
+    "                                </div> \n" +
+    "                            </a>    \n" +
+    "                        </li>  \n" +
+    "                        <li class=\"rs-one\">\n" +
+    "                            <a href=\"#\">\n" +
+    "                                <div class=\"row\">\n" +
+    "                                    <div class=\"col-xs-3\">\n" +
+    "                                        <img class=\"rs-img img-circle\" src=\"assets/img/dashboard/nii.png\">\n" +
+    "                                    </div>\n" +
+    "                                    <div class=\"col-xs-9\">\n" +
+    "                                        <div class=\"rs-search-name\">Nii Mantse</div>\n" +
+    "                                        <div class=\"rs-search-details\">Big People &amp;... | <strong class=\"live\">LIVE</strong></div>\n" +
+    "                                    </div>\n" +
+    "                                </div> \n" +
+    "                            </a>    \n" +
+    "                        </li>  \n" +
+    "                    </ul>\n" +
     "                </div>\n" +
-    "                <ul class=\"nav navbar-nav\">\n" +
-    "                    <li><a href=\"#\">Discover</a></li>\n" +
-    "                    <li><a href=\"#\">Explore</a></li>\n" +
-    "                    <li class=\"dropdown\">\n" +
-    "                        <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
-    "                        <ul class=\"dropdown-menu\">\n" +
-    "                            <li><a href=\"#\">Settings</a></li>\n" +
-    "                            <li><a href=\"#\">Quick links</a></li>\n" +
-    "                            <li class=\"divider\"></li>\n" +
-    "                            <li><a href=\"#\">Log out</a></li>\n" +
-    "                        </ul>\n" +
-    "                    </li>\n" +
-    "                </ul>\n" +
-    "            </div><!-- /.navbar-collapse -->\n" +
+    "\n" +
+    "\n" +
+    "            </div>\n" +
+    "            <ul class=\"nav navbar-nav\">\n" +
+    "                <li><a href=\"#\">Discover</a></li>\n" +
+    "                <li><a href=\"#\">Explore</a></li>\n" +
+    "                <li class=\"dropdown\">\n" +
+    "                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">Majorie <b class=\"caret\"></b></a>\n" +
+    "                    <ul class=\"dropdown-menu\">\n" +
+    "                        <li><a >Settings</a></li>\n" +
+    "                        <li><a >Quick links</a></li>\n" +
+    "                        <li class=\"divider\"></li>\n" +
+    "                        <li><a ng-click=\"logout()\">Log out</a></li>\n" +
+    "                    </ul>\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
+    "        </div><!-- /.navbar-collapse -->\n" +
     "        </div>\n" +
     "    </nav>\n" +
     "\n" +
