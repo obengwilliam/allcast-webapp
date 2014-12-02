@@ -231,6 +231,9 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "            <div class=\"form-group\">\n" +
     "              <label class=\"control-label\">Channel Name</label>\n" +
     "              <input name=\"broadcastname\" ng-model=\"details.broadcastname\" type=\"text\" class=\"form-control\" placeholder=\"Enter Channel Name\" required>\n" +
+    "              <span>\n" +
+    "              <span class=\"text-center text-danger \" ng-bind=\"broadCastError\"></span><br>\n" +
+    "              </span>\n" +
     "               <span ng-show=\"broadcast.broadcastname.$dirty && broadcast.broadcastname.$invalid\">\n" +
     "                    <span class=\" text-center text-danger\" ng-show=\"broadcast.broadcastname.$error.required\">Broadcast name is required\n" +
     "                    </span>\n" +
