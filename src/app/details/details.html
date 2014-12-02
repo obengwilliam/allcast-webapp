@@ -14,9 +14,9 @@
 
           <section class="col-md-8">
             <ul class="menu">
-              <li><a href="home">Home</a></li>
-              <li><a href="register">Sign Up</a></li>
-              <li class="active"><a href="login">Sign In</a></li>
+              <li><a >Disvover</a></li>
+              <li><a >Explore</a></li>
+              <li class="active"><a>Welcome, {{user.username}}</a></li>
             </ul>
          </section>
          <div class="clear-fix"></div>
@@ -29,19 +29,28 @@
     </div>
 
     <div class="page-content">
-  
+
         <div class="row">
           <div class="col-md-6 listen-side">
             <center>
               <div class="img-broadcast"><img src="assets/img/broadcast.png"></div>
-              <div class="select-button"><button type="button"><span><a ui-sref="details.broadcast">Broadcast</a></span></button></div>
+              <div class="select-button">
+                <button type="button">
+                  <span><a ui-sref="broadcast">Broadcast</a></span>
+                </button>
+              </div>
               <p>Broadcast with the world now! Let the world hear your awesomeness</p>
             </center>
           </div>
           <div class="col-md-6 broadcast">
             <center>
               <div class="img-listen"><img src="assets/img/listen.png"></div>
-              <div class="select-button"><button type="button"><span><a ui-sref="listen">Listen</a></span></button></div>
+              <div class="select-button">
+                <button type="button">
+                  <span><a ui-sref="listen">Listen</a>
+                  </span>
+                </button>
+              </div>
               <p>Don't miss the moment, listen live to your favourite channel</p>
             </center>
           </div>

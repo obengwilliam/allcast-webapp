@@ -11,7 +11,7 @@ angular
         url:'/login',
         views:{
             '':{
-                controller:'loginFormCtrl',
+                controller:'loginCtrl',
                 templateUrl:'security/login/login.html'
 
             }
@@ -28,7 +28,7 @@ angular
 }])
 
 
-.controller('loginFormCtrl', ['$rootScope', '$scope', 'Security', '$state',
+.controller('loginCtrl', ['$rootScope', '$scope', 'Security', '$state',
     function($rootScope,$scope,Security,$state){
 
     $scope.authError=null;
@@ -38,6 +38,10 @@ angular
         Security.login(credentials).then(
             function(isLoggedIn){
                 if(isLoggedIn){
+                    $rootScope.user=Security.currentUser;
+                    $rootScope.isAuthenticated=Security.isAuthenticated;
+                    $rootScope.isAuthorized=Security.isAuthorized;
+
                     $state.go('details');
                 }
             },function (error){
@@ -62,5 +66,7 @@ angular
     {
         Security.logout();
     };
+
+
 
 }]);

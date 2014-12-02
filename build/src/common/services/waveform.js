@@ -38,6 +38,7 @@ angular
 
             var canvas = document.getElementById('visualizer');
             var canvasCtx = canvas.getContext('2d');
+            console.log(canvas, '[kdkdkkdkk');
 
             var intendedWidth = 200;
 
@@ -70,7 +71,7 @@ angular
                     var x = 0;
 
                     for(var i = 0; i < bufferLength; i++) {
-                        barHeight = (dataArray[i] + 85)*0.6;
+                        barHeight = (dataArray[i] + 85)*2;
 
                         canvasCtx.fillStyle = '#00ACED';
                         canvasCtx.fillRect(x,window.HEIGHT-barHeight/2,barWidth,barHeight/2);

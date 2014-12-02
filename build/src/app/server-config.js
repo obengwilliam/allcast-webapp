@@ -1,6 +1,6 @@
 "use strict";
 
- angular.module("allcast.config", [])
+ angular.module("allcast.server-config", [])
 
 .constant("ENV", {
   "name": "development",

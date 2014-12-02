@@ -1,9 +1,9 @@
 'use strict';
 angular
-    .module('services.webrtc', [])
-    .factory('Webrtc',['Waveform', function(Waveform){
+    .module('services.broadcastwebrtc', [])
+    .factory('BroadCastWebrtc',['Waveform', function(Waveform){
         var service = {};
-        service.init=function(socket){
+        service.init=function(socket,broadCastName){
 
 
                 // Look after different browser vendors' ways of calling the getUserMedia()
@@ -56,7 +56,7 @@ angular
 
                 // Let's get started: prompt user for input (room name)
                 // var room = window.prompt('Enter room name:');
-                var room='kwame';
+                var room=broadCastName;
 
                 // Connect to signaling server
                 // Clean-up functions...
@@ -205,7 +205,7 @@ angular
                     }
                     console.log('Adding local stream.');
                     sendMessage('got user media');
-                    localVideo.volume=0.1;
+                    localVideo.volume=0.0;
                     Waveform.init(localStream);
                 }
 
@@ -296,12 +296,11 @@ angular
 
                 function handleRemoteStreamAdded(event) {
                     console.log('Remote stream added.');
-                    console.log(event.stream);
                     window.attachMediaStream(remoteVideo, event.stream);
                     console.log('Remote stream attached!!.');
                     remoteStream = event.stream;
-                    console.log(event.stream);
-                    Waveform.init(event.stream);
+                    console.log(remoteStream, 'kkkkkkk');
+                    Waveform.init(remoteStream);
 
                 }
 
