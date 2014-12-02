@@ -266,6 +266,9 @@
             </select>
 =======
               <input name="broadcastname" ng-model="details.broadcastname" type="text" class="form-control" placeholder="Enter Channel Name" required>
+              <span>
+              <span class="text-center text-danger " ng-bind="broadCastError"></span><br>
+              </span>
                <span ng-show="broadcast.broadcastname.$dirty && broadcast.broadcastname.$invalid">
                     <span class=" text-center text-danger" ng-show="broadcast.broadcastname.$error.required">Broadcast name is required
                     </span>

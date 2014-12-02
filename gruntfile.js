@@ -357,7 +357,7 @@ module.exports = function(grunt)
 
             production: {
                 options: {
-                    dest: 'src/app/config.js'
+                    dest: 'src/app/server-config.js'
                 },
 
                 constants: {
@@ -369,7 +369,7 @@ module.exports = function(grunt)
             },
             staging: {
                 options: {
-                    dest: 'src/app/config.js'
+                    dest: 'src/app/server-config.js'
                 },
 
                 constants: {

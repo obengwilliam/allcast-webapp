@@ -150,8 +150,7 @@ angular
             BroadCastWebrtc.init(socket,$scope.currentBroadcaster.name);
 
         },function(error){
-            // $scope.broadcasterror=error.detail;
-            console.log(error);
+            $scope.broadCastError=error.detail;
         });
     };
 
@@ -174,7 +173,7 @@ angular
                 defer.resolve(service.currentBroadcast);
             })
             .error(function(error){
-                defer.reject(error.data);
+                defer.reject(error);
             });
 
             return defer.promise;
