@@ -1,0 +1,30 @@
+[
+ {
+       "id":1
+       ,"name":"Majorie Nelson"
+       ,"photo":"../../asserts/img/broadcast/dashboard/majorie.png"
+       ,"category":"Politics"
+       ,"status": "LIVE"
+   }
+   ,{
+       "id":2
+       ,"name":"Nii Mantse"
+       ,"photo":"images/nii.png"
+       ,"category":"Spoken Word"
+       ,"status": "OFF-AIR"
+   }
+   ,{
+       "id":3
+       ,"name":"Some channel"
+       ,"photo":"images/nii.png"
+       ,"category":"Motivational"
+       ,"status": "LIVE"  
+   } 
+   ,{
+       "id":4
+       ,"name":"Loretta Cobbson Craig"
+       ,"photo":"images/majorie.png"
+       ,"category":"Rhythm and Blues"
+       ,"status":  "LIVE" 
+   }
+]

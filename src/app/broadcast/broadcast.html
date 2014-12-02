@@ -16,11 +16,22 @@
                 <div class="col-xs-offset-4 col-xs-4">
                     <form class="navbar-form" role="search">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" name="q">
+                            <input 
+                            type="text" 
+                            class="typeahead form-control" 
+                            placeholder="Search"  
+                            autocomplete="off"
+                            data-provide="typeahead">
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
+                        <input
+                        type="hidden"
+                        class="span1"
+                        name="channelId"
+                        id="channelId"
+                        value="">
                     </form>
                 </div>
                 <ul class="nav navbar-nav">
@@ -80,120 +91,120 @@
                 </div>
                 <div class="col-sm-5 display no
                 padding">
-                    <i class="fa fa-circle"></i>
-                    <i id="mic" class="fa fa-microphone-slash"></i>
-                    <i id="mic-on" class="fa fa-microphone"></i>
-                    <canvas id="visualizer" width="50" height="15"></canvas>
-                    <small class="air-display">OFF-AIR</small>
-                </div>
-                <div class="col-xs-1 nopadding">
-                    <div class="btn btn-primary share-button" title="Share this content" data-toggle="modal" data-target="#shareModal">
-                        <i class="fa fa-share-alt"></i>
-                        <small>SHARE</small>
-                    </div>
-                </div>
+                <i class="fa fa-circle"></i>
+                <i id="mic" class="fa fa-microphone-slash"></i>
+                <i id="mic-on" class="fa fa-microphone"></i>
+                <canvas id="visualizer" width="50" height="15"></canvas>
+                <small class="air-display">OFF-AIR</small>
             </div>
-        </div>
-    </div><!-- end of .broadcast-controls -->
-
-    <div class="app-widgets">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-8 nopadding">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">CHAT</div>
-                        <div class="panel-body">
-                            <ul class="media-list">
-                                <li class="media">
-                                    <div class="media-body">
-                                        <div class="media">
-                                            <div class="text-muted" >
-                                                This channel is yet to see any chats.. Go on and be the first to comment :)
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-body">
-                                        <div class="media">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object img-circle " src="assets/img/dashboard/majorie.png" />
-                                            </a>
-                                            <div class="media-body" >
-                                                What happened to Jimmy &amp; Wade Wagon. Any releases yet?
-                                                <br />
-                                                <small class="text-muted">Majorie | 23rd Nov at 5:00pm</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-body">
-                                        <div class="media">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object img-circle img-responsive " src="assets/img/dashboard/nii.png" />
-                                            </a>
-                                            <div class="media-body" >
-                                                Interesting listening to you talk about Afro Blues. Awesome!!!
-                                                <br />
-                                                <small class="text-muted">Nii Mantse Grid | 23rd Nov at 5:00pm</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Enter Message" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-info send-btn" type="button">SEND</button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- </div>  -->
-                </div><!-- end of .chat-window -->
-                <div class="col-xs-3">
-                    <div class="channel-stats">
-                        <div class="stats-heading"> CHANNEL STATISTICS</div>
-                        <div class="stats-body">
-                            <div class="col-xs-12"><i class="fa fa-headphones"></i><a href=""> 428 Listeners</a></div>
-                            <div class="col-xs-12"><i class="fa fa-heart"></i><a href=""> 124 Favourites</a></div>
-                            <div class="col-xs-12"><i class="fa fa-user"></i><a href=""> 102 Followers</a></div>
-                        </div>
-                        <div class="update-heading">LATEST UPDATES</div>
-                        <div class="update-body">
-                            <div class="col-xs-12"><i class="fa fa-asterisk"></i> Sherrie joined your broadcast <small class="text-muted"> 5 secs ago</small></div>
-                        </div>
-                    </div> <!-- end of .channel-stats -->
-                </div>
-
-            </div>
-        </div>
-    </div><!-- end of .app-widgets -->
-
-    <!-- Modal for social share -->
-    <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-share-alt"></i> Share</h4>
-                </div>
-                <div class="modal-body">
-                    <h4>Share broadcast link via social media</h4>
-                    <p>
-                        <a title="Facebook" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a> <a title="Twitter" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
-                        <a title="Google+" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-google-plus fa-stack-1x"></i></span></a> <a title="Linkedin" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a> <a title="Reddit" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-reddit fa-stack-1x"></i></span></a>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="col-xs-1 nopadding">
+                <div class="btn btn-primary share-button" title="Share this content" data-toggle="modal" data-target="#shareModal">
+                    <i class="fa fa-share-alt"></i>
+                    <small>SHARE</small>
                 </div>
             </div>
         </div>
     </div>
+</div><!-- end of .broadcast-controls -->
+
+<div class="app-widgets">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 nopadding">
+                <div class="panel panel-info">
+                    <div class="panel-heading">CHAT</div>
+                    <div class="panel-body">
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-body">
+                                    <div class="media">
+                                        <div class="text-muted" >
+                                            This channel is yet to see any chats.. Go on and be the first to comment :)
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-body">
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object img-circle " src="assets/img/dashboard/majorie.png" />
+                                        </a>
+                                        <div class="media-body" >
+                                            What happened to Jimmy &amp; Wade Wagon. Any releases yet?
+                                            <br />
+                                            <small class="text-muted">Majorie | 23rd Nov at 5:00pm</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-body">
+                                    <div class="media">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object img-circle img-responsive " src="assets/img/dashboard/nii.png" />
+                                        </a>
+                                        <div class="media-body" >
+                                            Interesting listening to you talk about Afro Blues. Awesome!!!
+                                            <br />
+                                            <small class="text-muted">Nii Mantse Grid | 23rd Nov at 5:00pm</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Message" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info send-btn" type="button">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div>  -->
+            </div><!-- end of .chat-window -->
+            <div class="col-xs-3">
+                <div class="channel-stats">
+                    <div class="stats-heading"> CHANNEL STATISTICS</div>
+                    <div class="stats-body">
+                        <div class="col-xs-12"><i class="fa fa-headphones"></i><a href=""> 428 Listeners</a></div>
+                        <div class="col-xs-12"><i class="fa fa-heart"></i><a href=""> 124 Favourites</a></div>
+                        <div class="col-xs-12"><i class="fa fa-user"></i><a href=""> 102 Followers</a></div>
+                    </div>
+                    <div class="update-heading">LATEST UPDATES</div>
+                    <div class="update-body">
+                        <div class="col-xs-12"><i class="fa fa-asterisk"></i> Sherrie joined your broadcast <small class="text-muted"> 5 secs ago</small></div>
+                    </div>
+                </div> <!-- end of .channel-stats -->
+            </div>
+
+        </div>
+    </div>
+</div><!-- end of .app-widgets -->
+
+<!-- Modal for social share -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-share-alt"></i> Share</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Share broadcast link via social media</h4>
+                <p>
+                    <a title="Facebook" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a> <a title="Twitter" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
+                    <a title="Google+" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-google-plus fa-stack-1x"></i></span></a> <a title="Linkedin" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a> <a title="Reddit" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-reddit fa-stack-1x"></i></span></a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Modal Starts Here -->
@@ -203,15 +214,15 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title">Enter Channel Details</h4>
-      </div>
-      <div class="modal-body">
+    </div>
+    <div class="modal-body">
         <div class="container">
           <form role="form">
             <div class="form-group">
               <label class="control-label">Channel Name</label>
               <input type="text" class="form-control" placeholder="Enter email">
-            </div>
-            <div class="form-group">
+          </div>
+          <div class="form-group">
               <label class="control-label">Channel Category</label>
               <select class="catelog">
                 <option>Please select a category for the channel</option>
@@ -221,80 +232,20 @@
                 <option>What's happening</option>
                 <option>Fan base</option>
                 <option>Telenovela</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputFile">Image upload</label>
-              <input type="file" id="exampleInputFile">
-              <p class="help-block">Upload image </p>
-            </div>
-          </form>
+            </select>
         </div>
+        <div class="form-group">
+          <label for="exampleInputFile">Image upload</label>
+          <input type="file" id="exampleInputFile">
+          <p class="help-block">Upload image </p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create Channel</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+  </form>
+</div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Create Channel</button>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 </div><!-- /.modal Ends Here -->
-
-
-<!-- <<<<<<< HEAD -->
-    <!-- Modal for creating channel details -->
-
-    <script type="text/javascript">
-      
-
-
-        // $('document').ready(function(){
-        //     console.log('bigEndian(number)')
-        //     $('#channelInfo').modal({
-        //         show:true
-        //     });
-        //     console.log("ready!!!");
-        //     // $('#mic-on').hide();
-        //     // $('.live-button').hide();
-        // });
-/*
-        $('.broadcast-button').click(function() {
-            //show live-button and start timer
-            $('.live-button').show();
-            $(this).hide();
-            $('#mic').hide();
-            $('#mic-on').css('color',"#D50000");
-            $('#mic-on').show();
-            $('.fa-circle').css('color',"#D50000");
-            $('.air-display').text('LIVE');
-
-        });
-
-        $('.live-button').click(function(){
-            if(confirm("Are you sure you want to end your broadcast?")) {
-                $('.broadcast-button').show();
-                $(this).hide();
-                $('#mic').show();
-                $('#mic-on').hide();
-                $('.fa-circle').css('color',"#E0E0E0");
-                $('.air-display').text('OFF-AIR');
-
-            }
-
-        });
-
-        $(document).ready(function() {
-          $('#caster-wrapper').particleground({
-            dotColor: '#2eceff',
-            lineColor: '#2eceff',
-            density: 7000
-          });
-          $('.animate').css({
-            'margin-top': -($('.animate').height() / 2)
-          });
-        });
-*/
-
-
-    </script>
-<!-- =======
->>>>>>> development -->
