@@ -23,6 +23,10 @@ a .fa {
     height: 35px;
 }
 
+.navbar-default .row {
+    margin: 0 1%;
+}
+
 
 .menu {
     display: inline-block;
@@ -91,6 +95,7 @@ header{
     text-align: center;
     position: relative;
     font-family: "Montserrat";
+    margin-top: 10%;
 }
 
 .intro-text .head-text{
@@ -170,21 +175,22 @@ header{
     background-color: #df65b5;
 }
 
-
-
 .features .icon-container{
     text-align: center;
-    width: 22%;
 }
 
 .features .icon-container span{
     display: block;
-    width: 90px;
-    height: 90px;
+    width: 105px;
+    height: 105px;
     margin: 0 auto 20px;
     border-radius: 50%;
 }
 
+.features .icon-container .text-inline{
+    margin-top: 10px;
+    font-style: italic;
+}
 
 .features .fa {
     font-size: 35px;
@@ -193,7 +199,8 @@ header{
 }
 
 .value-divide {
-    margin-left: 12%;
+    width:80%;
+    margin-left: 10%;
 }
 
 
@@ -205,7 +212,7 @@ header{
 }
 
 .section-heading {
-    margin-top: 2%;
+    margin-top: 5%;
     margin-bottom: 35px;
     font-size: 40px;
 }

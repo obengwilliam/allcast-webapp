@@ -436,7 +436,7 @@ angular.module("details/detailsbroadcast.html", []).run(["$templateCache", funct
 angular.module("home/home.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("home/home.html",
     "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n" +
-    "         <div class=\"container\">\n" +
+    "         \n" +
     "           <div class=\"row\">\n" +
     "             <section class=\"col-md-4\">\n" +
     "               <div class=\"navbar-header\">\n" +
@@ -457,7 +457,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "             </section>\n" +
     "             <div class=\"clear-fix\"></div>\n" +
     "           </div>\n" +
-    "         </div>\n" +
+    "        \n" +
     "       </nav>\n" +
     "       <!-- Navigation Ends Here -->\n" +
     "\n" +
@@ -468,8 +468,8 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "         <div class=\"container\">\n" +
     "           <section class=\"intro-text\">\n" +
     "             <h1 class=\"head-text\">Live Audio Stream</h1>\n" +
-    "             <p class=\"sub-text\">\n" +
-    "               <span class=\"text-inline\"></span>Broadcast to the world from <span class=\"text-inline\">anywhere.</span><br> Let your voice <span class=\"text-inline\">be heard</span> across the globe.<br> Our technology is <span class=\"text-inline\">easy</span> to use,<br> all you need is your <span class=\"text-inline\">phone.</span>\n" +
+    "             <p class=\"sub-text\"> \n" +
+    "              <span class=\"text-inline\">Broadcast</span> from <span class=\"text-inline\">anywhere.</span><br> Let your voice <span class=\"text-inline\">be heard</span> across the globe.<br> All you need is your <span class=\"text-inline\">phone</span> to use our <span class=\"text-inline\">technology</span>\n" +
     "             </p>\n" +
     "             <div class=\"email-collect\">\n" +
     "              <a class=\"sign-up\" ui-sref=\"register\">Start Broadcasting</a>\n" +
@@ -490,25 +490,25 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "              <div class=\"row value-divide\">\n" +
     "                <div class=\"col-md-3 icon-container\">\n" +
     "                  <span class=\"value-icon icon-colorA\"><i class=\"fa fa-microphone\"></i></span>\n" +
-    "                  <h4>Easy broadcast</h4>\n" +
+    "                  <h4>Let the world hear you</h4>\n" +
     "                  <div class=\"value-text\">\n" +
-    "                    <p class=\"text-inline\">Broadcast to the world from anywhere. Let your voice be heard by millions across the globe. Our technology is easy to use, all you need is your phone.</p>\n" +
+    "                    <p class=\"text-inline\">Broadcast from anywhere to anywhere on the globe using our simple technology.</p>\n" +
     "                  </div>\n" +
     "                </div>\n" +
     "\n" +
     "                <div class=\"col-md-3 icon-container\">\n" +
     "                 <span class=\"value-icon icon-colorB\"><i class=\"fa fa-share-alt\"></i></span>\n" +
-    "                 <h4>Social media intergration</h4>\n" +
+    "                 <h4>Social media integration</h4>\n" +
     "                 <div class=\"value-text\">\n" +
-    "                  <p class=\"text-inline\">Share your live audio streams or broadcast with your friends on the various social networks. Your followers can listen live on their social Network.</p>\n" +
+    "                  <p class=\"text-inline\">Share your live audio streams or broadcast with your friends on your social networks of choice.</p>\n" +
     "                </div>\n" +
     "              </div>\n" +
     "\n" +
     "              <div class=\"col-md-3 icon-container\">\n" +
     "               <span class=\"value-icon icon-colorC\"><i class=\"fa fa-comments\"></i></span>\n" +
-    "               <h4>Enagage with audience</h4>\n" +
+    "               <h4>Engage live with your audience</h4>\n" +
     "               <div class=\"value-text\">\n" +
-    "                <p class=\"text-inline\">Interact directly with your listeners as you broadcast, through live chat. Give your listeners the experience they deserve, they love listening to you and want you to know it.</p>\n" +
+    "                <p class=\"text-inline\">Chat live with your listeners while you broadcast.</p>\n" +
     "              </div>\n" +
     "            </div>\n" +
     "\n" +
@@ -516,7 +516,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "             <span class=\"value-icon icon-colorD\"><i class=\"fa fa-cogs\"></i></span>\n" +
     "             <h4>Easy customization</h4>\n" +
     "             <div class=\"value-text\">\n" +
-    "              <p class=\"text-inline\">Personalize your own channel, biography, links, artwork and more. Create your own profile the way you like it.</p>\n" +
+    "              <p class=\"text-inline\">Create your profile and customize your channel, biography, links, artwork and more.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "\n" +
