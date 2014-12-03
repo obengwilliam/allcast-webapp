@@ -22,12 +22,12 @@
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
- background-color: #00ACED;
- color: #FFF;
+   background-color: #00ACED;
+   color: #FFF;
 }
 
 .live{
- color: #d50000;
+   color: #d50000;
 }
 
 .rs-img{
@@ -36,6 +36,36 @@
 
 .rs-search-name, .rs-seach-details{
     padding-top: 15px;
+}
+
+.navbar-form .input-group>.form-control {
+   background-color: #00ACED;
+    width: 95%;
+    border: none;
+    margin: 0 3%;
+    height: 30px;
+}
+
+.navbar-form .search-pane{
+    background-color: #00ACED;
+    border: 1px solid #FFF;
+    border-radius: 15px;
+    height: 32px;
+}
+
+.btn-default {
+    background-color: #00ACED;
+    margin-right: 7px;
+    border: none;
+    height: 28px;
+}
+
+.btn-default:hover{
+    background-color: #00ACED;
+}
+
+.btn-default .fa {
+    color: #FFF;
 }
 
 .caster-banner{
@@ -64,7 +94,6 @@
 .category{
     font-size: 1.5em;
 }
-
 
 .listener-controls{
     max-height: 70px;

@@ -95,19 +95,19 @@ header{
     text-align: center;
     position: relative;
     font-family: "Montserrat";
-    margin-top: 10%;
+    margin-top: 12.5%;
 }
 
 .intro-text .head-text{
     padding-top: 8%;
     letter-spacing: 20px;
     font-family: 'Montserrat';
-    font-size: 50px;
+    font-size: 54px;
     font-weight: normal;
 }
 
 .intro-text .sub-text {
-    font-size: 30px;
+    font-size: 34px;
     margin-bottom: 40px;
     margin-top: 5%;
     line-height: normal;

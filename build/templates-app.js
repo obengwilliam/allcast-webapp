@@ -672,9 +672,9 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "\n" +
     "        <!-- Collect the nav links, forms, and other content for toggling -->\n" +
     "        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "            <div class=\"col-xs-offset-4 col-xs-4\">\n" +
+    "            <div class=\"col-xs-offset-2 col-xs-6\">\n" +
     "                <form class=\"navbar-form\" role=\"search\">\n" +
-    "                    <div class=\"input-group\">\n" +
+    "                    <div class=\"input-group search-pane\">\n" +
     "                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
     "                        <div class=\"input-group-btn\">\n" +
     "                            <button class=\"btn btn-default\" type=\"submit\" data-toggle=\"dropdown\" data-target=\"#search-dropdown\" autocomplete=\"off\"><i class=\"fa fa-search\"></i></button>\n" +
@@ -716,9 +716,8 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                        </li>  \n" +
     "                    </ul>\n" +
     "                </div>\n" +
-    "\n" +
-    "\n" +
     "            </div>\n" +
+    "\n" +
     "            <ul class=\"nav navbar-nav\">\n" +
     "                <li><a href=\"#\">Discover</a></li>\n" +
     "                <li><a href=\"#\">Explore</a></li>\n" +
