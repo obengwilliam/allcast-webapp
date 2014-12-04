@@ -10,6 +10,17 @@
     padding-bottom: 10px;
 }
 
+.open>.dropdown-menu {
+    display: block;
+    background-color: #111;
+    color: #FFF;
+    border-radius: 5px;
+}
+
+.dropdown-menu>li>a{
+    color: #FFF;
+}
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
  background-color: #00ACED;
  color: #FFF;
@@ -25,6 +36,48 @@
 
 .rs-search-name, .rs-seach-details{
     padding-top: 15px;
+}
+
+.navbar-form .input-group>.form-control {
+ background-color: #00ACED;
+ width: 95%;
+ border: none;
+ margin: 0 3%;
+ height: 26px;
+}
+
+.navbar-form .input-group>.form-control[placeholder="Search"]{
+    color: #FFF;
+}
+
+/*.navbar-form input [type="text"]{
+    color: #FFF;
+}
+*/
+.navbar-form .search-pane{
+    background-color: #00ACED;
+    border: 1px solid #FFF;
+    border-radius: 15px;
+    height: 28px;
+}
+
+.btn-default {
+    background-color: #00ACED;
+    margin-right: 7px;
+    border: none;
+    height: 24px;
+}
+
+.btn-default:hover{
+    background-color: #00ACED;
+}
+
+.btn-default .fa {
+    color: #FFF;
+    font-size: 12px;
+    position: relative;
+    top: -4.5px;
+    right: -4.5px;
 }
 
 .caster-banner{
@@ -53,7 +106,6 @@
 .category{
     font-size: 1.5em;
 }
-
 
 .listener-controls{
     max-height: 70px;
@@ -155,4 +207,22 @@
     text-align: left;
     padding: 6px 12px;
     font-weight: bold;
+}*/
+
+
+
+input.search::-webkit-input-placeholder {
+   color: white;
+}
+
+input.search:-moz-placeholder { /* Firefox 18- */
+   color: white;
+}
+
+input.search::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+}
+
+input.search:-ms-input-placeholder {
+   color: white;
 }

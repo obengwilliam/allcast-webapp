@@ -22,6 +22,7 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
     "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
+    "<!-- <<<<<<< HEAD\n" +
     "                <div class=\"col-xs-offset-4 col-xs-4\">\n" +
     "                    <form class=\"navbar-form\" role=\"search\">\n" +
     "                        <div class=\"input-group\">\n" +
@@ -31,6 +32,7 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                            </div>\n" +
     "                        </div>\n" +
     "                    </form>\n" +
+    "\n" +
     "\n" +
     "\n" +
     "                    <div id=\"search-dropdown\"  >\n" +
@@ -78,6 +80,59 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                    </li>\n" +
     "                </ul>\n" +
     "            </div><!-- /.navbar-collapse -->\n" +
+    "\n" +
+    "             <div class=\"col-xs-offset-2 col-xs-6\">\n" +
+    "                <form class=\"navbar-form\" role=\"search\">\n" +
+    "                    <div class=\"input-group search-pane\">\n" +
+    "                        <input type=\"text\" class=\" search form-control\" placeholder=\"Search\" name=\"q\">\n" +
+    "                        <div class=\"input-group-btn\">\n" +
+    "                            <button class=\"btn btn-default\" type=\"submit\" data-toggle=\"dropdown\" data-target=\"#search-dropdown\" autocomplete=\"off\"><i class=\"fa fa-search\"></i></button>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </form>\n" +
+    "\n" +
+    "                <div id=\"search-dropdown\" class=\"search-dropdown\">\n" +
+    "                    <ul class=\"dropdown-menu rs\">\n" +
+    "                       <li ng-show=\"!recentBroadcasts\">\n" +
+    "                           <a href=\"#\">Oops, no search results were found.</a>\n" +
+    "                           <li class=\"divider\"></li>\n" +
+    "                       </li>\n" +
+    "                       <li class=\"rs-one\" ng-repeat=\"broadcast in recentBroadcasts|filter:search\">\n" +
+    "                           <a href=\"#\">\n" +
+    "                               <div class=\"row\">\n" +
+    "                                   <a ui-sref=\"listen({broadcastname:broadcast.broadcastname})\">\n" +
+    "                                   <div class=\"col-xs-3\">\n" +
+    "                                       <img class=\"rs-img img-circle\" src=\"{{broadcast.img||'assets/img/dashboard/majorie.png'}}\">\n" +
+    "                                   </div>\n" +
+    "                                   <div class=\"col-xs-9\">\n" +
+    "\n" +
+    "                                       <div class=\"rs-search-name\">{{broadcast.broadcastname}}</div>\n" +
+    "                                       <div class=\"rs-search-details\">Telenovela | <strong class=\"live\">{{broadcast.status}}</strong>\n" +
+    "                                       </div>\n" +
+    "                                   </div>\n" +
+    "                               </a>\n" +
+    "                               </div>\n" +
+    "                           </a>\n" +
+    "                       </li>\n" +
+    "\n" +
+    "                    </ul>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <ul class=\"nav navbar-nav\">\n" +
+    "                <li><a href=\"#\">Discover</a></li>\n" +
+    "                <li><a href=\"#\">Explore</a></li>\n" +
+    "                <li class=\"dropdown\">\n" +
+    "                    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\">{{user.username}}<b class=\"caret\"></b></a>\n" +
+    "                    <ul class=\"dropdown-menu\">\n" +
+    "                        <li><a >Settings</a></li>\n" +
+    "                        <li><a >Quick links</a></li>\n" +
+    "                        <li class=\"divider\"></li>\n" +
+    "                        <li><a ng-click=\"logout()\">Log out</a></li>\n" +
+    "                    </ul>\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
+    "        </div><!-- /.navbar-collapse -->\n" +
     "        </div>\n" +
     "    </nav>\n" +
     "\n" +
@@ -162,7 +217,6 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                                </div>\n" +
     "                            </li>\n" +
     "\n" +
-    "                                </li>\n" +
     "                                <li class=\"media\">\n" +
     "                                    <div class=\"media-body\">\n" +
     "                                        <div class=\"media\">\n" +
@@ -172,12 +226,11 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                                            <div class=\"media-body\" >\n" +
     "                                                What happened to Jimmy &amp; Wade Wagon. Any releases yet?\n" +
     "                                                <br />\n" +
-    "                                                <small class=\"text-muted\" >Majorie | 23rd Nov at 5:00pm</small>\n" +
+    "                                                <small class=\"text-muted\" >{{user.username}} | 23rd Nov at 5:00pm</small>\n" +
     "                                            </div>\n" +
     "\n" +
     "                                        </div>\n" +
     "                                    </div>\n" +
-    "                                </div>\n" +
     "                            </li>\n" +
     "                            <li class=\"media\">\n" +
     "                                <div class=\"media-body\">\n" +
@@ -204,15 +257,16 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                <!-- </div>  -->\n" +
-    "            </div><!-- end of .chat-window -->\n" +
+    "                <!-- </div>-->\n" +
+    "            </div><!--end of .chat-window -->\n" +
+    "\n" +
     "            <div class=\"col-xs-3\">\n" +
     "                <div class=\"channel-stats\">\n" +
     "                    <div class=\"stats-heading\"> CHANNEL STATISTICS</div>\n" +
     "                    <div class=\"stats-body\">\n" +
-    "                        <div class=\"col-xs-12\"><i class=\"fa fa-headphones\"></i><a href=\"\"> 428 Listeners</a></div>\n" +
-    "                        <div class=\"col-xs-12\"><i class=\"fa fa-heart\"></i><a href=\"\"> 124 Favourites</a></div>\n" +
-    "                        <div class=\"col-xs-12\"><i class=\"fa fa-user\"></i><a href=\"\"> 102 Followers</a></div>\n" +
+    "                        <div class=\"col-xs-12\"><i class=\"fa fa-headphones\"></i><a href=\"\"> 0 Listeners</a></div>\n" +
+    "                        <div class=\"col-xs-12\"><i class=\"fa fa-heart\"></i><a href=\"\"> 0 Favourites</a></div>\n" +
+    "                        <div class=\"col-xs-12\"><i class=\"fa fa-user\"></i><a href=\"\"> 0 Followers</a></div>\n" +
     "                    </div>\n" +
     "                    <div class=\"update-heading\">LATEST UPDATES</div>\n" +
     "                    <div class=\"update-body\">\n" +
@@ -403,11 +457,11 @@ angular.module("details/details.html", []).run(["$templateCache", function($temp
 angular.module("home/home.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("home/home.html",
     "<nav class=\"navbar navbar-default navbar-fixed-top\" role=\"navigation\">\n" +
-    "         <div class=\"container\">\n" +
+    "\n" +
     "           <div class=\"row\">\n" +
     "             <section class=\"col-md-4\">\n" +
     "               <div class=\"navbar-header\">\n" +
-    "                 <a class=\"navbar-brand\" href=\"#\">\n" +
+    "                 <a class=\"navbar-brand\" ui-sref=\"home\">\n" +
     "                   Allcast\n" +
     "                 </a>\n" +
     "               </div>\n" +
@@ -416,15 +470,15 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "             <section class=\"col-md-8\">\n" +
     "               <ul class=\"menu\">\n" +
     "                 <li><a ui-sref=\"home\">Home</a></li>\n" +
-    "                 <li><a href=\"#\">Features</a></li>\n" +
-    "                 <li><a href=\"#\">Team</a></li>\n" +
+    "                 <li><a href=\"#features\" id=\"feature\">Features</a></li>\n" +
+    "                 <li><a href=\"#teams\" id=\"team\">Team</a></li>\n" +
     "                 <li><a ui-sref=\"register\">Signup</a></li>\n" +
     "                 <li class=\"active\"><a ui-sref=\"login\">Login</a></li>\n" +
     "               </ul>\n" +
     "             </section>\n" +
     "             <div class=\"clear-fix\"></div>\n" +
     "           </div>\n" +
-    "         </div>\n" +
+    "\n" +
     "       </nav>\n" +
     "       <!-- Navigation Ends Here -->\n" +
     "\n" +
@@ -436,7 +490,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "           <section class=\"intro-text\">\n" +
     "             <h1 class=\"head-text\">Live Audio Stream</h1>\n" +
     "             <p class=\"sub-text\">\n" +
-    "               <span class=\"text-inline\"></span>Broadcast to the world from <span class=\"text-inline\">anywhere.</span><br> Let your voice <span class=\"text-inline\">be heard</span> across the globe.<br> Our technology is <span class=\"text-inline\">easy</span> to use,<br> all you need is your <span class=\"text-inline\">phone.</span>\n" +
+    "              <span class=\"text-inline\">Broadcast</span> from <span class=\"text-inline\">anywhere.</span><br> Let your voice <span class=\"text-inline\">be heard</span> across the globe.<br> All you need is your <span class=\"text-inline\">phone</span> to use our <span class=\"text-inline\">technology</span>\n" +
     "             </p>\n" +
     "             <div class=\"email-collect\">\n" +
     "              <a class=\"sign-up\" ui-sref=\"register\">Start Broadcasting</a>\n" +
@@ -449,7 +503,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "\n" +
     "\n" +
     "\n" +
-    "      <div ui-view='features' class=\"features\">\n" +
+    "      <div ui-view='features' id=\"features\" class=\"features\">\n" +
     "        <section class=\"container\">\n" +
     "          <h1 class=\"text-center section-heading\">Allcast Features</h1>\n" +
     "          <div class=\"row\">\n" +
@@ -457,25 +511,25 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "              <div class=\"row value-divide\">\n" +
     "                <div class=\"col-md-3 icon-container\">\n" +
     "                  <span class=\"value-icon icon-colorA\"><i class=\"fa fa-microphone\"></i></span>\n" +
-    "                  <h4>Easy broadcast</h4>\n" +
+    "                  <h4>Let the world hear you</h4>\n" +
     "                  <div class=\"value-text\">\n" +
-    "                    <p class=\"text-inline\">Broadcast to the world from anywhere. Let your voice be heard by millions across the globe. Our technology is easy to use, all you need is your phone.</p>\n" +
+    "                    <p class=\"text-inline\">Broadcast from anywhere to anywhere on the globe using our simple technology.</p>\n" +
     "                  </div>\n" +
     "                </div>\n" +
     "\n" +
     "                <div class=\"col-md-3 icon-container\">\n" +
     "                 <span class=\"value-icon icon-colorB\"><i class=\"fa fa-share-alt\"></i></span>\n" +
-    "                 <h4>Social media intergration</h4>\n" +
+    "                 <h4>Social media integration</h4>\n" +
     "                 <div class=\"value-text\">\n" +
-    "                  <p class=\"text-inline\">Share your live audio streams or broadcast with your friends on the various social networks. Your followers can listen live on their social Network.</p>\n" +
+    "                  <p class=\"text-inline\">Share your live audio streams or broadcast with your friends on your social networks of choice.</p>\n" +
     "                </div>\n" +
     "              </div>\n" +
     "\n" +
     "              <div class=\"col-md-3 icon-container\">\n" +
     "               <span class=\"value-icon icon-colorC\"><i class=\"fa fa-comments\"></i></span>\n" +
-    "               <h4>Enagage with audience</h4>\n" +
+    "               <h4>Engage live with your audience</h4>\n" +
     "               <div class=\"value-text\">\n" +
-    "                <p class=\"text-inline\">Interact directly with your listeners as you broadcast, through live chat. Give your listeners the experience they deserve, they love listening to you and want you to know it.</p>\n" +
+    "                <p class=\"text-inline\">Chat live with your listeners while you broadcast.</p>\n" +
     "              </div>\n" +
     "            </div>\n" +
     "\n" +
@@ -483,7 +537,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "             <span class=\"value-icon icon-colorD\"><i class=\"fa fa-cogs\"></i></span>\n" +
     "             <h4>Easy customization</h4>\n" +
     "             <div class=\"value-text\">\n" +
-    "              <p class=\"text-inline\">Personalize your own channel, biography, links, artwork and more. Create your own profile the way you like it.</p>\n" +
+    "              <p class=\"text-inline\">Create your profile and customize your channel, biography, links, artwork and more.</p>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "\n" +
@@ -494,7 +548,7 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "  </div>\n" +
     "\n" +
     "\n" +
-    "  <div ui-view='team' class=\"team\">\n" +
+    "  <div ui-view='team' id=\"teams\" class=\"team\">\n" +
     "\n" +
     "    <section class=\"container\">\n" +
     "      <div class=\"row\">\n" +
@@ -610,14 +664,14 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "   </div>\n" +
     " </footer>\n" +
     " <script type=\"text/javascript\">\n" +
-    " $(window).scroll(function(){\n" +
-    "  if ($(window).scrollTop()>100){\n" +
-    "    $('.navbar-default').addClass('navbar-color');\n" +
-    "  }\n" +
-    "  else{\n" +
-    "    $('.navbar-default').removeClass('navbar-color');\n" +
-    "  };\n" +
-    "});     \n" +
+    "   $(window).scroll(function(){\n" +
+    "    if ($(window).scrollTop()>100){\n" +
+    "      $('.navbar-default').addClass('navbar-color');\n" +
+    "    }\n" +
+    "    else{\n" +
+    "      $('.navbar-default').removeClass('navbar-color');\n" +
+    "    };\n" +
+    "  });\n" +
     " </script>\n" +
     "");
 }]);
@@ -639,10 +693,10 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "\n" +
     "        <!-- Collect the nav links, forms, and other content for toggling -->\n" +
     "        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "            <div class=\"col-xs-offset-4 col-xs-4\">\n" +
+    "            <div class=\"col-xs-offset-2 col-xs-6\">\n" +
     "                <form class=\"navbar-form\" role=\"search\">\n" +
-    "                    <div class=\"input-group\">\n" +
-    "                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
+    "                    <div class=\"input-group search-pane\">\n" +
+    "                        <input type=\"text\" class=\"search form-control\" placeholder=\"Search\" name=\"q\">\n" +
     "                        <div class=\"input-group-btn\">\n" +
     "                            <button class=\"btn btn-default\" type=\"submit\" data-toggle=\"dropdown\" data-target=\"#search-dropdown\" autocomplete=\"off\"><i class=\"fa fa-search\"></i></button>\n" +
     "                        </div>\n" +
@@ -683,9 +737,8 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                        </li>\n" +
     "                    </ul>\n" +
     "                </div>\n" +
-    "\n" +
-    "\n" +
     "            </div>\n" +
+    "\n" +
     "            <ul class=\"nav navbar-nav\">\n" +
     "                <li><a href=\"#\">Discover</a></li>\n" +
     "                <li><a href=\"#\">Explore</a></li>\n" +

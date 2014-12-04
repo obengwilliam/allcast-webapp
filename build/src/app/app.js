@@ -67,17 +67,19 @@ angular.module( 'allcast', [
             });
 
 
-    // $rootScope.$on('$stateChangeSuccess',
-    //     function(event,toState){
-    //         var isAuthenticated= toState.data.authenticate && !Security.isAuthenticated();
+        // $rootScope.$on('$stateChangeStart',
+        //     function(event,toState){
+        //         var requiresAuthenticated= toState.data.authenticate && !Security.isAuthenticated();
 
-    //         if(isAuthenticated){
-    //             event.preventDefault();
-    //             $state.go('login');
 
-    //         }
+        //         if(requiresAuthenticated){
+        //             event.preventDefault();
+        //             $state.go('login');
+        //             console.log(Security.currentUser);
 
-    //     });
+        //         }
+
+        //     });
 
     }
 ])

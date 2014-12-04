@@ -13,6 +13,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!-- <<<<<<< HEAD
                 <div class="col-xs-offset-4 col-xs-4">
                     <form class="navbar-form" role="search">
                         <div class="input-group">
@@ -22,6 +23,7 @@
                             </div>
                         </div>
                     </form>
+
 
 
                     <div id="search-dropdown"  >
@@ -69,6 +71,59 @@
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
+
+             <div class="col-xs-offset-2 col-xs-6">
+                <form class="navbar-form" role="search">
+                    <div class="input-group search-pane">
+                        <input type="text" class=" search form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit" data-toggle="dropdown" data-target="#search-dropdown" autocomplete="off"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="search-dropdown" class="search-dropdown">
+                    <ul class="dropdown-menu rs">
+                       <li ng-show="!recentBroadcasts">
+                           <a href="#">Oops, no search results were found.</a>
+                           <li class="divider"></li>
+                       </li>
+                       <li class="rs-one" ng-repeat="broadcast in recentBroadcasts|filter:search">
+                           <a href="#">
+                               <div class="row">
+                                   <a ui-sref="listen({broadcastname:broadcast.broadcastname})">
+                                   <div class="col-xs-3">
+                                       <img class="rs-img img-circle" src="{{broadcast.img||'assets/img/dashboard/majorie.png'}}">
+                                   </div>
+                                   <div class="col-xs-9">
+
+                                       <div class="rs-search-name">{{broadcast.broadcastname}}</div>
+                                       <div class="rs-search-details">Telenovela | <strong class="live">{{broadcast.status}}</strong>
+                                       </div>
+                                   </div>
+                               </a>
+                               </div>
+                           </a>
+                       </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a href="#">Discover</a></li>
+                <li><a href="#">Explore</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">{{user.username}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a >Settings</a></li>
+                        <li><a >Quick links</a></li>
+                        <li class="divider"></li>
+                        <li><a ng-click="logout()">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
         </div>
     </nav>
 
@@ -153,7 +208,6 @@
                                 </div>
                             </li>
 
-                                </li>
                                 <li class="media">
                                     <div class="media-body">
                                         <div class="media">
@@ -163,12 +217,11 @@
                                             <div class="media-body" >
                                                 What happened to Jimmy &amp; Wade Wagon. Any releases yet?
                                                 <br />
-                                                <small class="text-muted" >Majorie | 23rd Nov at 5:00pm</small>
+                                                <small class="text-muted" >{{user.username}} | 23rd Nov at 5:00pm</small>
                                             </div>
 
                                         </div>
                                     </div>
-                                </div>
                             </li>
                             <li class="media">
                                 <div class="media-body">
@@ -195,15 +248,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- </div>  -->
-            </div><!-- end of .chat-window -->
+                <!-- </div>-->
+            </div><!--end of .chat-window -->
+
             <div class="col-xs-3">
                 <div class="channel-stats">
                     <div class="stats-heading"> CHANNEL STATISTICS</div>
                     <div class="stats-body">
-                        <div class="col-xs-12"><i class="fa fa-headphones"></i><a href=""> 428 Listeners</a></div>
-                        <div class="col-xs-12"><i class="fa fa-heart"></i><a href=""> 124 Favourites</a></div>
-                        <div class="col-xs-12"><i class="fa fa-user"></i><a href=""> 102 Followers</a></div>
+                        <div class="col-xs-12"><i class="fa fa-headphones"></i><a href=""> 0 Listeners</a></div>
+                        <div class="col-xs-12"><i class="fa fa-heart"></i><a href=""> 0 Favourites</a></div>
+                        <div class="col-xs-12"><i class="fa fa-user"></i><a href=""> 0 Followers</a></div>
                     </div>
                     <div class="update-heading">LATEST UPDATES</div>
                     <div class="update-body">
