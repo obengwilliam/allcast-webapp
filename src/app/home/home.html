@@ -12,8 +12,8 @@
              <section class="col-md-8">
                <ul class="menu">
                  <li><a ui-sref="home">Home</a></li>
-                 <li><a href="#">Features</a></li>
-                 <li><a href="#">Team</a></li>
+                 <li><a href="#" id="feature">Features</a></li>
+                 <li><a href="#" id="team">Team</a></li>
                  <li><a ui-sref="register">Signup</a></li>
                  <li class="active"><a ui-sref="login">Login</a></li>
                </ul>
@@ -206,12 +206,12 @@
    </div>
  </footer>
  <script type="text/javascript">
- $(window).scroll(function(){
-  if ($(window).scrollTop()>100){
-    $('.navbar-default').addClass('navbar-color');
-  }
-  else{
-    $('.navbar-default').removeClass('navbar-color');
-  };
-});     
+   $(window).scroll(function(){
+    if ($(window).scrollTop()>100){
+      $('.navbar-default').addClass('navbar-color');
+    }
+    else{
+      $('.navbar-default').removeClass('navbar-color');
+    };
+  });     
  </script>

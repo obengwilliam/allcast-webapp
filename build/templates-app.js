@@ -22,9 +22,9 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
     "            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n" +
-    "            <div class=\"col-xs-offset-4 col-xs-4\">\n" +
+    "            <div class=\"col-xs-offset-2 col-xs-6\">\n" +
     "                <form class=\"navbar-form\" role=\"search\">\n" +
-    "                    <div class=\"input-group\">\n" +
+    "                    <div class=\"input-group search-pane\">\n" +
     "                        <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"q\">\n" +
     "                        <div class=\"input-group-btn\">\n" +
     "                            <button class=\"btn btn-default\" type=\"submit\" data-toggle=\"dropdown\" data-target=\"#search-dropdown\" autocomplete=\"off\"><i class=\"fa fa-search\"></i></button>\n" +
@@ -66,9 +66,8 @@ angular.module("broadcast/broadcast.html", []).run(["$templateCache", function($
     "                        </li>  \n" +
     "                    </ul>\n" +
     "                </div>\n" +
-    "\n" +
-    "\n" +
     "            </div>\n" +
+    "\n" +
     "            <ul class=\"nav navbar-nav\">\n" +
     "                <li><a href=\"#\">Discover</a></li>\n" +
     "                <li><a href=\"#\">Explore</a></li>\n" +
@@ -449,8 +448,8 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "             <section class=\"col-md-8\">\n" +
     "               <ul class=\"menu\">\n" +
     "                 <li><a ui-sref=\"home\">Home</a></li>\n" +
-    "                 <li><a href=\"#\">Features</a></li>\n" +
-    "                 <li><a href=\"#\">Team</a></li>\n" +
+    "                 <li><a href=\"#\" id=\"feature\">Features</a></li>\n" +
+    "                 <li><a href=\"#\" id=\"team\">Team</a></li>\n" +
     "                 <li><a ui-sref=\"register\">Signup</a></li>\n" +
     "                 <li class=\"active\"><a ui-sref=\"login\">Login</a></li>\n" +
     "               </ul>\n" +
@@ -643,14 +642,27 @@ angular.module("home/home.html", []).run(["$templateCache", function($templateCa
     "   </div>\n" +
     " </footer>\n" +
     " <script type=\"text/javascript\">\n" +
-    " $(window).scroll(function(){\n" +
-    "  if ($(window).scrollTop()>100){\n" +
-    "    $('.navbar-default').addClass('navbar-color');\n" +
-    "  }\n" +
-    "  else{\n" +
-    "    $('.navbar-default').removeClass('navbar-color');\n" +
-    "  };\n" +
-    "});     \n" +
+    "   $(window).scroll(function(){\n" +
+    "    if ($(window).scrollTop()>100){\n" +
+    "      $('.navbar-default').addClass('navbar-color');\n" +
+    "    }\n" +
+    "    else{\n" +
+    "      $('.navbar-default').removeClass('navbar-color');\n" +
+    "    };\n" +
+    "  });\n" +
+    "\n" +
+    "  $(function() {\n" +
+    "    $(\"#feature\").on(\"click\", function() {\n" +
+    "        $(\"body\").animate({\"scrollTop\": window.scrollY300}, 1000);\n" +
+    "        return false;\n" +
+    "    });\n" +
+    "\n" +
+    "    /*$(function() {\n" +
+    "    $(\"#team\").on(\"click\", function() {\n" +
+    "        $(\"body\").animate({\"scrollTop\": window.scrollY-600}, 1000);\n" +
+    "        return false;\n" +
+    "    });*/\n" +
+    "});      \n" +
     " </script>\n" +
     "");
 }]);
