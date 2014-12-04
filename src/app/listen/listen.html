@@ -25,8 +25,8 @@
 
                 <div id="search-dropdown" class="search-dropdown">
                     <ul class="dropdown-menu rs">
-                        <li> 
-                            <a href="#">Oops, no search results were found.</a> 
+                        <li>
+                            <a href="#">Oops, no search results were found.</a>
                         </li>
                         <li class="divider"></li>
                         <li class="rs-one">
@@ -39,9 +39,9 @@
                                         <div class="rs-search-name">Ama Nkansah</div>
                                         <div class="rs-search-details">Telenovela | <strong class="live">LIVE</strong></div>
                                     </div>
-                                </div> 
-                            </a>    
-                        </li>  
+                                </div>
+                            </a>
+                        </li>
                         <li class="rs-one">
                             <a href="#">
                                 <div class="row">
@@ -52,9 +52,9 @@
                                         <div class="rs-search-name">Nii Mantse</div>
                                         <div class="rs-search-details">Big People &amp;... | <strong class="live">LIVE</strong></div>
                                     </div>
-                                </div> 
-                            </a>    
-                        </li>  
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -64,7 +64,7 @@
                 <li><a href="#">Discover</a></li>
                 <li><a href="#">Explore</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Majorie <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">{{user.username}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a >Settings</a></li>
                         <li><a >Quick links</a></li>
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="col-xs-6 listening-channel">
-                <div class="listening-channel-name">Majorie</div>
+                <div class="listening-channel-name" ng-bind="user.userName"></div>
                 <div class="category">Rhythm &amp; Blues</div>
                 <div class="broadcast-stats">
                     <div>42 Listeners</div>
@@ -114,13 +114,8 @@
                     <input id="volume" type="range" type="range" min="0" max="10" step="1" >
                     <div id="time" style="display: inline" ng-bind="secs">00:00:00</div>
 
-<<<<<<< HEAD
-                    <small>SEC</small>
-                    <canvas id="visualizer" width=50 height=17></canvas>
-=======
-                        <small>SEC</small>
+                <small>SEC</small>
                         <canvas id="visualizer" width="50" height="15"></canvas>
->>>>>>> development
 
                     <img src="assets/img/dashboard/volume_playing_white.gif" alt="">
                 </div>
@@ -242,6 +237,7 @@
                     <a title="Facebook" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x"></i></span></a> <a title="Twitter" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x"></i></span></a>
                     <a title="Google+" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-google-plus fa-stack-1x"></i></span></a> <a title="Linkedin" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x"></i></span></a> <a title="Reddit" href=""><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x"></i><i class="fa fa-reddit fa-stack-1x"></i></span></a>
                 </p>
+                <input type="week" name="" value="" placeholder="">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

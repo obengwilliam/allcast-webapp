@@ -8,7 +8,7 @@ angular
 .config(['$stateProvider' ,function($stateProvider){
     $stateProvider
     .state('listen',{
-        url:'/listen',
+        url:'/listen/:broadcastname',
         views:{
             '':{
                 controller:'listenCtrl',
@@ -29,7 +29,8 @@ angular
 }])
 
 
-.controller('listenCtrl', ['$scope','$timeout', 'ListenWebrtc', 'socket', function($scope,$timeout,ListenWebrtc,socket){
+.controller('listenCtrl', ['$scope','$timeout', 'ListenWebrtc', 'socket', '$stateParams',
+    function($scope,$timeout,ListenWebrtc,socket,$stateParams){
 
     String.prototype.toHHMMSS = function () {
         var sec_num = parseInt(this, 10); // don't forget the second param
@@ -74,7 +75,7 @@ angular
 
 
 
-    ListenWebrtc.init(socket);
+    ListenWebrtc.init(socket,$stateParams.broadcastname);
 
 
 

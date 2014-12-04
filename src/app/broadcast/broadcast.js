@@ -32,6 +32,31 @@ angular
 .controller('broadCastCtrl', ['BroadCastWebrtc', 'socket','$timeout','$scope','Broadcast',
  function(BroadCastWebrtc,socket,$timeout,$scope,Broadcast){
 
+
+    $scope.recentBroadcasts=[
+            {broadcastname:'demo', status:'Live', category:'spoken word'},
+            {broadcastname:'Asempa', status:'Not Live', category:'spoken word'},
+            {broadcastname:'Love Doctor', status:'Live', category:'spoken word'},
+            {broadcastname:'Resurrection', status:'Live', category:'spoken word'},
+            {broadcastname:'Sarkodie kasahare', status:'Live', category:'spoken word'}
+
+        ];
+
+    // $scope.init=function(){
+    //     console.log('good morning');
+    //     angular.element('#broadcastSearch').click(
+    //         function(){
+    //             console.log('hello');
+    //             angular.element('#search-dropdown')
+    //             .addClass('open');
+    //             console.log(angular.element('#search-dropdown'));
+    //         }
+    //     );
+
+    // };
+
+
+
     String.prototype.toHHMMSS = function () {
         var sec_num = parseInt(this, 10); // don't forget the second param
         var hours   = Math.floor(sec_num / 3600);
@@ -65,6 +90,9 @@ angular
         angular.element('#mic-on').show();
         angular.element('.fa-circle').css('color','#D50000');
         angular.element('.air-display').text('LIVE');
+        angular.element('#channelInfo').modal({
+            show: true
+        });
 
     });
 
@@ -146,7 +174,6 @@ angular
             angular.element('#mic-on').show();
             angular.element('.fa-circle').css('color','#D50000');
             angular.element('.air-display').text('LIVE');
-            console.log(socket);
             BroadCastWebrtc.init(socket,$scope.currentBroadcaster.name);
 
         },function(error){

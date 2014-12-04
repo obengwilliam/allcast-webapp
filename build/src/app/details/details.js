@@ -19,21 +19,6 @@ angular
 
         }
 
-    })
-     .state('details.broadcast',{
-        url:'/broadcast',
-        views:{
-            '@':{
-                controller:'detailsCtrl',
-                templateUrl:'details/detailsbroadcast.html'
-            }
-        },
-        data:{
-            pageTitle: 'Broadcast Details',
-            authenticate:true
-
-        }
-
     });
 
 

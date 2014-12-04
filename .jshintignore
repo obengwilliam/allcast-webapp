@@ -1,3 +1,4 @@
 src/app/server-config.js
 src/app/listen/listen.js
 src/common/services/waveform.js
+src/common/services/chat.js

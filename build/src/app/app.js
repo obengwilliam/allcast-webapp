@@ -88,10 +88,9 @@ angular.module( 'allcast', [
 .factory('socket', ['socketFactory','ENV','$window','Config',
      function (socketFactory,ENV,$window,Config) {
         var query={
-            query:'token='+Config.authToken
+            query:'token='+Config.authToken,
         };
         var myIoSocket =$window.io.connect(ENV.SOCKET_SERVER,query);
-        console.log(Config.authToken);
         return socketFactory({ioSocket:myIoSocket});
     }
 ])

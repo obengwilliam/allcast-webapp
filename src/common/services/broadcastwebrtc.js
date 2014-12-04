@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('services.broadcastwebrtc', [])
-    .factory('BroadCastWebrtc',['Waveform', function(Waveform){
+    .factory('BroadCastWebrtc',['Waveform', 'Security', function(Waveform,Security){
         var service = {};
         service.init=function(socket,broadCastName){
 
@@ -65,7 +65,12 @@ angular
                // Send 'Create or join' message to singnaling server
                 if (room !== '') {
                     console.log('create or join room', room);
-                    socket.emit('create or join', room);
+                    var data={room:room,
+                               user:Security.currentUser,
+                               isInitiator:true
+                           };
+                    console.log(data);
+                    socket.emit('create or join', data);
                 }
 
 
@@ -161,6 +166,7 @@ angular
                     if(isInitiator){
                         socket.emit('disconnect','Initiator disconnected');
                     }
+                    socket.disconnect();
                 }
 
                 // From this point on, execution proceeds based on asynchronous events...
