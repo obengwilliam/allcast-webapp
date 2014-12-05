@@ -766,10 +766,10 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "            </div>\n" +
     "            <div class=\"col-xs-6 listening-channel\">\n" +
     "                <div class=\"listening-channel-name\" ng-bind=\"user.userName\"></div>\n" +
-    "                <div class=\"category\">Rhythm &amp; Blues</div>\n" +
+    "                <div class=\"category\">Devotion</div>\n" +
     "                <div class=\"broadcast-stats\">\n" +
-    "                    <div>42 Listeners</div>\n" +
-    "                    <div>42 Followers</div>\n" +
+    "                    <div>1 Listeners</div>\n" +
+    "                    <div>0 Followers</div>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -803,7 +803,7 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                <i class=\"fa fa-circle\"></i>\n" +
     "                <i id=\"mic\" class=\"fa fa-microphone-slash\"></i>\n" +
     "                <i id=\"mic-on\" class=\"fa fa-microphone\"></i>\n" +
-    "                <small class=\"air-display\">OFF-AIR</small>\n" +
+    "                <small class=\"air-display\">LISTENING</small>\n" +
     "            </div>\n" +
     "            <div class=\"col-xs-2\">\n" +
     "                <div class=\"btn btn-primary follow-button\" title=\"Follow broadcaster\">\n" +
@@ -820,7 +820,7 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "        <div class=\"row\">\n" +
     "            <div class=\"col-xs-3 nopadding-left\">\n" +
     "                <div class=\"caster-bio\">\n" +
-    "                    <div class=\"bio-heading\"> MAJORIE'S BIO</div>\n" +
+    "                    <div class=\"bio-heading\"> DEMO'S BIO</div>\n" +
     "                    <div class=\"bio-body\">\n" +
     "                        <div class=\"col-xs-12\">\n" +
     "                            I was born to love music and enjoy every single moment that it came with.\n" +
@@ -829,10 +829,10 @@ angular.module("listen/listen.html", []).run(["$templateCache", function($templa
     "                    <div class=\"links-heading\">LINKS</div>\n" +
     "                    <div class=\"links-body\">\n" +
     "                        <div class=\"col-xs-12 links\">\n" +
-    "                            <a href=\"#\">Facebook: /Majorie</a><br/>\n" +
-    "                            <a href=\"#\">Google-Plus: +Majorie</a><br/>\n" +
-    "                            <a href=\"#\">Twitter: @Majorie</a><br/>\n" +
-    "                            <a href=\"#\">AboutMe: /Majorie</a><br/>\n" +
+    "                            <a href=\"#\">Facebook: /DEMO</a><br/>\n" +
+    "                            <a href=\"#\">Google-Plus: +DEMO</a><br/>\n" +
+    "                            <a href=\"#\">Twitter: @DEMO</a><br/>\n" +
+    "                            <a href=\"#\">AboutMe: /DEMO</a><br/>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div> <!-- end of .channel-stats -->\n" +
